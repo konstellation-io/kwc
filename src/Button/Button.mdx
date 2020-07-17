@@ -1,0 +1,98 @@
+---
+name: Button
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import IconClose from '@material-ui/icons/Close';
+import {Button, BUTTON_THEMES, BUTTON_ALIGN} from './Button'
+
+# Button
+
+Konstellation button component.
+
+## Live demo
+
+<Playground>
+  <Button
+    label="CLICK ME"
+    theme={BUTTON_THEMES.DEFAULT}
+    title="Some text"
+    onClick={() => alert('clicked')}
+    primary={true}
+    border={false}
+    disabled={false}
+    loading={false}
+    height={30}
+    align={BUTTON_ALIGN.MIDDLE}
+    tabIndex={0}
+    autofocus={false}
+    Icon={IconClose}
+    iconSize="icon-small"
+    to=""
+  />
+</Playground>
+
+## Props
+<Props of={Button} />
+
+## Styles
+<div style={{display: 'flex', alignItems: 'center'}}>
+  <div style={{ marginRight: 80}}>
+    Default
+  </div>
+  <div style={{ width: 120, marginRight: 28 }}>
+    <Button label="CLICK ME" onClick={() => alert('clicked')}/>
+  </div>
+  <code>
+    {'<Button label="CLICK ME"/>'}
+  </code>
+</div>
+
+<div style={{display: 'flex', alignItems: 'center'}}>
+  <div style={{ marginRight: 80}}>
+    Primary
+  </div>
+  <div style={{ width: 120, marginRight: 28 }}>
+    <Button label="CLICK ME" primary onClick={() => alert('clicked')}/>
+  </div>
+  <code>
+    {'<Button label="CLICK ME" primary />'}
+  </code>
+</div>
+
+<div style={{display: 'flex', alignItems: 'center'}}>
+  <div style={{ marginRight: 80}}>
+    Border
+  </div>
+  <div style={{ width: 120, marginRight: 28 }}>
+    <Button label="CLICK ME" border onClick={() => alert('clicked')}/>
+  </div>
+  <code>
+    {'<Button label="CLICK ME" border />'}
+  </code>
+</div>
+
+<div style={{display: 'flex', alignItems: 'center'}}>
+  <div style={{ marginRight: 80}}>
+    Warning
+  </div>
+  <div style={{ width: 120, marginRight: 28 }}>
+    <Button label="CLICK ME" theme={BUTTON_THEMES.WARN} primary onClick={() => alert('clicked')}/>
+  </div>
+  <code>
+    {'<Button label="CLICK ME" theme={BUTTON_THEMES.WARN} primary />'}
+  </code>
+</div>
+
+<div style={{display: 'flex', alignItems: 'center'}}>
+  <div style={{ marginRight: 80}}>
+    Warning (border type)
+  </div>
+  <div style={{ width: 120, marginRight: 28 }}>
+    <Button label="CLICK ME" theme={BUTTON_THEMES.WARN} border onClick={() => alert('clicked')}/>
+  </div>
+  <code>
+    {'<Button label="CLICK ME" theme={BUTTON_THEMES.WARN} border />'}
+  </code>
+</div>

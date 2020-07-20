@@ -1,0 +1,15 @@
+@import './colors';
+
+@function get-color-prop($status) {
+  $color: red;
+
+  @if $status == 'PUBLISHED' {
+    $color: $color-ok;
+  } @else if $status == 'STARTED' {
+    $color: $color-primary;
+  } @else if $status == 'STOPPED' {
+    $color: font-color(light);
+  }
+
+  @return $color;
+}

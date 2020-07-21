@@ -4,9 +4,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Install and Build 🔧
       - uses: actions/checkout@v1
-      - run: |
+      - name: Install and Build 🔧
+        run: |
           yarn install
           yarn docz:build
 

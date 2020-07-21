@@ -27,17 +27,18 @@ export enum BUTTON_ALIGN {
 type Props = {
   label?: string
   title?: string
-  theme?: string
+  theme?: BUTTON_THEMES
   border?: boolean
   Icon?: FunctionComponent<SvgIconProps>
   iconSize?: 'icon-regular' | 'icon-small' | 'icon-big'
   to?: string
   onClick?: Function
+  /** Sets button style as primary */
   primary?: boolean
   disabled?: boolean
   loading?: boolean
   height?: number
-  align?: string
+  align?: BUTTON_ALIGN
   style?: Object
   className?: string
   tabIndex?: number

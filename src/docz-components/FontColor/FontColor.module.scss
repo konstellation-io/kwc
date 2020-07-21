@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+@import '../../styles/colors';
+
+$colors: light, highlight, lowlight, regular, grey, dark, disabled;
+
+@function set-bg-color($color) {
+  @if (lightness($color) > 20) {
+    @return palette(base, 900);
+  } @else {
+    @return palette(base, 200);
+  }
+}
+
+@each $color in $colors {
+  .#{$color} {
+    $act-color: font-color($color);
+
+    color: $act-color;
+    background-color: set-bg-color($act-color);
+
+    code::after {
+      content: '#{$act-color}';
+    }
+
+    font-weight: 400;
+  }
+}
+
+.fontColor {
+  height: 5 * $grid-unit;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $grid-unit;
+}

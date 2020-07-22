@@ -1,3 +1,5 @@
+import '../../../../src/styles/docz.global.scss'
+
 import * as colors from './dark-theme-colors'
 
 import baseTheme from 'gatsby-theme-docz/src/theme/index'

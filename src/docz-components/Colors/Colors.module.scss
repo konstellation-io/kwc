@@ -1,0 +1,59 @@
+@import '../../styles/variables';
+@import '../../styles/colors';
+
+$colors: base, error, highlight, lowlight, success, feedback, alert;
+$ranges: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return font-color(dark);
+  } @else {
+    @return font-color(light);
+  }
+}
+
+@each $color in $colors {
+  @each $range in $ranges {
+    .#{$color}#{$range} {
+      $act-color: palette($color, $range);
+
+      background-color: $act-color;
+      color: set-text-color($act-color);
+
+      code::after {
+        content: '#{$act-color}';
+      }
+
+      font-weight: 400;
+      @if $range == 500 {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.wrapper {
+  width: 300px;
+  position: relative;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: $grid-unit;
+}
+
+.container {
+  font-size: 15px;
+  margin-bottom: 4 * $grid-unit;
+}
+
+.color {
+  height: 5 * $grid-unit;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $grid-unit;
+}

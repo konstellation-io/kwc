@@ -1,4 +1,5 @@
 import '../../../../src/styles/docz.global.scss'
+import '../../../../src/styles/icon-sizes.scss'
 
 import * as colors from './dark-theme-colors'
 
@@ -7,6 +8,7 @@ import { merge } from 'lodash/fp'
 
 export default merge(baseTheme, {
   initialColorMode: 'dark',
+  fontSizes: [12, 14, 15, 16, 20, 24, 32, 48],
   colors: {
     modes: {
       dark: {

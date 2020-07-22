@@ -1,0 +1,56 @@
+@import '../../styles/variables';
+@import '../../styles/colors';
+@import '../../styles/mixins';
+
+.mega {
+  @include font-mega;
+}
+.jumbo {
+  @include font-jumbo;
+}
+.display {
+  @include font-display;
+}
+.headline {
+  @include font-headline;
+}
+.title {
+  @include font-title;
+}
+.subheader {
+  @include font-subheader;
+}
+.body {
+  @include font-body;
+}
+.caption {
+  @include font-caption;
+}
+.small {
+  @include font-small;
+}
+.button {
+  @include font-button;
+}
+.tabnav {
+  @include font-tabnav;
+}
+.code {
+  @include font-code;
+}
+
+.container {
+  display: flex;
+  margin-bottom: 2 * $grid-unit;
+  align-items: baseline;
+  border-bottom: solid 1px palette(base, 400);
+  padding-left: 4 * $grid-unit;
+}
+.type {
+  width: 250px;
+  text-transform: capitalize;
+}
+.description {
+  @include font-body;
+  color: palette(feedback);
+}

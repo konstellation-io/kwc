@@ -1,10 +1,20 @@
-@import './colors';
 @import '~typeface-montserrat/index.css';
 @import '~typeface-roboto-mono/index.css';
-
 @import './variables';
-@import './mixins';
-
 * {
   font-family: $font-family;
+}
+
+pre,
+textarea,
+code {
+  font-family: 'Roboto Mono', sans-serif !important;
+  font-size: 15px !important;
+  font-style: normal !important;
+
+  * {
+    font-family: 'Roboto Mono', sans-serif !important;
+    font-size: 15px !important;
+    font-style: normal !important;
+  }
 }

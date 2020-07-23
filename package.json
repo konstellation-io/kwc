@@ -1,6 +1,6 @@
 {
   "name": "konstellation-web-components",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Components library for Konstellation projects",
   "author": "konstellation-io",
   "license": "MIT",
@@ -12,7 +12,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs && cp -R ./src/styles ./dist/styles",
+    "build": "microbundle-crl --no-compress --format modern,cjs && cp -R ./src/styles ./dist",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",

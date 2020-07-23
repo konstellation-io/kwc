@@ -3,6 +3,7 @@
 @import './variables';
 * {
   font-family: $font-family;
+  box-sizing: border-box;
 }
 
 pre,

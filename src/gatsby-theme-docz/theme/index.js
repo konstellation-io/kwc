@@ -1,4 +1,5 @@
 import '../../../../src/styles/docz.global.scss'
+import '../../../../src/styles/icon-sizes.scss'
 
 import * as colors from './dark-theme-colors'
 

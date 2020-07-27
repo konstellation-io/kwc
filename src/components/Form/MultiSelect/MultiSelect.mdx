@@ -1,0 +1,153 @@
+---
+name: MultiSelect
+menu: Forms
+route: /Forms/MultiSelect
+---
+
+import { Playground, Props } from 'docz'
+import UseCaseInline from '../../../docz-components/UseCaseInline/UseCaseInline';
+import PropEnum from '../../../docz-components/PropEnum/PropEnum.tsx';
+import {MultiSelect, MultiSelectTheme } from './MultiSelect'
+import { MultiSelectOptionC } from './MDComponents.tsx';
+import StartIcon from '@material-ui/icons/SkipNext';
+import EmailIcon from '@material-ui/icons/Email';
+import TimeIcon from '@material-ui/icons/AccessTime';
+import IconDelete from '@material-ui/icons/Delete';
+
+
+# MultiSelect
+
+MultiSelect component implements a checkbox selector component.
+
+## Props and enums
+
+### Enums
+<PropEnum of={[MultiSelectTheme]} />
+
+### Props
+
+#### MultiSelectOption
+<Props of={MultiSelectOptionC} />
+
+#### MultiSelect
+<Props of={MultiSelect} />
+
+## Use Cases
+<UseCaseInline
+  title="Default"
+  Component={
+    <MultiSelect placeholder="Options" hideError options={[
+      { label: 'Option A' },
+      { label: 'Option B' },
+      { label: 'Option C' }
+    ]} />
+  }
+  code={<code>{'<MultiSelect placeholder="Options" options={[{ label: "Option A" }, { label: "Option B" }, { label: "Option C" }]} hideError />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="Default"
+  Component={
+    <MultiSelect placeholder="Options" hideError options={[
+      { label: 'Option A' },
+      { label: 'Option B' },
+      { label: 'Option C' }
+    ]} label="OPTIONS" />
+  }
+  code={<code>{'<MultiSelect placeholder="Options" options={[{ label: "Option A" }, { label: "Option B" }, { label: "Option C" }]} label="OPTIONS" hideError />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="Light Theme"
+  Component={
+    <MultiSelect placeholder="Options" hideError options={[
+      { label: 'Option A' },
+      { label: 'Option B' },
+      { label: 'Option C' }
+    ]} theme={MultiSelectTheme.LIGHT} />
+  }
+  code={<code>{'<MultiSelect placeholder="Options" theme={MultiSelectTheme.LIGHT} options={[{ label: "Option A" }, { label: "Option B" }, { label: "Option C" }]} hideError />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With select all"
+  Component={
+    <MultiSelect placeholder="Options" hideError selectAllText="Select all" options={[
+      { label: 'Option A' },
+      { label: 'Option B' },
+      { label: 'Option C' }
+    ]} />
+  }
+  code={<code>{'<MultiSelect placeholder="Options" selectAllText="Select all" options={[{ label: "Option A" }, { label: "Option B" }, { label: "Option C" }]} hideError />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With icons"
+  Component={
+    <MultiSelect placeholder="Options" hideError options={[
+      { label: 'Option A', Icon: <EmailIcon className="icon-regular"/> },
+      { label: 'Option B', Icon: <TimeIcon className="icon-regular"/> },
+      { label: 'Option C', Icon: <IconDelete className="icon-regular"/> }
+    ]} />
+  }
+  code={<code>{'<MultiSelect placeholder="Options" options={[{ label: "Option A", Icon: <EmailIcon className="icon-regular"/> },{ label: "Option B", Icon: <TimeIcon className="icon-regular"/> },{ label: "Option C", Icon: <IconDelete className="icon-regular"/> }]} hideError />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With icons [start]"
+  Component={
+    <MultiSelect placeholder="Options" hideError options={[
+      { label: 'Option A', Icon: <EmailIcon className="icon-regular"/> },
+      { label: 'Option B', Icon: <TimeIcon className="icon-regular"/> },
+      { label: 'Option C', Icon: <IconDelete className="icon-regular"/> }
+    ]} iconAtStart />
+  }
+  code={<code>{'<MultiSelect placeholder="Options" iconAtStart options={[{ label: "Option A", Icon: <EmailIcon className="icon-regular"/> },{ label: "Option B", Icon: <TimeIcon className="icon-regular"/> },{ label: "Option C", Icon: <IconDelete className="icon-regular"/> }]} hideError />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With error"
+  Component={
+    <MultiSelect placeholder="Options" error="Some error" options={[{ label: 'Option A' }]} />
+  }
+  code={<code>{'<MultiSelect placeholder="Options" error="Some error" options={[{ label: "Option A" }]} />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="Option selected"
+  Component={
+    <MultiSelect placeholder="Options" selectionUnit="OPTION" options={[{ label: 'Option A' }, { label: 'Option B' }]} formSelectedOptions={['Option A']} hideError />
+  }
+  code={<code>{'<MultiSelect placeholder="Options" selectionUnit="OPTION" options={[{ label: "Option A" }, { label: "Option B" }]} formSelectedOptions={["Option A"]} hideError />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="Options selected"
+  Component={
+    <MultiSelect placeholder="Options" selectionUnit="OPTION" options={[{ label: 'Option A' }, { label: 'Option B' }, { label: 'Option C' }]} formSelectedOptions={['Option A', 'Option C']} hideError />
+  }
+  code={<code>{'<MultiSelect placeholder="Options" selectionUnit="OPTION" options={[{ label: "Option A" }, { label: "Option B" }, { label: "Option C" }]} formSelectedOptions={["Option A", "Option C"]} hideError />'}</code>}
+  description=""
+/>
+
+## Playground
+
+<Playground>
+  <MultiSelect
+    label="OPTIONS"
+    placeholder="Options"
+    hideError={false}
+    error=""
+    options={[
+      { label: 'Option A', Icon: <EmailIcon className="icon-regular"/> },
+      { label: 'Option B', Icon: <TimeIcon className="icon-regular"/> },
+      { label: 'Option C', Icon: <IconDelete className="icon-regular"/> },
+      { label: 'Option D', Icon: <StartIcon className="icon-regular"/> },
+    ]}
+    selectionUnit="OPTION"
+    formSelectedOptions={['Option A', 'Option C']}
+    onChange={(newSelection) => alert(`New selections: ${newSelection}`)}
+    selectAllText="ALL OPTIONS"
+    iconAtStart={true}
+  />
+</Playground>

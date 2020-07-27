@@ -1,0 +1,34 @@
+---
+name: InputHelp
+menu: Forms
+route: /Forms/InputHelp
+---
+
+import { Playground, Props } from 'docz'
+import UseCaseInline from '../../../docz-components/UseCaseInline/UseCaseInline';
+import {InputHelp} from './InputHelp'
+
+# InputHelp
+
+InputHelp inserts an info message on bottom-right of a form element component.
+
+This component is used to let the user know about some information regarding the form field.
+
+## Props
+<Props of={InputHelp} />
+
+## Use Cases
+<UseCaseInline
+  title="Default"
+  Component={
+    <div style={{ width: '150px' }}><InputHelp message="sender user name" /></div>
+  }
+  code={<code>{'<InputHelp message="sender user name" />'}</code>}
+  description=""
+/>
+
+## Playground
+
+<Playground>
+  <InputHelp message="sender user name" />
+</Playground>

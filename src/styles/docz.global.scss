@@ -3,6 +3,21 @@
 @import './variables';
 * {
   font-family: $font-family;
+  box-sizing: border-box;
+}
+
+pre,
+textarea,
+code {
+  font-family: 'Roboto Mono', sans-serif !important;
+  font-size: 15px !important;
+  font-style: normal !important;
+
+  * {
+    font-family: 'Roboto Mono', sans-serif !important;
+    font-size: 15px !important;
+    font-style: normal !important;
+  }
 }
 
 pre,

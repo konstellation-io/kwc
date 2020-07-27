@@ -1,0 +1,55 @@
+---
+name: useClickOutside
+route: /Hooks/useClickOutside
+menu: Hooks
+---
+
+import useClickOutside from './useClickOutside'
+
+# useClickOutside
+
+useClickOutside hook allows an action to be performed after clicking outside a component.
+
+## Params
+
+- **componentRef**: React ref object
+- **action**: Function
+- **mousedown**: boolean | undefined (optional)
+
+## Usage
+
+This hook is used to close some elements after clicking outside its content (but can be used to 
+perform other actions).
+
+With ```addClickOutsideEvents``` and ```removeClickOutsideEvents``` you can minimize the amount of 
+event listeners used in the application by only adding listeners when you are actually waiting the 
+user to click outside.
+
+> You can send a third param as true of you want to list to ```mousedown``` events instead of only ```click``` events.
+
+``` tsx
+function Component() {
+  const componentRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+  const {
+    addClickOutsideEvents,
+    removeClickOutsideEvents
+  } = useClickOutside(componentRef, hideComponent);
+
+  function showComponent() {
+    addClickOutsideEvents();
+    setVisible(true);
+  };
+  function hideComponent() {
+    removeClickOutsideEvents();
+    setVisible(false);
+  };
+
+  return (
+    <div>
+      <div onClick={showComponent}>SHOW!</div>
+      {visible && <div ref={componentRef}>{children}</div>}
+    </div>
+  );
+}
+```

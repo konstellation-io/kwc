@@ -1,0 +1,192 @@
+---
+name: ContextMenu
+menu: Components
+route: /Components/ContextMenu
+---
+
+import { Playground, Props } from 'docz'
+import UseCaseInline from '../../docz-components/UseCaseInline/UseCaseInline';
+import IconClose from '@material-ui/icons/Close';
+import {ContextMenu} from './ContextMenu'
+import MenuCallToActionIface from './MDComponents.tsx';
+import IconDelete from '@material-ui/icons/Delete';
+import IconOptions from '@material-ui/icons/MoreVert';
+import IconCopyAll from '@material-ui/icons/FileCopy';
+
+# ContextMenu
+
+ContextMenu component allows the user to open a contextual menu on right (optionally left) click.
+
+This menu shows actions that can be performed over the clicked element.
+
+## Props and interfaces
+#### Interfaces
+##### MenuCallToAction
+<Props of={MenuCallToActionIface} />
+
+#### Props
+<Props of={ContextMenu} />
+
+## Use Cases
+<UseCaseInline
+  title="Default"
+  Component={
+    <ContextMenu
+      actions={[
+        {
+          Icon: IconDelete,
+          text: 'option 1',
+          callToAction: function(_, contextObject) { alert(`${contextObject}: 1`) }
+        },
+        {
+          Icon: IconCopyAll,
+          text: 'option 2',
+          callToAction: function(_, contextObject) { alert(`${contextObject}: 2`) }
+        },
+      ]}
+      contextObject={'Default'}
+    >
+      <div style={{ display: 'flex'}}>
+        <span style={{ fontSize: '14px', lineHeight: '14px', marginRight: 8}}>Menu</span>
+        <IconOptions className="icon-regular" />
+      </div>
+    </ContextMenu>
+  }
+  description=""
+/>
+
+<UseCaseInline
+  title="Open on left click"
+  Component={
+    <ContextMenu
+      actions={[
+        {
+          Icon: IconDelete,
+          text: 'option 1',
+          callToAction: function(_, contextObject) { alert(`${contextObject}: 1`) }
+        },
+        {
+          Icon: IconCopyAll,
+          text: 'option 2',
+          callToAction: function(_, contextObject) { alert(`${contextObject}: 2`) }
+        },
+      ]}
+      contextObject={'Open on left click'}
+      openOnLeftClick
+    >
+      <div style={{ display: 'flex'}}>
+        <span style={{ fontSize: '14px', lineHeight: '14px', marginRight: 8}}>Menu</span>
+        <IconOptions className="icon-regular" />
+      </div>
+    </ContextMenu>
+  }
+  description="To show a regular menu instead of a contextual one"
+/>
+
+<UseCaseInline
+  title="Disable option"
+  Component={
+    <ContextMenu
+      actions={[
+        {
+          Icon: IconDelete,
+          text: 'option 1',
+          disabled: true,
+          callToAction: function(_, contextObject) { alert(`${contextObject}: 1`) }
+        },
+        {
+          Icon: IconCopyAll,
+          text: 'option 2',
+          callToAction: function(_, contextObject) { alert(`${contextObject}: 2`) }
+        },
+      ]}
+      contextObject={'Disable option'}
+    >
+      <div style={{ display: 'flex'}}>
+        <span style={{ fontSize: '14px', lineHeight: '14px', marginRight: 8}}>Menu</span>
+        <IconOptions className="icon-regular" />
+      </div>
+    </ContextMenu>
+  }
+/>
+
+<UseCaseInline
+  title="With a separator"
+  Component={
+    <ContextMenu
+      openOnLeftClick={false}
+      actions={[
+        {
+          Icon: IconDelete,
+          text: 'Remove all',
+          callToAction: function(_, contextObject) { alert(`${contextObject}: 1`) }
+        },
+        {
+          text: 'Select Role',
+          separator: true,
+        },
+        {
+          Icon: IconCopyAll,
+          text: 'Admin',
+          callToAction: function(_, contextObject) { alert(`${contextObject}: 2`) }
+        },
+        {
+          Icon: IconCopyAll,
+          text: 'Viewer',
+          callToAction: function(_, contextObject) { alert(`${contextObject}: 3`) }
+        },
+      ]}
+      contextObject={'With a separator'}
+    >
+      <div style={{ display: 'flex'}}>
+        <span style={{ fontSize: '14px', lineHeight: '14px', marginRight: 8}}>Menu</span>
+        <IconOptions className="icon-regular" />
+      </div>
+    </ContextMenu>
+  }
+  description="Usefull to make agrupations"
+/>
+
+
+## Playground
+
+<Playground>
+      <ContextMenu
+      actions={[
+        {
+          Icon: IconCopyAll,
+          text: 'disabled option',
+          disabled: true,
+          callToAction: function(_, contextObject) { alert(`${contextObject}: 2`) }
+        },
+        {
+          Icon: IconDelete,
+          text: 'option 1',
+          callToAction: function(_, contextObject) { alert(`${contextObject}: 1`) }
+        },
+        {
+          Icon: IconCopyAll,
+          text: 'Group title',
+          separator: true,
+          callToAction: function(_, contextObject) { alert(`${contextObject}: 2`) }
+        },
+        {
+          Icon: IconCopyAll,
+          text: 'Group child 1 (disabled)',
+          disabled: true,
+          callToAction: function(_, contextObject) { alert(`${contextObject}: 2`) }
+        },
+        {
+          Icon: IconCopyAll,
+          text: 'Group child 2',
+          callToAction: function(_, contextObject) { alert(`${contextObject}: 2`) }
+        },
+      ]}
+      contextObject={'Context of Menu!'}
+    >
+      <div style={{ display: 'flex'}}>
+        <span style={{ fontSize: '14px', lineHeight: '14px', marginRight: 8}}>Menu</span>
+        <IconOptions className="icon-regular" />
+      </div>
+    </ContextMenu>
+</Playground>

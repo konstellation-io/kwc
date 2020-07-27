@@ -1,5 +1,8 @@
 import '../../../../src/styles/docz.global.scss'
 import '../../../../src/styles/icon-sizes.scss'
+import 'react-dates/lib/css/_datepicker.css'
+import '../../../../src/styles/react-calendar.scss'
+import 'react-dates/initialize'
 
 import * as colors from './dark-theme-colors'
 

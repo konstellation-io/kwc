@@ -1,0 +1,9 @@
+@import '../../../styles/colors';
+
+.container {
+  background-color: $bg-color-dark;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}

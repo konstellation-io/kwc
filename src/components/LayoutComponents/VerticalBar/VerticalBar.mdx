@@ -1,0 +1,31 @@
+---
+name: VerticalBar
+route: /Components/Layout/VerticalBar
+menu: Layout
+---
+
+import { Playground, Props } from 'docz'
+import {VerticalBar} from './VerticalBar'
+import {Button} from '../../Button/Button'
+import IconDoc from '@material-ui/icons/Toc';
+import IconSettings from '@material-ui/icons/Settings';
+import IconShowChart from '@material-ui/icons/ShowChart';
+
+# VerticalBar
+
+VerticalBar component align its content (children) a vertical layout.
+
+This component is used for side bars that contain redirection Buttons.
+
+## Props
+<Props of={VerticalBar} />
+
+## Playground
+
+<Playground>
+  <VerticalBar>
+    <Button Icon={IconDoc} label="" />
+    <Button Icon={IconSettings} label="" />
+    <Button Icon={IconShowChart} label="" />
+  </VerticalBar>
+</Playground>

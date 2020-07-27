@@ -1,0 +1,48 @@
+---
+name: Check
+menu: Forms
+route: /Forms/Check
+---
+
+import { Playground, Props } from 'docz'
+import UseCaseInline from '../../../docz-components/UseCaseInline/UseCaseInline';
+import {Check} from './Check'
+
+# Check
+
+Check component implements checkbox HTML component.
+
+## Props
+<Props of={Check} />
+
+## Use Cases
+<UseCaseInline
+  title="Default"
+  Component={
+    <Check checked={false} onChange={() => {}} />
+  }
+  code={<code>{'<Check checked={false} />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="Checked"
+  Component={
+    <Check checked onChange={() => {}} />
+  }
+  code={<code>{'<Check checked />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="Indeterminate"
+  Component={
+    <Check indeterminate onChange={() => {}} />
+  }
+  code={<code>{'<Check indeterminate />'}</code>}
+  description=""
+/>
+
+## Playground
+
+<Playground>
+  <Check indeterminate={false} checked={true} onChange={() => alert('clicked!')} />
+</Playground>

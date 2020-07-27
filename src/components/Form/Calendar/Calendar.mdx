@@ -1,0 +1,78 @@
+---
+name: Calendar
+menu: Forms
+route: /Forms/Calendar
+---
+
+import { Playground, Props } from 'docz'
+import UseCaseInline from '../../../docz-components/UseCaseInline/UseCaseInline';
+import PropEnum from '../../../docz-components/PropEnum/PropEnum.tsx';
+import {Calendar } from './Calendar'
+import moment from 'moment';
+
+# Calendar
+
+Calendar component allows the user to select an initial and a final date (with or without times).
+
+## Props
+<Props of={Calendar} />
+
+## Use Cases
+<UseCaseInline
+  title="Default"
+  Component={
+    <Calendar hideError />
+  }
+  code={<code>{'<Calendar hideError />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With label"
+  Component={
+    <Calendar label="SELECT A DATE RANGE" />
+  }
+  code={<code>{'<Calendar label="SELECT A DATE RANGE" />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With error"
+  Component={
+    <Calendar error="Some error" />
+  }
+  code={<code>{'<Calendar error="Some error" />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With selected dates"
+  Component={
+    <Calendar formFromDate={moment()} formToDate={moment()} />
+  }
+  code={<code>{'<Calendar formFromDate={moment()} formToDate={moment()} />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With Time controls"
+  Component={
+    <Calendar addTimeControls />
+  }
+  code={<code>{'<Calendar addTimeControls />'}</code>}
+  description="This allows the user to select times for initial and final dates"
+/>
+
+## Playground
+
+<Playground>
+  <Calendar
+    label="CALENDAR"
+    hideError={false}
+    error=""
+    formFromDate={moment().subtract(10, 'day')}
+    formToDate={moment()}
+    onChangeFromDateInput={() => alert('Start date changed')}
+    onChangeToDateInput={() => alert('End date changed')}
+    onClose={() => alert('Closed')}
+    addTimeControls={false}
+    keepOpen={false}
+    autoFocus={false}
+  />
+</Playground>

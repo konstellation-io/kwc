@@ -1,0 +1,117 @@
+---
+name: ModalContainer
+route: /Components/Layout/ModalContainer
+menu: Layout
+---
+
+import { Playground, Props } from 'docz'
+import {ModalContainer} from './ModalContainer'
+import { ModalLayoutCalendar } from './layouts/ModalLayoutCalendar/ModalLayoutCalendar.tsx';
+import { ModalLayoutConfirmList } from './layouts/ModalLayoutConfirmList/ModalLayoutConfirmList.tsx';
+import { ModalLayoutJustify } from './layouts/ModalLayoutJustify/ModalLayoutJustify.tsx';
+import { ModalLayoutInfo } from './layouts/ModalLayoutInfo/ModalLayoutInfo.tsx';
+
+# ModalContainer
+
+ModalContainer components generates a modal whose content can be customized with the modal layouts.
+
+## Props
+<Props of={ModalContainer} />
+
+## Usage
+
+Import this and the layout component you want use and show them when desired.
+
+```tsx
+import React, { useState } from 'react';
+import {
+  ModalContainer,
+  ModalLayoutInfo
+} from 'konstellation-web-components';
+
+function Component() {
+  const [showModal, setShowModal] = useState(false);
+
+  return (
+    <div>
+      <div onCLick={() => setShowModal(true)}>RECORD ACTION!</div>
+      { showModal && (
+        <ModalContainer
+          title="CONFIRMATION"
+          actionButtonLabel="RECORD ACTION"
+          blocking
+          warning
+          onAccept={() => setShowModal(false)}
+          onCancel={() => setShowModal(false)}
+          confirmationTimer={5}
+        >
+          <ModalLayoutInfo>
+            This action will be registered in User Activity
+          </ModalLayoutInfo>
+        </ModalContainer>
+      )}
+    </div>
+  );
+}
+```
+
+# ModalContainer layouts
+
+## ModalLayoutInfo
+
+### Props
+<Props of={ModalLayoutInfo} />
+
+<Playground>
+  <ModalLayoutInfo>
+    Some information to show inside the modal.
+  </ModalLayoutInfo>
+</Playground>
+
+## ModalLayoutJustify
+
+### Props
+<Props of={ModalLayoutJustify} />
+
+<Playground>
+  <div style={{ width: '360px' }}>
+    <ModalLayoutJustify
+      onUpdate={() => {}}
+      submit={() => alert('submitted')}
+      error=""
+      label="why are you doing that?"
+    />
+  </div>
+</Playground>
+
+## ModalLayoutConfirmList
+
+### Props
+<Props of={ModalLayoutConfirmList} />
+
+<Playground>
+  <ModalLayoutConfirmList
+    message="Selected items"
+    confirmMessage="Are you sure you want to perform the action?"
+  >
+    <div>Item A</div>
+    <div>Item D</div>
+    <div>Item F</div>
+  </ModalLayoutConfirmList>
+</Playground>
+
+## ModalLayoutCalendar
+
+### Props
+<Props of={ModalLayoutCalendar} />
+
+> watch function must receive a param 'startDate' or 'endDate' and return its actual values.
+
+<Playground>
+  <div style={{width: '100%', height: '600px'}}>
+    <ModalLayoutCalendar
+      setValue={() => {}}
+      watch={(valueToWatch) => {}}
+    />
+  </div>
+</Playground>

@@ -1,0 +1,59 @@
+---
+name: FileUpload
+menu: Forms
+route: /Forms/FileUpload
+---
+
+import { Playground, Props } from 'docz'
+import UseCaseInline from '../../../docz-components/UseCaseInline/UseCaseInline';
+import {FileUpload } from './FileUpload'
+
+# FileUpload
+
+FileUpload component allows the user to load files.
+
+> Use name and input refs to get more information about the uploaded file
+
+## Props
+<Props of={FileUpload} />
+
+## Use Cases
+<UseCaseInline
+  title="Default"
+  Component={
+    <FileUpload placeholder="Select a file" />
+  }
+  code={<code>{'<FileUpload placeholder="Select a file" />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With label"
+  Component={
+    <FileUpload placeholder="Select a file" label="UPLOAD A FILE" />
+  }
+  code={<code>{'<FileUpload placeholder="Select a file" label="UPLOAD A FILE" />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With error"
+  Component={
+    <FileUpload placeholder="Select a file" error="Some error" />
+  }
+  code={<code>{'<FileUpload placeholder="Select a file" error="Some error" />'}</code>}
+  description=""
+/>
+
+## Playground
+
+<Playground>
+  <FileUpload
+    onChange={() => alert('File uploaded')}
+    name="file"
+    placeholder="UPLOAD A FILE"
+    label="Playground"
+    height={40}
+    error=""
+    inputRef={null}
+    autofocus={false}
+  />
+</Playground>

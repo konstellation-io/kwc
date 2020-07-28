@@ -1,0 +1,119 @@
+---
+name: GroupSelect
+menu: Forms
+route: /Forms/GroupSelect
+---
+
+import { Playground, Props } from 'docz'
+import UseCaseInline from '../../../docz-components/UseCaseInline/UseCaseInline';
+import {GroupSelect } from './GroupSelect'
+import {GroupSelectDataC } from './MDComponents.tsx'
+
+# GroupSelect
+
+GroupSelect component allows the user make selections of grouped data.
+
+## Props and types
+
+### GroupSelectData
+```ts
+{ [key: string]: string[] }
+```
+> Keys are groups and values the group items
+
+### Props
+<Props of={GroupSelect} />
+
+## Use Cases
+<UseCaseInline
+  title="Default"
+  Component={
+    <div style={{ width: '150px'}}>
+      <GroupSelect
+        placeholder="Select items"
+        options={{ groupA: ['itemA', 'itemB'], groupB: ['itemC']}}
+        hideError
+      />
+    </div>
+  }
+  code={<code>{'<GroupSelect placeholder="Select items" options={{ groupA: ["itemA", "itemB"], groupB: ["itemC"]}} hideError />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With label"
+  Component={
+    <div style={{ width: '150px'}}>
+    <GroupSelect
+      label="GROUP SELECTOR"
+      placeholder="Select items"
+      options={{ groupA: ['itemA', 'itemB'], groupB: ['itemC']}}
+    />
+    </div>
+  }
+  code={<code>{'<GroupSelect label="GROUP SELECTOR" placeholder="Select items" options={{ groupA: ["itemA", "itemB"], groupB: ["itemC"]}} />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With error"
+  Component={
+    <div style={{ width: '150px'}}>
+      <GroupSelect
+        label="GROUP SELECTOR"
+        error="Something happened"
+        placeholder="Select items"
+        options={{ groupA: ['itemA', 'itemB'], groupB: ['itemC']}}
+      />
+    </div>
+  }
+  code={<code>{'<GroupSelect label="GROUP SELECTOR" error="Something happened" placeholder="Select items" options={{ groupA: ["itemA", "itemB"], groupB: ["itemC"]}} />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With selections"
+  Component={
+    <div style={{ width: '150px'}}>
+      <GroupSelect
+        label="GROUP SELECTOR"
+        error="Something happened"
+        placeholder="Items"
+        options={{ groupA: ['itemA', 'itemB'], groupB: ['itemC']}}
+        formSelectedOptions={{ groupA: ['itemB'], groupB: ['itemC']}}
+      />
+    </div>
+  }
+  code={<code>{'<GroupSelect label="GROUP SELECTOR" error="Something happened" placeholder="Select items" options={{ groupA: ["itemA", "itemB"], groupB: ["itemC"]}} formSelectedOptions={{ groupA: ["itemB"], groupB: ["itemC"]}} />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="Selections hidden"
+  Component={
+    <div style={{ width: '150px'}}>
+      <GroupSelect
+        label="GROUP SELECTOR"
+        placeholder="Select items"
+        options={{ groupA: ['itemA', 'itemB'], groupB: ['itemC']}}
+        formSelectedOptions={{ groupA: ['itemB'], groupB: ['itemC']}}
+        hideSelections
+      />
+    </div>
+  }
+  code={<code>{'<GroupSelect label="GROUP SELECTOR" placeholder="Select items" options={{ groupA: ["itemA", "itemB"], groupB: ["itemC"]}} formSelectedOptions={{ groupA: ["itemB"], groupB: ["itemC"]}} hideSelections />'}</code>}
+  description="Used when selections are going to be shown somewhere else"
+/>
+
+
+
+## Playground
+
+<Playground>
+  <GroupSelect
+    options={{ groupA: ['itemA', 'itemB'], groupB: ['itemC']}}
+    formSelectedOptions={{ groupA: ['itemB'], groupB: ['itemC']}}
+    onChange={() => alert('Changed')}
+    label="GROUP SELECT"
+    error=""
+    placeholder="Select items"
+    hideError={false}
+    hideSelections={false}
+  />
+</Playground>

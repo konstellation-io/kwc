@@ -21,7 +21,7 @@
     "@material-ui/icons": "^4.9.1",
     "docz": "^2.3.1",
     "react-dates": "^21.8.0",
-    "konstellation-web-components": "1.5.2",
+    "konstellation-web-components": "1.6.0",
     "lodash": "^4.17.19"
   },
   "devDependencies": {

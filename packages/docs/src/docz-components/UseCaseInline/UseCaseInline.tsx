@@ -1,12 +1,14 @@
-import React from 'react'
-import styles from './UseCaseInline.module.scss'
+import React from "react";
+import styles from "./UseCaseInline.module.scss";
+
+// TODO: extract code from component
 
 type Props = {
-  title: string
-  Component: JSX.Element
-  code: JSX.Element
-  description?: string
-}
+  title: string;
+  Component: JSX.Element;
+  code: JSX.Element;
+  description?: string;
+};
 function UseCaseInline({ title, Component, code, description }: Props) {
   return (
     <div className={styles.container}>
@@ -17,7 +19,7 @@ function UseCaseInline({ title, Component, code, description }: Props) {
       </div>
       {description && <div className={styles.description}>{description}</div>}
     </div>
-  )
+  );
 }
 
-export default UseCaseInline
+export default UseCaseInline;

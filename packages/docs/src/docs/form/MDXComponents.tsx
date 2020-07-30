@@ -9,6 +9,7 @@ import {
   InputLabelProps,
   MultiSelectOption,
   MultiSelectProps,
+  SearchSelectProps,
   SelectProps,
   TextInputProps,
 } from "konstellation-web-components";
@@ -26,5 +27,6 @@ export const InputLabelPropsComponent = (_: InputLabelProps) => null;
 export const MultiSelectPropsComponent = (_: MultiSelectProps<any>) => null;
 export const SelectPropsComponent = (_: SelectProps) => null;
 export const TextInputPropsComponent = (_: TextInputProps) => null;
+export const SearchSelectPropsComponent = (_: SearchSelectProps) => null;
 
 export const MultiSelectOptionComponent = (_: MultiSelectOption<any>) => null;

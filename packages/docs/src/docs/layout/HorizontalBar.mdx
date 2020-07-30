@@ -1,0 +1,28 @@
+---
+name: HorizontalBar
+route: /Components/Layout/HorizontalBar
+menu: Layout
+---
+
+import { Playground, Props } from 'docz'
+import {HorizontalBar, Button} from 'konstellation-web-components'
+import { HorizontalBarPropsComponent } from './MDXComponents.tsx';
+
+# HorizontalBar
+
+HorizontalBar component align its content (children) an horizontal layout, inserting
+elements starting from right to left.
+
+This component is used for bottom bars that contain action Buttons.
+
+## Props
+<Props of={HorizontalBarPropsComponent} />
+
+## Playground
+
+<Playground>
+  <HorizontalBar>
+    <Button label="ACTION" height={30} primary />
+    <Button label="CANCEL" height={30} />
+  </HorizontalBar>
+</Playground>

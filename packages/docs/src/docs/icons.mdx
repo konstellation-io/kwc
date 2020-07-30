@@ -1,0 +1,497 @@
+---
+name: Icons
+menu: Design
+route: /Design/Icons
+---
+
+import { Playground } from 'docz'
+
+import { TERMINAL } from 'konstellation-web-components'
+import * as COLORS from '../constants/colors'
+
+import IconRow from '../docz-components/IconRow/IconRow';
+import PublishIcon from '@material-ui/icons/PlayCircleFilledOutlined';
+import StartIcon from '@material-ui/icons/SkipNext';
+import StopIcon from '@material-ui/icons/PauseCircleFilled';
+import UnpublishIcon from '@material-ui/icons/Block';
+import IconMoreVert from '@material-ui/icons/MoreVert';
+import IconCopyAll from '@material-ui/icons/FileCopy';
+import IconCopyMessage from '@material-ui/icons/Subject';
+import IconExpand from '@material-ui/icons/ArrowDownward';
+import FollowIcon from '@material-ui/icons/VerticalAlignBottom';
+import IconOpen from '@material-ui/icons/ExpandLess';
+import IconClose from '@material-ui/icons/ExpandMore';
+import IconExpandV2 from '@material-ui/icons/Fullscreen';
+import IconExpandExit from '@material-ui/icons/FullscreenExit';
+import IconOptions from '@material-ui/icons/MoreHoriz';
+import IconCloseOthers from '@material-ui/icons/ClearAll';
+import IconDuplicate from '@material-ui/icons/ControlPointDuplicate';
+import IconOpenInTab from '@material-ui/icons/Tab';
+import InputNodeIcon from '@material-ui/icons/Public';
+import OutputNodeIcon from '@material-ui/icons/KeyboardTab';
+import IconExpandAction from '@material-ui/icons/KeyboardArrowDown';
+import IconShrinkAction from '@material-ui/icons/KeyboardArrowUp';
+import HideIcon from '@material-ui/icons/VisibilityOff';
+import ViewIcon from '@material-ui/icons/Visibility';
+import IconKey from '@material-ui/icons/VpnKey';
+import TypeFileIcon from '@material-ui/icons/InsertDriveFile';
+import IconWarning from '@material-ui/icons/Warning';
+import IconDeviceHub from '@material-ui/icons/DeviceHub';
+import IconDoc from '@material-ui/icons/Toc';
+import IconSettings from '@material-ui/icons/Settings';
+import IconShowChart from '@material-ui/icons/ShowChart';
+import IconArrowBack from '@material-ui/icons/KeyboardBackspace';
+import EmailIcon from '@material-ui/icons/Email';
+import TimeIcon from '@material-ui/icons/AccessTime';
+import IconDelete from '@material-ui/icons/Delete';
+import IconRevoke from '@material-ui/icons/HighlightOff';
+import ActivityIconAdd from '@material-ui/icons/Add';
+import ActivityIconBlock from '@material-ui/icons/Block';
+import ActivityIconPublish from '@material-ui/icons/Publish';
+import ActivityIconRemove from '@material-ui/icons/Delete';
+import ActivityIconSettings from '@material-ui/icons/Settings';
+import ActivityIconStart from '@material-ui/icons/PlayCircleOutline';
+import ActivityIconStop from '@material-ui/icons/Stop';
+import ActivityIconUnknown from '@material-ui/icons/Help';
+import ActivityIconUnpublish from '@material-ui/icons/GetApp';
+import ActivityIconUser from '@material-ui/icons/AccountBox';
+import DomainIcon from '@material-ui/icons/Language';
+import GeneralIcon from '@material-ui/icons/DeviceHub';
+import SecurityIcon from '@material-ui/icons/Security';
+import UsersIcon from '@material-ui/icons/SupervisorAccount';
+import CalendarIcon from '@material-ui/icons/Today';
+import AuditIcon from '@material-ui/icons/SupervisorAccount';
+import LogoutIcon from '@material-ui/icons/ExitToApp';
+import SettingsIcon from '@material-ui/icons/VerifiedUser';
+import IconInfo from '@material-ui/icons/Info';
+import SearchIcon from '@material-ui/icons/Search';
+import ClearIcon from '@material-ui/icons/Close';
+import IconDeselectAll from '@material-ui/icons/ClearAll';
+import IconSelectAll from '@material-ui/icons/DoneAll';
+import IconCheck from '@material-ui/icons/Check';
+import IconIndeterminate from '@material-ui/icons/Remove';
+import ArrowRightIcon from '@material-ui/icons/ArrowForward';
+import TypeVarIcon from '@material-ui/icons/Code';
+
+
+# Icons
+
+We are using both [Material UI icons](https://material-ui.com/components/material-icons/) and custom icons.
+
+## Usage
+
+Use material icons as defined in its documentation. For custom icons import icon paths from ```src/constants/icons``` and use ```SvgIcon``` from Material UI.
+
+To set the size, use one of the global classes for icons (see [Sizes section](#sizes) bellow).
+
+#### Example
+
+``` tsx
+// ComponentName.tsx
+
+import * as ICONS from '../src/constants/icons'
+
+import SvgIcon from '@material-ui/core/SvgIcon'
+import FollowIcon from '@material-ui/icons/VerticalAlignBottom';
+
+const ComponentName = () => (
+  <>
+    // From material
+    <FollowIcon className="icon-small" />
+
+    // Custom
+    <SvgIcon className="icon-regular">
+      <path d={TERMINAL} />
+    </SvgIcon>
+
+    // With color
+    <span style={{ color: 'red' }}>
+      <FollowIcon className="icon-big" />
+    </span>
+  </>
+)
+```
+
+<Playground>
+  <span style={{ color: COLORS.ALERT }}>
+    <FollowIcon className="icon-big" />
+  </span>
+</Playground>
+
+
+
+## Library
+
+### Material UI
+
+##### Pages
+<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
+  <IconRow
+    name="Status Page"
+    Icon={IconDeviceHub}
+    description="Section: Version"
+  />
+  <IconRow
+    name="Documentation Page"
+    Icon={IconDoc}
+    description="Section: Version"
+  />
+  <IconRow
+    name="Version configuration Page, Settings"
+    Icon={IconSettings}
+    description="Section: Version"
+  />
+  <IconRow
+    name="Metrics Page"
+    Icon={IconShowChart}
+    description="Section: Version"
+  />
+  <IconRow
+    name="General Settings Page"
+    Icon={GeneralIcon}
+    description="Section: Settings"
+  />
+  <IconRow
+    name="Security Settings Page"
+    Icon={SecurityIcon}
+    description="Section: Settings"
+  />
+  <IconRow
+    name="Users Settings Page"
+    Icon={UsersIcon}
+    description="Section: Settings"
+  />
+  <IconRow
+    name="Audit Page"
+    Icon={AuditIcon}
+    description=""
+  />
+  <IconRow
+    name="Settings Page"
+    Icon={SettingsIcon}
+    description=""
+  />
+</div>
+
+##### Version Actions, Version status
+<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
+  <IconRow
+    name="Publish"
+    Icon={PublishIcon}
+    description="For version actions"
+  />
+  <IconRow
+    name="Start"
+    Icon={StartIcon}
+    description="For version actions"
+  />
+  <IconRow
+    name="Stop"
+    Icon={StopIcon}
+    description="For version actions"
+  />
+  <IconRow
+    name="Unpublish, Clear"
+    Icon={UnpublishIcon}
+    description="For version actions or clear functionality"
+  />
+  <IconRow
+    name="Entrypoint in"
+    Icon={InputNodeIcon}
+    description="Entrypoint in process"
+  />
+  <IconRow
+    name="Entrypoint out"
+    Icon={OutputNodeIcon}
+    description="Entrypoint out process"
+  />
+</div>
+
+##### Concepts relation
+<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
+  <IconRow
+    name="Key"
+    Icon={IconKey}
+    description="key"
+  />
+  <IconRow
+    name="Variable"
+    Icon={TypeVarIcon}
+    description="variable, code"
+  />
+  <IconRow
+    name="File"
+    Icon={TypeFileIcon}
+    description="file"
+  />
+  <IconRow
+    name="Email"
+    Icon={EmailIcon}
+    description="email"
+  />
+  <IconRow
+    name="Time"
+    Icon={TimeIcon}
+    description="time, duration"
+  />
+  <IconRow
+    name="Domain"
+    Icon={DomainIcon}
+    description="domain"
+  />
+  <IconRow
+    name="Calendar"
+    Icon={CalendarIcon}
+    description="dates, calendar"
+  />
+  <IconRow
+    name="Info"
+    Icon={IconInfo}
+    description="information"
+  />
+</div>
+
+##### Actions
+<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
+  <IconRow
+    name="Clear"
+    Icon={UnpublishIcon}
+    description="Clear, block"
+  />
+  <IconRow
+    name="Copy"
+    Icon={IconCopyAll}
+    description="Copy to clipboard"
+  />
+  <IconRow
+    name="Text interaction"
+    Icon={IconCopyMessage}
+    description="Interact with text"
+  />
+  <IconRow
+    name="Expand"
+    Icon={IconExpand}
+    description="Expand the content of an element"
+  />
+  <IconRow
+    name="Follow"
+    Icon={FollowIcon}
+    description="Follow some new content (such as logs)"
+  />
+  <IconRow
+    name="Fullscreen"
+    Icon={IconExpandV2}
+    description="Activate fullscreen on some component"
+  />
+  <IconRow
+    name="Exit fullscreen"
+    Icon={IconExpandExit}
+    description="Deactivate fullscreen on some component"
+  />
+  <IconRow
+    name="Select all"
+    Icon={IconSelectAll}
+    description="Select all elements"
+  />
+  <IconRow
+    name="Deselect group/all"
+    Icon={IconDeselectAll}
+    description="Deselect all elements or a group of them"
+  />
+  <IconRow
+    name="Duplicate"
+    Icon={IconDuplicate}
+    description=""
+  />
+  <IconRow
+    name="New tab"
+    Icon={IconOpenInTab}
+    description="Open in a new explorer tab"
+  />
+  <IconRow
+    name="Back"
+    Icon={IconArrowBack}
+    description="Go back"
+  />
+  <IconRow
+    name="Forward"
+    Icon={ArrowRightIcon}
+    description="Go forward"
+  />
+  <IconRow
+    name="Remove"
+    Icon={IconDelete}
+    description=""
+  />
+  <IconRow
+    name="Revoke"
+    Icon={IconRevoke}
+    description="Revoke sessions or access"
+  />
+  <IconRow
+    name="Logout"
+    Icon={LogoutIcon}
+    description=""
+  />
+  <IconRow
+    name="Search"
+    Icon={SearchIcon}
+    description=""
+  />
+  <IconRow
+    name="Close, Clear"
+    Icon={ClearIcon}
+    description="Close, clear"
+  />
+</div>
+
+##### Other
+<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
+  <IconRow
+    name="Options Vert"
+    Icon={IconMoreVert}
+    description="To display an options menu on click"
+  />
+  <IconRow
+    name="Options Horiz"
+    Icon={IconOptions}
+    description="To indicate access to settings/options page/menu"
+  />
+  <IconRow
+    name="Opened"
+    Icon={IconOpen}
+    description="To show Open status or to close an element"
+  />
+  <IconRow
+    name="Closed"
+    Icon={IconClose}
+    description="To show Close status or to open an element"
+  />
+  <IconRow
+    name="View"
+    Icon={ViewIcon}
+    description="To show Viewing All status or to hide some content"
+  />
+  <IconRow
+    name="Hide"
+    Icon={HideIcon}
+    description="To show Hiding All status or to show some content"
+  />
+  <IconRow
+    name="Warning"
+    Icon={IconWarning}
+    description="To warn the user about something"
+  />
+  <IconRow
+    name="Tick"
+    Icon={IconCheck}
+    description="Checkbox selected"
+  />
+  <IconRow
+    name="Indetermiante"
+    Icon={IconIndeterminate}
+    description="Checkbox indeterminate"
+  />
+</div>
+
+##### User Activity
+<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
+  <IconRow
+    name="Add"
+    Icon={ActivityIconAdd}
+    description="To indicate a creation action"
+  />
+  <IconRow
+    name="Revoke"
+    Icon={ActivityIconBlock}
+    description="Session revoke action"
+  />
+  <IconRow
+    name="Publish"
+    Icon={ActivityIconPublish}
+    description="Version publish"
+  />
+  <IconRow
+    name="Remove"
+    Icon={ActivityIconRemove}
+    description="To indicate a deletion action"
+  />
+  <IconRow
+    name="Settings"
+    Icon={ActivityIconSettings}
+    description="To indicate a setting update"
+  />
+  <IconRow
+    name="Start"
+    Icon={ActivityIconStart}
+    description="Version start"
+  />
+  <IconRow
+    name="Stop"
+    Icon={ActivityIconStop}
+    description="Version stop"
+  />
+  <IconRow
+    name="Unknown"
+    Icon={ActivityIconUnknown}
+    description="Unknown (default) user activity"
+  />
+  <IconRow
+    name="Unpublish"
+    Icon={ActivityIconUnpublish}
+    description="Version unpublish"
+  />
+  <IconRow
+    name="User"
+    Icon={ActivityIconUser}
+    description="To indicate a user update"
+  />
+</div>
+
+### Custom
+
+<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
+  <IconRow
+    name="TERMINAL"
+    path={TERMINAL}
+    description="To indicate terminal/console/logs relation"
+  />
+</div>
+
+## Colors
+
+Use colors to empathize icons and messages.
+
+<blockquote style={{ display: 'flex', paddingTop: '22px' }}>
+  <div style={{ lineHeight: '24px', paddingRight: '32px' }}>
+    Example 1:
+  </div>
+  <div style={{ color: COLORS.ALERT }}>
+    <IconWarning />
+  </div>
+  <div style={{ lineHeight: '24px', paddingLeft: '16px', color: COLORS.ALERT }}>
+    Some warning message
+  </div>
+</blockquote>
+
+<blockquote style={{ display: 'flex', paddingTop: '22px' }}>
+  <div style={{ lineHeight: '24px', paddingRight: '32px' }}>
+    Example 2:
+  </div>
+  <div style={{ color: COLORS.SUCCESS }}>
+    <PublishIcon />
+  </div>
+  <div style={{ lineHeight: '24px', paddingLeft: '16px', color: COLORS.SUCCESS }}>
+    Version successfully started
+  </div>
+</blockquote>
+
+## Sizes
+
+We have 5 icon sizes:
+
+- **Small** <IconInfo className="icon-small" /> [default]
+- **Regular** <IconInfo className="icon-regular" />
+- **Regular-Big** <IconInfo className="icon-small-regular" />
+- **Big** <IconInfo className="icon-big" />
+- **Huge** <IconInfo className="icon-huge" />

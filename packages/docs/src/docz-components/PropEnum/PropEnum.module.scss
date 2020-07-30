@@ -1,0 +1,23 @@
+@import '~konstellation-web-components/src/styles/colors';
+@import '~konstellation-web-components/src/styles/variables';
+
+.container {
+  background-color: #141414;
+  border: solid 1px palette(base, 400);
+  border-radius: $grid-unit / 2;
+
+  > div:not(:last-child) {
+    border-bottom: solid 1px palette(base, 400);
+  }
+}
+
+.propEnum {
+  padding: $grid-unit;
+}
+.enum {
+  margin-right: 4 * $grid-unit;
+  color: palette(highlight);
+}
+.values {
+  color: font-color(regular);
+}

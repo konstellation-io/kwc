@@ -1,4 +1,4 @@
-name: 'Deploy to GitHub Pages'
+name: "Deploy to GitHub Pages"
 on: push
 jobs:
   build-and-deploy:
@@ -6,14 +6,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Install and Build 🔧
-        run: |
-          yarn install
-          yarn docz:build
-
+      - name: Install 💿
+        run: yarn install
+      - name: Build 🔧
+        working-directory: ./packages/docs
+        run: yarn build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.5.8
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: .docz/dist
+          FOLDER: packages/docs/.docz/dist

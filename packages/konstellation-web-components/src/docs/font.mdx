@@ -1,0 +1,89 @@
+---
+name: Fonts
+menu: Design
+route: /Design/Fonts
+---
+
+import FontType from '../docz-components/FontType/FontType';
+
+# Fonts
+
+## Font family
+
+We are using the following fonts:
+
+- ```Montserrat``` (default)
+- ```Roboto Mono``` (code)
+
+## Usage
+
+We are using SCSS to set fonts. There are mixins that sets each of the available font types. To use the mixins you need to import 
+```_mixins.scss``` and include the desired mixin.
+
+#### Example:
+
+``` scss
+// ComponentName.module.scss
+
+@import '../../styles/mixins';
+
+.selector {
+  @include font-body;
+}
+.selectorCode {
+  @include font-code;
+  text-transform: uppercase;
+}
+```
+
+
+## Font types
+
+<FontType
+  type="mega"
+  description="Use this for titles on H1 elements"
+/>
+<FontType
+  type="jumbo"
+  description=""
+/>
+<FontType
+  type="display"
+  description=""
+/>
+<FontType
+  type="headline"
+  description="Use this for page headers"
+/>
+<FontType
+  type="title"
+  description="Use this for page content titles"
+/>
+<FontType
+  type="subheader"
+  description="Use this for page content subtitles"
+/>
+<FontType
+  type="body"
+  description="Default"
+/>
+<FontType
+  type="caption"
+  description=""
+/>
+<FontType
+  type="small"
+  description=""
+/>
+<FontType
+  type="button"
+  description=""
+/>
+<FontType
+  type="tabnav"
+  description="Use this for tab names of sidebars menus"
+/>
+<FontType
+  type="code"
+  description="Use this for code, uses monospace font"
+/>

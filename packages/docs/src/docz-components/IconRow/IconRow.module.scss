@@ -1,0 +1,34 @@
+@import '~konstellation-web-components/src/styles/colors';
+@import '~konstellation-web-components/src/styles/variables';
+@import '~konstellation-web-components/src/styles/mixins';
+
+.container {
+  display: flex;
+  margin-bottom: 2 * $grid-unit;
+  align-items: center;
+  padding-left: 4 * $grid-unit;
+  height: 5 * $grid-unit;
+  width: calc(30% - 4 * #{$grid-unit});
+  border-bottom: solid 1px palette(base, 400);
+  padding-bottom: 2 * $grid-unit;
+}
+
+.name {
+  @include font-body;
+
+  width: 120px;
+  padding-right: $grid-unit;
+  flex-shrink: 0;
+}
+.icon {
+  line-height: 0 !important;
+  svg {
+    font-size: 18px !important;
+  }
+}
+
+.description {
+  @include font-small;
+  color: palette(feedback);
+  margin-left: 4 * $grid-unit;
+}

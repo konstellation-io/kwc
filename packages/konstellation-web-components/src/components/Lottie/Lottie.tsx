@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 import lottie, {
   AnimationConfigWithData,
   AnimationConfigWithPath,
   AnimationDirection,
   AnimationItem,
-} from "lottie-web/build/player/lottie_light";
+} from 'lottie-web/build/player/lottie_light';
 
 interface LottieOptions {
   loop?: boolean;
@@ -38,8 +38,8 @@ export function Lottie({
 }: LottieProps) {
   const { loop, autoplay } = options;
 
-  let el = useRef<HTMLDivElement>(null);
-  let animRef = useRef<AnimationItem | null>(null);
+  const el = useRef<HTMLDivElement>(null);
+  const animRef = useRef<AnimationItem | null>(null);
 
   useEffect(() => {
     if (!animRef.current) {
@@ -51,13 +51,13 @@ export function Lottie({
 
       const lottieOptions: AnimationConfigWithPath | AnimationConfigWithData = {
         container: el.current,
-        renderer: "svg",
+        renderer: 'svg',
         loop: loop !== false,
         autoplay: autoPlaySegments ? false : autoplay,
         ...options,
       };
 
-      let anim: AnimationItem = lottie.loadAnimation(lottieOptions);
+      const anim: AnimationItem = lottie.loadAnimation(lottieOptions);
       anim.setSpeed(speed);
       anim.setDirection(direction);
 
@@ -83,10 +83,10 @@ export function Lottie({
   const getSize = (initial: number | string) => {
     let size;
 
-    if (typeof initial === "number") {
+    if (typeof initial === 'number') {
       size = `${initial}px`;
     } else {
-      size = initial || "100%";
+      size = initial || '100%';
     }
 
     return size;
@@ -95,9 +95,9 @@ export function Lottie({
   const lottieStyles = {
     width: getSize(width),
     height: getSize(height),
-    overflow: "hidden",
-    margin: "0 auto",
-    outline: "none",
+    overflow: 'hidden',
+    margin: '0 auto',
+    outline: 'none',
     ...style,
   };
 

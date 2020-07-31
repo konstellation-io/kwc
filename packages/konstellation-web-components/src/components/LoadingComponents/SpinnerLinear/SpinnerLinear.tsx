@@ -1,8 +1,8 @@
-import { Lottie } from "../../Lottie/Lottie";
-import React from "react";
-import animationData from "./animation-data.json";
-import cx from "classnames";
-import styles from "./SpinnerLinear.module.scss";
+import { Lottie } from '../../Lottie/Lottie';
+import React from 'react';
+import animationData from './animation-data.json';
+import cx from 'classnames';
+import styles from './SpinnerLinear.module.scss';
 
 export type SpinnerLinearProps = {
   size?: number;

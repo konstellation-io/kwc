@@ -1,9 +1,9 @@
-import { Moment } from "moment";
-import { Range } from "../Calendar";
-import React from "react";
-import { Select } from "../../Select/Select";
-import { range } from "d3-array";
-import styles from "./CalendarTimeControls.module.scss";
+import { Moment } from 'moment';
+import { Range } from '../Calendar';
+import React from 'react';
+import { Select } from '../../Select/Select';
+import { range } from 'd3-array';
+import styles from './CalendarTimeControls.module.scss';
 
 export type CalendarTimeControlsProps = {
   ranges: Range[];
@@ -30,7 +30,7 @@ function CalendarTimeControls({
     formField: Moment | null,
     setter: Function
   ) {
-    const [hour, minute] = time.split(":").map((s: string) => parseInt(s));
+    const [hour, minute] = time.split(':').map((s: string) => parseInt(s));
     if (formField) {
       setter(
         formField.set({
@@ -41,9 +41,9 @@ function CalendarTimeControls({
     }
   }
 
-  const rangeItems = ranges.map((range: Range) => (
-    <div key={range.label} onClick={() => onRangeClick(range)}>
-      {range.label}
+  const rangeItems = ranges.map((r: Range) => (
+    <div key={r.label} onClick={() => onRangeClick(r)}>
+      {r.label}
     </div>
   ));
 
@@ -68,7 +68,7 @@ function CalendarTimeControls({
       []
     );
 
-    times[times.length - 1] = "23:59";
+    times[times.length - 1] = '23:59';
 
     return times;
   }
@@ -76,7 +76,7 @@ function CalendarTimeControls({
   const timeOptions = getTimeOptions();
   const startTimeOptions = [...timeOptions].slice(0, -1);
   const initialDatePosition = timeOptions.indexOf(
-    formFromDate?.format("HH:mm") || "00:00"
+    formFromDate?.format('HH:mm') || '00:00'
   );
   const endTimeOptions = [...timeOptions].slice(initialDatePosition + 1);
 
@@ -91,7 +91,7 @@ function CalendarTimeControls({
             onChange={(value: string) =>
               updateDate(value, formFromDate, changeFromDate)
             }
-            formSelectedOption={formFromDate?.format("HH:mm")}
+            formSelectedOption={formFromDate?.format('HH:mm')}
             hideError
           />
         </div>
@@ -103,7 +103,7 @@ function CalendarTimeControls({
             onChange={(value: string) =>
               updateDate(value, formToDate, changeToDate)
             }
-            formSelectedOption={formToDate?.format("HH:mm")}
+            formSelectedOption={formToDate?.format('HH:mm')}
             hideError
           />
         </div>

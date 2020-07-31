@@ -1,6 +1,6 @@
 {
   "name": "konstellation-web-components",
-  "version": "1.6.0",
+  "version": "1.6.5",
   "description": "Components library for Konstellation projects",
   "author": "konstellation-io",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl -o dist/index.js --format modern,cjs && cp -R ./src/styles ./dist && node ../../scripts/copy-files.js",
+    "build": "microbundle-crl -o dist/index.js --format modern,cjs && cp -R ./src/styles ./dist && cp ./.npmignore ./dist && node ../../scripts/copy-files.js",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
     "release": "yarn build && npm publish dist --tag latest",
@@ -23,7 +23,8 @@
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "prettier": "prettier --write --single-quote \"src/**/*.(ts|tsx)\""
   },
   "peerDependencies": {
     "react": "^16.0.0",
@@ -50,8 +51,8 @@
     "@types/react-dates": "^17.1.13",
     "@types/react-dom": "^16.9.7",
     "@types/react-router-dom": "^5.1.5",
-    "@typescript-eslint/eslint-plugin": "^2.26.0",
-    "@typescript-eslint/parser": "^2.26.0",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
     "babel-eslint": "^10.0.3",
     "classnames": "^2.2.6",
     "cross-env": "^7.0.2",
@@ -67,6 +68,7 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^2.2.0",
+    "husky": "3.0.9",
     "jest-canvas-mock": "^2.2.0",
     "lottie-web": "^5.7.0",
     "microbundle-crl": "^0.13.10",
@@ -79,7 +81,18 @@
     "react-scripts": "^3.4.1",
     "typeface-montserrat": "^0.0.75",
     "typeface-roboto-mono": "^0.0.75",
-    "typescript": "^3.7.5"
+    "typescript": "^3.9.7"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write --single-quote",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "sideEffects": false,
   "publishConfig": {

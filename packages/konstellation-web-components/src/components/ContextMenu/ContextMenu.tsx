@@ -1,4 +1,4 @@
-import { BUTTON_ALIGN, Button } from "../Button/Button";
+import { BUTTON_ALIGN, Button } from '../Button/Button';
 import React, {
   Fragment,
   FunctionComponent,
@@ -6,13 +6,13 @@ import React, {
   useEffect,
   useRef,
   useState,
-} from "react";
+} from 'react';
 
-import ContextualMenuModal from "./ContextualMenuModal";
-import { SvgIconProps } from "@material-ui/core/SvgIcon";
-import cx from "classnames";
-import styles from "./ContextMenu.module.scss";
-import useClickOutside from "../../hooks/useClickOutside";
+import ContextualMenuModal from './ContextualMenuModal';
+import { SvgIconProps } from '@material-ui/core/SvgIcon';
+import cx from 'classnames';
+import styles from './ContextMenu.module.scss';
+import useClickOutside from '../../hooks/useClickOutside';
 
 const MENU_OFFSET = 7;
 
@@ -64,13 +64,13 @@ export function ContextMenu({
     mousedown: true,
   });
 
-  function onOpenMenu(event: any) {
-    event.preventDefault();
-    event.stopPropagation();
+  function onOpenMenu(e: any) {
+    e.preventDefault();
+    e.stopPropagation();
 
     const newPosition: ContextMenuPosition = {};
     const windowWidth = window.innerWidth;
-    let { clientX, clientY } = event;
+    const { clientX, clientY } = e;
 
     if (clientX + 150 > windowWidth) {
       newPosition.right = `${MENU_OFFSET}px`;
@@ -86,7 +86,7 @@ export function ContextMenu({
 
     addClickOutsideEvents();
   }
-  const event = openOnLeftClick ? "click" : "contextmenu";
+  const event = openOnLeftClick ? 'click' : 'contextmenu';
   function removeListener() {
     if (childElement && childElement.current) {
       childElement.current.removeEventListener(event, onOpenMenu);

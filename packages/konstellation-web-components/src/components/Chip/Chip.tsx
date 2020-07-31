@@ -1,7 +1,7 @@
-import React, { MouseEvent } from "react";
+import React, { MouseEvent } from 'react';
 
-import IconClose from "@material-ui/icons/Close";
-import styles from "./Chip.module.scss";
+import IconClose from '@material-ui/icons/Close';
+import styles from './Chip.module.scss';
 
 export type ChipProps = {
   label: string;

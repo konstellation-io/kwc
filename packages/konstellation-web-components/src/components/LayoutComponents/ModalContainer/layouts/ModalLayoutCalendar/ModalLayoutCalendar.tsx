@@ -1,6 +1,6 @@
-import { Calendar } from "../../../../Form/Calendar/Calendar";
-import { Moment } from "moment";
-import React from "react";
+import { Calendar } from '../../../../Form/Calendar/Calendar';
+import { Moment } from 'moment';
+import React from 'react';
 
 export type ModalLayoutCalendarProps = {
   setValue: Function;
@@ -13,10 +13,10 @@ export function ModalLayoutCalendar({
 }: ModalLayoutCalendarProps) {
   return (
     <Calendar
-      onChangeFromDateInput={(date: Moment) => setValue("startDate", date)}
-      onChangeToDateInput={(date: Moment) => setValue("endDate", date)}
-      formFromDate={watch("startDate")}
-      formToDate={watch("endDate")}
+      onChangeFromDateInput={(date: Moment) => setValue('startDate', date)}
+      onChangeToDateInput={(date: Moment) => setValue('endDate', date)}
+      formFromDate={watch('startDate')}
+      formToDate={watch('endDate')}
       keepOpen
       autoFocus
       addTimeControls

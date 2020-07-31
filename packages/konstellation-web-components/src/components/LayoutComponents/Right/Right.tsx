@@ -1,7 +1,7 @@
-import React, { FunctionComponent, ReactElement } from "react";
+import React, { FunctionComponent, ReactElement } from 'react';
 
-import cx from "classnames";
-import styles from "./Right.module.scss";
+import cx from 'classnames';
+import styles from './Right.module.scss';
 
 export type RightProps = {
   children: ReactElement | (ReactElement | false)[];

@@ -1,13 +1,13 @@
-import React, { useRef, useState } from "react";
-import { get, isEmpty } from "lodash";
+import React, { useRef, useState } from 'react';
+import { get, isEmpty } from 'lodash';
 
-import Group from "./Group";
-import { InputError } from "../InputError/InputError";
-import { InputLabel } from "../InputLabel/InputLabel";
-import Selections from "./Selections";
-import cx from "classnames";
-import styles from "./GroupSelect.module.scss";
-import useClickOutside from "../../../hooks/useClickOutside";
+import Group from './Group';
+import { InputError } from '../InputError/InputError';
+import { InputLabel } from '../InputLabel/InputLabel';
+import Selections from './Selections';
+import cx from 'classnames';
+import styles from './GroupSelect.module.scss';
+import useClickOutside from '../../../hooks/useClickOutside';
 
 const MAX_HEIGHT = 400;
 const GROUP_HEIGHT = 30;
@@ -34,16 +34,16 @@ export function flatSelections(
   groupLabel: string,
   childrenLabel: string
 ) {
-  const flatSelections: [string, string | { [key: string]: string }][] = [];
+  const flatedSelections: [string, string | { [key: string]: string }][] = [];
 
   Object.entries(selection).forEach(([group, children]) => {
     const allSelected = options[group]?.length === children.length;
 
     if (allSelected) {
-      flatSelections.push([groupLabel, group]);
+      flatedSelections.push([groupLabel, group]);
     } else {
       children.forEach((child) => {
-        flatSelections.push([
+        flatedSelections.push([
           childrenLabel,
           {
             [groupLabel]: group,
@@ -54,18 +54,18 @@ export function flatSelections(
     }
   });
 
-  return flatSelections;
+  return flatedSelections;
 }
 
 export function GroupSelect({
   options,
   onChange = function () {},
-  label = "",
-  error = "",
-  placeholder = "",
+  label = '',
+  error = '',
+  placeholder = '',
   formSelectedOptions,
   hideError = false,
-  className = "",
+  className = '',
   hideSelections = false,
 }: GroupSelectProps) {
   const optionsRef = useRef<HTMLDivElement>(null);
@@ -159,9 +159,9 @@ export function GroupSelect({
       <div className={cx(className, styles.inputContainer)}>
         <div
           className={cx(styles.input, {
-            [styles.error]: error !== "",
+            [styles.error]: error !== '',
             [styles.opened]: optionsOpened,
-            [styles.placeholder]: placeholder !== "",
+            [styles.placeholder]: placeholder !== '',
           })}
           onClick={openOptions}
         >

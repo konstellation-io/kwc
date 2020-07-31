@@ -1,15 +1,15 @@
-import React, { Fragment, useEffect, useState } from "react";
-import moment, { Moment } from "moment";
+import React, { Fragment, useEffect, useState } from 'react';
+import moment, { Moment } from 'moment';
 
-import ArrowLeftIcon from "@material-ui/icons/ArrowBack";
-import ArrowRightIcon from "@material-ui/icons/ArrowForward";
-import CalendarTimeControls from "./components/CalendarTimeControls";
-import { DateRangePicker } from "react-dates";
-import { InputError } from "../InputError/InputError";
-import { InputLabel } from "../InputLabel/InputLabel";
-import { isInclusivelyBeforeDay } from "react-dates";
+import ArrowLeftIcon from '@material-ui/icons/ArrowBack';
+import ArrowRightIcon from '@material-ui/icons/ArrowForward';
+import CalendarTimeControls from './components/CalendarTimeControls';
+import { DateRangePicker } from 'react-dates';
+import { InputError } from '../InputError/InputError';
+import { InputLabel } from '../InputLabel/InputLabel';
+import { isInclusivelyBeforeDay } from 'react-dates';
 
-type TimeUnit = "day" | "week" | "month" | "year";
+type TimeUnit = 'day' | 'week' | 'month' | 'year';
 export type Range = {
   label: string;
   startDate: Moment;
@@ -24,8 +24,8 @@ type GenerateActRangeParams = {
 function generateRange({
   unit,
   date = moment(),
-  label = "",
-  prefix = "This",
+  label = '',
+  prefix = 'This',
 }: GenerateActRangeParams): Range {
   return {
     label: label || `${prefix} ${unit}`,
@@ -36,7 +36,7 @@ function generateRange({
 function generatePrevRange(unit: TimeUnit, label?: string): Range {
   return generateRange({
     date: moment().subtract(1, unit),
-    prefix: "Previous",
+    prefix: 'Previous',
     label,
     unit,
   });
@@ -45,28 +45,28 @@ function generatePrevRange(unit: TimeUnit, label?: string): Range {
 // Generate quick ranges for calendar extension
 function getRanges(): Range[] {
   return [
-    generateRange({ unit: "day", label: "Today" }),
-    generateRange({ unit: "week" }),
-    generateRange({ unit: "month" }),
-    generateRange({ unit: "year" }),
-    generatePrevRange("day", "Yesterday"),
-    generatePrevRange("week"),
-    generatePrevRange("month"),
-    generatePrevRange("year"),
+    generateRange({ unit: 'day', label: 'Today' }),
+    generateRange({ unit: 'week' }),
+    generateRange({ unit: 'month' }),
+    generateRange({ unit: 'year' }),
+    generatePrevRange('day', 'Yesterday'),
+    generatePrevRange('week'),
+    generatePrevRange('month'),
+    generatePrevRange('year'),
     {
-      label: "Last 2 days",
-      startDate: moment().subtract(1, "day").startOf("day"),
-      endDate: moment().endOf("day"),
+      label: 'Last 2 days',
+      startDate: moment().subtract(1, 'day').startOf('day'),
+      endDate: moment().endOf('day'),
     },
     {
-      label: "Last 6 months",
-      startDate: moment().subtract(6, "month").startOf("day"),
-      endDate: moment().endOf("month"),
+      label: 'Last 6 months',
+      startDate: moment().subtract(6, 'month').startOf('day'),
+      endDate: moment().endOf('month'),
     },
   ];
 }
 
-type DateKey = "startDate" | "endDate" | null;
+type DateKey = 'startDate' | 'endDate' | null;
 type Dates = {
   startDate: Moment | null;
   endDate: Moment | null;
@@ -86,8 +86,8 @@ export type CalendarProps = {
 };
 
 export function Calendar({
-  label = "",
-  error = "",
+  label = '',
+  error = '',
   hideError = false,
   formFromDate = null,
   formToDate = null,
@@ -101,7 +101,7 @@ export function Calendar({
   const [fromDate, setFromDate] = useState<Moment | null>(null);
   const [toDate, setToDate] = useState<Moment | null>(null);
   const [focusedInput, setFocusedInput] = useState<DateKey>(
-    autoFocus ? "startDate" : null
+    autoFocus ? 'startDate' : null
   );
 
   useEffect(() => {
@@ -124,14 +124,14 @@ export function Calendar({
 
   function getTimeUnits(date: Moment | null) {
     return {
-      hour: date?.get("hour"),
-      minute: date?.get("minute"),
-      second: date?.get("second"),
+      hour: date?.get('hour'),
+      minute: date?.get('minute'),
+      second: date?.get('second'),
     };
   }
 
   function initializeTime(date: Moment, isEnd = false) {
-    return isEnd ? date.endOf("day") : date.startOf("day");
+    return isEnd ? date.endOf('day') : date.startOf('day');
   }
 
   function preserveTime(newDate: Moment, previousDate: Moment) {
@@ -164,7 +164,7 @@ export function Calendar({
         endDateId="calendar_to_date"
         endDatePlaceholderText="To Date"
         onClose={onClose}
-        displayFormat={addTimeControls ? "MM/DD/YYYY HH:mm" : "MM/DD/YYYY"}
+        displayFormat={addTimeControls ? 'MM/DD/YYYY HH:mm' : 'MM/DD/YYYY'}
         onDatesChange={({
           startDate: newFromDate,
           endDate: newToDate,
@@ -175,7 +175,7 @@ export function Calendar({
           changeFromDate(newFromDatetime);
           changeToDate(newToDatetime);
 
-          setFocusedInput("startDate");
+          setFocusedInput('startDate');
         }}
         keepOpenOnDateSelect={addTimeControls}
         focusedInput={focusedInput}
@@ -187,14 +187,14 @@ export function Calendar({
         customArrowIcon={<ArrowRightIcon className="icon-small" />}
         navPrev={
           <div className="DayPickerNavigation_button DayPickerNavigation_button_1 DayPickerNavigation_button__default DayPickerNavigation_button__default_2 DayPickerNavigation_button__horizontal DayPickerNavigation_button__horizontal_3 DayPickerNavigation_button__horizontalDefault DayPickerNavigation_button__horizontalDefault_4 DayPickerNavigation_leftButton__horizontalDefault DayPickerNavigation_leftButton__horizontalDefault_5">
-            <ArrowLeftIcon className="icon-small" style={{ margin: "0 8px" }} />
+            <ArrowLeftIcon className="icon-small" style={{ margin: '0 8px' }} />
           </div>
         }
         navNext={
           <div className="DayPickerNavigation_button DayPickerNavigation_button_1 DayPickerNavigation_button__default DayPickerNavigation_button__default_2 DayPickerNavigation_button__horizontal DayPickerNavigation_button__horizontal_3 DayPickerNavigation_button__horizontalDefault DayPickerNavigation_button__horizontalDefault_4 DayPickerNavigation_rightButton__horizontalDefault DayPickerNavigation_rightButton__horizontalDefault_5">
             <ArrowRightIcon
               className="icon-small"
-              style={{ margin: "0 8px" }}
+              style={{ margin: '0 8px' }}
             />
           </div>
         }
@@ -210,7 +210,7 @@ export function Calendar({
               formToDate={toDate}
             />
           ) : (
-            <Fragment></Fragment>
+            <Fragment />
           )
         }
       />

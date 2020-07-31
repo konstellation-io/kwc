@@ -1,7 +1,7 @@
-import React, { FunctionComponent, ReactElement } from "react";
+import React, { FunctionComponent, ReactElement } from 'react';
 
-import cx from "classnames";
-import styles from "./HorizontalBar.module.scss";
+import cx from 'classnames';
+import styles from './HorizontalBar.module.scss';
 
 export type HorizontalBarProps = {
   children: ReactElement | ReactElement[];

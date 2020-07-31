@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./InfoMessage.module.scss";
+import React from 'react';
+import styles from './InfoMessage.module.scss';
 
 export type InfoMessageProps = {
   message: string;

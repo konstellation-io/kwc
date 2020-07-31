@@ -1,10 +1,10 @@
-import moment, { Moment } from "moment";
+import moment, { Moment } from 'moment';
 
 type Check = {
   valid: boolean;
   message: string;
 };
-const VALID = { valid: true, message: "" } as Check;
+const VALID = { valid: true, message: '' } as Check;
 function setInvalid(message: string) {
   return {
     message,
@@ -29,12 +29,12 @@ function getValidationError(validations: Check[]): string | boolean {
 
 function isDefined(value: any) {
   return [null, undefined].includes(value)
-    ? setInvalid("This field is mandatory")
+    ? setInvalid('This field is mandatory')
     : VALID;
 }
 
 function isFieldNotEmpty(value: string) {
-  return value !== "" ? VALID : setInvalid("This field cannot be empty");
+  return value !== '' ? VALID : setInvalid('This field cannot be empty');
 }
 
 function isLengthAllowed(value: string, maxLength: number) {
@@ -51,7 +51,7 @@ function isFieldAnInteger(value: string, positive: boolean = false) {
   return isValid
     ? VALID
     : setInvalid(
-        `Invalid type, field is not ${positive ? "a positive" : "an"} integer`
+        `Invalid type, field is not ${positive ? 'a positive' : 'an'} integer`
       );
 }
 
@@ -66,7 +66,7 @@ function isEmailValid(email: string) {
 
   return re.test(String(email).toLowerCase())
     ? VALID
-    : setInvalid("Invalid email address");
+    : setInvalid('Invalid email address');
 }
 
 function isDomainValid(value: string) {
@@ -74,7 +74,7 @@ function isDomainValid(value: string) {
     /^((?:(?:(?:\w[.\-+]?)*)\w)+)((?:(?:(?:\w[.\-+]?){0,62})\w)+)\.(\w{2,6})$/
   );
 
-  return re.test(value) ? VALID : setInvalid("Invalid domain format");
+  return re.test(value) ? VALID : setInvalid('Invalid domain format');
 }
 
 function isFieldNotInList(
@@ -97,10 +97,10 @@ function isFieldAMomentDate(value: Moment, optional: boolean = false) {
 function isItemDuplicated(
   newItem: string,
   items: string[],
-  itemName: string = "item"
+  itemName: string = 'item'
 ) {
   const valid = !items.includes(newItem);
-  const msg = valid ? "" : `Duplicated ${itemName}`;
+  const msg = valid ? '' : `Duplicated ${itemName}`;
   return { valid, message: msg };
 }
 

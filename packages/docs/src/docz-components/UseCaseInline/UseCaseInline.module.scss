@@ -1,0 +1,37 @@
+@import '~konstellation-web-components/src/styles/colors';
+@import '~konstellation-web-components/src/styles/variables';
+
+.container {
+  border-bottom: solid 1px palette(base, 400);
+  padding-bottom: 2 * $grid-unit;
+  margin-bottom: 2 * $grid-unit;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  padding: $grid-unit;
+
+  .title {
+    width: 15%;
+    flex-shrink: 0;
+  }
+
+  .compoment {
+    margin: 0 2 * $grid-unit;
+  }
+
+  pre {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.description {
+  margin-left: 4 * $grid-unit;
+  padding-left: $grid-unit;
+  color: font-color(lowlight);
+  font-size: 14px;
+  border-left: solid 3px palette(feedback);
+}

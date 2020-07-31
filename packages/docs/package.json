@@ -1,0 +1,38 @@
+{
+  "name": "konstellation-web-components-documentation",
+  "description": "Documentation for Konstellation Web Components",
+  "author": "konstellation-io",
+  "repository": "konstellation-io/kwc",
+  "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
+  "files": [
+    "src/",
+    "doczrc.js",
+    "package.json"
+  ],
+  "scripts": {
+    "dev": "docz dev",
+    "build": "docz build",
+    "serve": "docz serve"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "docz": "^2.3.1",
+    "react-dates": "^21.8.0",
+    "konstellation-web-components": "1.6.0",
+    "lodash": "^4.17.19"
+  },
+  "devDependencies": {
+    "@types/react-dates": "^17.1.13",
+    "gatsby": "^2.24.3",
+    "gatsby-plugin-sass": "^2.3.12",
+    "gatsby-theme-docz": "^2.3.1",
+    "node-sass": "^4.14.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "universal-console": "^0.1.3"
+  }
+}

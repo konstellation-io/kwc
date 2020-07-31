@@ -1,0 +1,113 @@
+---
+name: Select
+menu: Forms
+route: /Forms/Select
+---
+
+import { Playground, Props } from 'docz'
+import UseCaseInline from '../../docz-components/UseCaseInline/UseCaseInline';
+import PropEnum from '../../docz-components/PropEnum/PropEnum.tsx';
+import {Select, SelectTheme } from 'konstellation-web-components'
+import { SelectPropsComponent } from './MDXComponents.tsx';
+import StartIcon from '@material-ui/icons/SkipNext';
+
+# Select
+
+Select component implements select HTML component.
+
+## Props and enums
+
+### Enums
+<PropEnum of={[SelectTheme]} />
+
+### Props
+<Props of={SelectPropsComponent} />
+
+## Use Cases
+<UseCaseInline
+  title="Default"
+  Component={
+    <Select placeholder="Options" hideError options={['Option A', 'Option B', 'Option C']} />
+  }
+  code={<code>{'<Select placeholder="Options" options={["Option A", "Option B", "Option C"]} hideError />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="Transparent Theme"
+  Component={
+    <Select placeholder="Options" options={['Option A', 'Option B', 'Option C']} theme={SelectTheme.LIGHT} hideError />
+  }
+  code={<code>{'<Select placeholder="Options" options={["Option A", "Option B", "Option C"]} theme={SelectTheme.LIGHT} hideError />'}</code>}
+  description="Use this when the background is lowlight"
+/>
+<UseCaseInline
+  title="Disabled"
+  Component={
+    <Select placeholder="Options" options={['Option A', 'Option B', 'Option C']} disabled hideError />
+  }
+  code={<code>{'<Select placeholder="Options" options={["Option A", "Option B", "Option C"]} disabled hideError />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With label"
+  Component={
+    <Select placeholder="Options" options={['Option A', 'Option B', 'Option C']} label="Bulk actions" hideError />
+  }
+  code={<code>{'<Select placeholder="Options" options={["Option A", "Option B", "Option C"]} label="Bulk actions" hideError />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With error"
+  Component={
+    <Select placeholder="Options" options={['Option A', 'Option B', 'Option C']} error="Could not change" />
+  }
+  code={<code>{'<Select placeholder="Options" options={["Option A", "Option B", "Option C"]} error="Could not change" />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="Option selected"
+  Component={
+    <Select placeholder="Options" options={['Option A', 'Option B', 'Option C']} formSelectedOption="Option B" />
+  }
+  code={<code>{'<Select placeholder="Options" options={["Option A", "Option B", "Option C"]} formSelectedOption="Option B" />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="Values mapper"
+  Component={
+    <Select placeholder="Options" options={['a', 'b', 'c']} valuesMapper={{ a: "Value A", b: "Value B", c: "Value C" }} />
+  }
+  code={<code>{'<Select placeholder="Options" options={["a", "b", "c"]} valuesMapper={{ a: "Value A", b: "Value B", c: "Value C" }} />'}</code>}
+  description="Use this when you want to show different values that the real ones"
+/>
+<UseCaseInline
+  title="Custom and disabled options"
+  Component={
+    <Select placeholder="Options" options={['a', 'disabled', 'c']} disabledOptions={['disabled']} CustomOptions={{ a: () => <div><StartIcon /> with icon</div>}} />
+  }
+  code={<code>{'<Select placeholder="Options" options={["a", "disabled", "c"]} disabledOptions={["disabled"]} CustomOptions={{ a: () => <div><StartIcon /> with icon</div>}} />'}</code>}
+  description="Custom options allows you to insert options with special styles or structure"
+/>
+
+## Playground
+
+<Playground>
+  <Select
+    options={['a', 'disabled', 'c']}
+    onChange={() => alert('changed')}
+    label="playground"
+    error="Something went wrong"
+    whiteColor={false}
+    shouldSort={true}
+    disabled={false}
+    defaultOption='c'
+    placeholder="Options"
+    formSelectedOption='c'
+    valuesMapper={{}}
+    hideError={false}
+    theme={SelectTheme.DEFAULT}
+    disabledOptions={['disabled']}
+    CustomOptions={{ a: () => <div><StartIcon /> with icon</div>}}
+    showSelectAllOption={false}
+  />
+</Playground>

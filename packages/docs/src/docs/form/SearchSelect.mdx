@@ -1,0 +1,89 @@
+---
+name: SearchSelect
+menu: Forms
+route: /Forms/SearchSelect
+---
+
+import { Playground, Props } from 'docz'
+import UseCaseInline from '../../docz-components/UseCaseInline/UseCaseInline';
+import PropEnum from '../../docz-components/PropEnum/PropEnum.tsx';
+import { SearchSelect } from 'konstellation-web-components'
+import { SearchSelectPropsComponent } from './MDXComponents.tsx';
+import StartIcon from '@material-ui/icons/SkipNext';
+
+# SearchSelect
+
+SearchSelect component implements search HTML component with predictive search.
+
+## Props
+<Props of={SearchSelectPropsComponent} />
+
+## Use Cases
+<UseCaseInline
+  title="Default"
+  Component={
+    <SearchSelect placeholder="Options" hideError options={['Option A', 'Option B', 'Option C']} />
+  }
+  code={<code>{'<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} hideError />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With label"
+  Component={
+    <SearchSelect placeholder="Options" options={['Option A', 'Option B', 'Option C']} label="Bulk actions" hideError />
+  }
+  code={<code>{'<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} label="Bulk actions" hideError />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With error"
+  Component={
+    <SearchSelect placeholder="Options" options={['Option A', 'Option B', 'Option C']} error="Could not change" />
+  }
+  code={<code>{'<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} error="Could not change" />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="With label hidden"
+  Component={
+    <SearchSelect placeholder="Options" options={['Option A', 'Option B', 'Option C']} hideLabel />
+  }
+  code={<code>{'<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} hideLabel />'}</code>}
+  description="Used to animate label (hidden when placeholder is visible)"
+/>
+<UseCaseInline
+  title="With search icon"
+  Component={
+    <SearchSelect placeholder="Options" options={['Option A', 'Option B', 'Option C']} showSearchIcon />
+  }
+  code={<code>{'<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} showSearchIcon />'}</code>}
+  description="Used to animate label (hidden when placeholder is visible)"
+/>
+<UseCaseInline
+  title="With clear button"
+  Component={
+    <SearchSelect placeholder="Options" value="Option" options={['Option A', 'Option B', 'Option C']} showClear />
+  }
+  code={<code>{'<SearchSelect placeholder="Options" value="Option" options={["Option A", "Option B", "Option C"]} showClear />'}</code>}
+  description="Used to animate label (hidden when placeholder is visible)"
+/>
+
+## Playground
+
+<Playground>
+  <SearchSelect
+    options={['Option A', 'Option B', 'Option C']}
+    onChange={() => {}}
+    onEnter={() => alert('Enter')}
+    value=""
+    placeholder="Options"
+    label="SEARCH SELECT"
+    error=""
+    name="seach"
+    inputRef={null}
+    hideError={false}
+    hideLabel={false}
+    showSearchIcon={true}
+    showClear={true}
+  />
+</Playground>

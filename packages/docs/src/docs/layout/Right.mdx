@@ -1,0 +1,26 @@
+---
+name: Right
+route: /Components/Layout/Right
+menu: Layout
+---
+
+import { Playground, Props } from 'docz'
+import {Right} from 'konstellation-web-components'
+import { RightPropsComponent } from './MDXComponents.tsx';
+
+# Right
+
+Right component makes the content wrapper inside to be located at the right side of an horizontal layout.
+
+## Props
+<Props of={RightPropsComponent} />
+
+## Playground
+
+<Playground>
+  <div style={{display: 'flex', width: '100px'}}>
+    <div>A</div>
+    <div>B</div>
+    <Right><div>C</div></Right>
+  </div>
+</Playground>

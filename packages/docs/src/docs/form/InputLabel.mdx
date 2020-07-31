@@ -1,0 +1,45 @@
+---
+name: InputLabel
+menu: Forms
+route: /Forms/InputLabel
+---
+
+import { Playground, Props } from 'docz'
+import UseCaseInline from '../../docz-components/UseCaseInline/UseCaseInline';
+import {InputLabel} from 'konstellation-web-components'
+import { InputLabelPropsComponent } from './MDXComponents.tsx';
+
+# InputLabel
+
+InputLabel inserts a label on top of a form element component.
+
+> ```hidden``` property is used to toggle visibility with animations. For instance you may
+want to hide the label of an input when there is a placeholder and show the label when the input
+has some value.
+
+## Props
+<Props of={InputLabelPropsComponent} />
+
+## Use Cases
+<UseCaseInline
+  title="Default"
+  Component={
+    <div style={{ width: '100px' }}><InputLabel text="Some input" /></div>
+  }
+  code={<code>{'<InputLabel text="Some input" />'}</code>}
+  description=""
+/>
+<UseCaseInline
+  title="Hidden"
+  Component={
+    <div style={{ width: '100px' }}><InputLabel text="Some input" hidden /></div>
+  }
+  code={<code>{'<InputLabel text="Some input" hidden />'}</code>}
+  description=""
+/>
+
+## Playground
+
+<Playground>
+  <InputLabel text="Some input" hidden={false} />
+</Playground>

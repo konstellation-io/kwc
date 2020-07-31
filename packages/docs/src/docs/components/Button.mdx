@@ -1,0 +1,98 @@
+---
+name: Button
+menu: Components
+route: /Components/Button
+---
+
+import { Playground, Props } from 'docz'
+import PropEnum from '../../docz-components/PropEnum/PropEnum';
+import UseCaseInline from '../../docz-components/UseCaseInline/UseCaseInline';
+import IconClose from '@material-ui/icons/Close';
+import {Button, BUTTON_THEMES, BUTTON_ALIGN} from 'konstellation-web-components'
+import { ButtonPropsComponent } from './MDXComponents.tsx';
+
+# Button
+
+Button component allows the user to take actions or redirect to another view.
+
+When a button is used as a link it will be automatically wrapped in a `link` HTML element.
+
+## Props and enumerations
+#### Enums
+<PropEnum of={[BUTTON_THEMES, BUTTON_ALIGN]} />
+
+#### Props
+<Props of={ButtonPropsComponent} />
+
+## Use Cases
+<UseCaseInline
+  title="Default"
+  Component={
+    <Button label="CLICK ME" onClick={() => alert('clicked')}/>
+  }
+  code={<code>{'<Button label="CLICK ME"/>'}</code>}
+  description="Links use `default` style"
+/>
+
+<UseCaseInline
+  title="Primary"
+  Component={
+    <Button label="CLICK ME" primary onClick={() => alert('clicked')}/>
+  }
+  code={<code>{'<Button label="CLICK ME" primary />'}</code>}
+/>
+
+<UseCaseInline
+  title="Border"
+  Component={
+    <Button label="CLICK ME" border onClick={() => alert('clicked')}/>
+  }
+  code={<code>{'<Button label="CLICK ME" border />'}</code>}
+/>
+
+<UseCaseInline
+  title="Warning"
+  Component={
+    <Button label="CLICK ME" theme={BUTTON_THEMES.WARN} primary onClick={() => alert('clicked')}/>
+  }
+  code={<code>{'<Button label="CLICK ME" theme={BUTTON_THEMES.WARN} primary />'}</code>}
+/>
+
+<UseCaseInline
+  title="Warning (timer)"
+  Component={
+    <Button label="CLICK ME" timeToEnable={99} theme={BUTTON_THEMES.WARN} primary onClick={() => alert('clicked')}/>
+  }
+  code={<code>{'<Button label="CLICK ME" theme={BUTTON_THEMES.WARN} timeToEnable={99} primary />'}</code>}
+  description="Use this to force users to read important information"
+/>
+
+<UseCaseInline
+  title="Warning (border)"
+  Component={
+    <Button label="CLICK ME" theme={BUTTON_THEMES.WARN} border onClick={() => alert('clicked')}/>
+  }
+  code={<code>{'<Button label="CLICK ME" theme={BUTTON_THEMES.WARN} border />'}</code>}
+/>
+
+## Playground
+
+<Playground>
+  <Button
+    label="CLICK ME"
+    theme={BUTTON_THEMES.DEFAULT}
+    title="Some text"
+    onClick={() => alert('clicked')}
+    primary={true}
+    border={false}
+    disabled={false}
+    loading={false}
+    height={30}
+    align={BUTTON_ALIGN.MIDDLE}
+    tabIndex={0}
+    autofocus={false}
+    Icon={IconClose}
+    iconSize="icon-small"
+    to=""
+  />
+</Playground>

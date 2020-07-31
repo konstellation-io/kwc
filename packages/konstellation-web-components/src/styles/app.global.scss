@@ -1,17 +1,19 @@
-@import './colors';
+@import "./colors";
 
 /*
  * @NOTE: Prepend a `~` to css file paths that are in your node_modules
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
 @import-normalize;
-@import '~typeface-montserrat/index.css';
-@import '~typeface-roboto-mono/index.css';
+@import "~typeface-montserrat/index.css";
+@import "~typeface-roboto-mono/index.css";
 
-@import './variables';
-@import './mixins';
-@import './colors';
-@import './icon-sizes';
+@import "./variables";
+@import "./mixins";
+@import "./colors";
+@import "./icon-sizes";
+@import "~react-dates/lib/css/_datepicker.css";
+@import "./react-calendar.scss";
 
 html,
 body,

@@ -1,7 +1,4 @@
-import "react-dates/lib/css/_datepicker.css";
-import "react-dates/initialize";
 import "konstellation-web-components/src/styles/icon-sizes.scss";
-import "konstellation-web-components/src/styles/react-calendar.scss";
 import "konstellation-web-components/src/styles/docz.global.scss";
 
 import * as colors from "./dark-theme-colors";

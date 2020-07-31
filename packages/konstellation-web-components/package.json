@@ -24,7 +24,8 @@
     "test:watch": "react-scripts test --env=jsdom",
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build",
-    "prettier": "prettier --write --single-quote \"src/**/*.(ts|tsx)\""
+    "prettier": "prettier --write --single-quote \"src/**/*.(ts|tsx)\"",
+    "postversion": "git push && git push --tags"
   },
   "peerDependencies": {
     "react": "^16.0.0",

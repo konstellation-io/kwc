@@ -1,13 +1,14 @@
-import "konstellation-web-components/src/styles/icon-sizes.scss";
-import "konstellation-web-components/src/styles/docz.global.scss";
+import 'react-dates/initialize';
+import 'konstellation-web-components/src/styles/icon-sizes.scss';
+import 'konstellation-web-components/src/styles/docz.global.scss';
 
-import * as colors from "./dark-theme-colors";
+import * as colors from './dark-theme-colors';
 
-import baseTheme from "gatsby-theme-docz/src/theme/index";
-import { merge } from "lodash/fp";
+import baseTheme from 'gatsby-theme-docz/src/theme/index';
+import { merge } from 'lodash/fp';
 
 export default merge(baseTheme, {
-  initialColorMode: "dark",
+  initialColorMode: 'dark',
   fontSizes: [12, 14, 15, 16, 20, 24, 32, 48],
   colors: {
     modes: {

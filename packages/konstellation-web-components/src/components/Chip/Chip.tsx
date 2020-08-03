@@ -5,7 +5,6 @@ import styles from './Chip.module.scss';
 
 export type ChipProps = {
   label: string;
-  /** Text shown on chip hover as HTML title */
   title?: string;
   onClose?: (event: MouseEvent<HTMLDivElement>) => void;
 };

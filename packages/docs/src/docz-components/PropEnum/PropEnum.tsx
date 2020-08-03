@@ -1,22 +1,29 @@
-import React from 'react'
-import styles from './PropEnum.module.scss'
+import React from 'react';
+import styles from './PropEnum.module.scss';
+
+type EnumEl = {
+  name: string;
+  value: any;
+};
+
+// TODO: Check if var name can be extracted when project is built
 
 type Props = {
-  of: any
-}
+  of: EnumEl[];
+};
 function PropEnum({ of }: Props) {
   return (
     <div className={styles.container}>
       {of.map((enumEl) => (
-        <div className={styles.propEnum}>
-          <span className={styles.enum}>{enumEl.__filemeta.name}</span>
+        <div className={styles.propEnum} key={enumEl.name}>
+          <span className={styles.enum}>{enumEl.name}</span>
           <span className={styles.values}>
-            {Object.keys(enumEl).join(' | ')}
+            {Object.keys(enumEl.value).join(' | ')}
           </span>
         </div>
       ))}
     </div>
-  )
+  );
 }
 
-export default PropEnum
+export default PropEnum;

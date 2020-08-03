@@ -1,7 +1,7 @@
-import { Lottie } from "../../Lottie/Lottie";
-import React from "react";
-import animationData from "./animation-data.json";
-import styles from "./SpinnerCircular.module.scss";
+import { Lottie } from '../../Lottie/Lottie';
+import React from 'react';
+import animationData from './animation-data.json';
+import styles from './SpinnerCircular.module.scss';
 
 export type SpinnerCircularProps = {
   size?: number;

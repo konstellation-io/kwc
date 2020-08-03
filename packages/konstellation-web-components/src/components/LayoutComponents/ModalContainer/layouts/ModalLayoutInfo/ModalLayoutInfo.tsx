@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import cx from "classnames";
-import styles from "./ModalLayoutInfo.module.scss";
+import cx from 'classnames';
+import styles from './ModalLayoutInfo.module.scss';
 
 export type ModalLayoutInfoProps = {
   children: string | JSX.Element;
@@ -9,7 +9,7 @@ export type ModalLayoutInfoProps = {
 };
 export const ModalLayoutInfo: FC<ModalLayoutInfoProps> = ({
   children,
-  className = "",
+  className = '',
 }) => (
   <div className={cx(className, styles.message)} data-testid="modal-message">
     {children}

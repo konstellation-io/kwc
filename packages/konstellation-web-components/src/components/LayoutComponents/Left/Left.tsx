@@ -1,7 +1,7 @@
-import React, { FunctionComponent, ReactElement } from "react";
+import React, { FunctionComponent, ReactElement } from 'react';
 
-import cx from "classnames";
-import styles from "./Left.module.scss";
+import cx from 'classnames';
+import styles from './Left.module.scss';
 
 export type LeftProps = {
   children: ReactElement | ReactElement[];

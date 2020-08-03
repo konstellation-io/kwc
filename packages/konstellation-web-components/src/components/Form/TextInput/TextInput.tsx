@@ -7,23 +7,23 @@ import React, {
   useEffect,
   useRef,
   useState,
-} from "react";
+} from 'react';
 
-import IconHide from "@material-ui/icons/RemoveRedEyeOutlined";
-import IconShow from "@material-ui/icons/RemoveRedEye";
-import { InputError } from "../InputError/InputError";
-import { InputHelp } from "../InputHelp/InputHelp";
-import { InputInfo } from "../InputInfo/InputInfo";
-import { InputLabel } from "../InputLabel/InputLabel";
-import cx from "classnames";
-import styles from "./TextInput.module.scss";
+import IconHide from '@material-ui/icons/RemoveRedEyeOutlined';
+import IconShow from '@material-ui/icons/RemoveRedEye';
+import { InputError } from '../InputError/InputError';
+import { InputHelp } from '../InputHelp/InputHelp';
+import { InputInfo } from '../InputInfo/InputInfo';
+import { InputLabel } from '../InputLabel/InputLabel';
+import cx from 'classnames';
+import styles from './TextInput.module.scss';
 
 const KEY_ENTER = 13;
 
 export enum InputType {
-  TEXT = "text",
-  NUMBER = "number",
-  PASSWORD = "password",
+  TEXT = 'text',
+  NUMBER = 'number',
+  PASSWORD = 'password',
 }
 
 export type TextInputProps = {
@@ -60,24 +60,24 @@ export function TextInput({
   onEnterKeyPress = function () {},
   onChange = function () {},
   onBlur = function () {},
-  placeholder = "",
-  label = "",
+  placeholder = '',
+  label = '',
   textArea = false,
   height = 40,
   lockHorizontalGrowth = false,
   limits = {},
-  error = "",
-  helpText = "",
+  error = '',
+  helpText = '',
   showClearButton = false,
   whiteColor = false,
   type = InputType.TEXT,
-  formValue = "",
-  customClassname = "",
+  formValue = '',
+  customClassname = '',
   hidden = false,
   autoFocus = false,
   maxLength,
   additionalInputProps = {},
-  infoMessage = "",
+  infoMessage = '',
   disabled = false,
 }: TextInputProps) {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -125,7 +125,7 @@ export function TextInput({
   const inputProps = {
     ...additionalInputProps,
     className: cx(styles.input, {
-      [styles.error]: error !== "",
+      [styles.error]: error !== '',
       [styles.lockHorizontalGrowth]: lockHorizontalGrowth,
     }),
     value: value,
@@ -155,10 +155,10 @@ export function TextInput({
         autoFocus={autoFocus}
       />
     );
-  const cleanButton = showClearButton && value !== "" && (
+  const cleanButton = showClearButton && value !== '' && (
     <div
       className={styles.clearButton}
-      onClick={() => updateValue("")}
+      onClick={() => updateValue('')}
       data-testid="clear-button"
     >
       x
@@ -168,7 +168,7 @@ export function TextInput({
   const showEyeButton = hidden && (
     <div
       className={cx(styles.eyeButton, {
-        [styles.showClearButton]: showClearButton && value !== "",
+        [styles.showClearButton]: showClearButton && value !== '',
       })}
       onClick={toggleVisibility}
     >

@@ -1,12 +1,12 @@
-import { Check } from '../Check/Check'
-import React from 'react'
-import styles from './GroupSelect.module.scss'
+import { Check } from '../Check/Check';
+import React from 'react';
+import styles from './GroupSelect.module.scss';
 
 type Props = {
-  label: string
-  selected: boolean
-  onChange: (label: string, add: boolean) => void
-}
+  label: string;
+  selected: boolean;
+  onChange: (label: string, add: boolean) => void;
+};
 
 function GroupElement({ label, selected, onChange }: Props) {
   return (
@@ -17,7 +17,7 @@ function GroupElement({ label, selected, onChange }: Props) {
       />
       <div className={styles.label}>{label}</div>
     </div>
-  )
+  );
 }
 
-export default GroupElement
+export default GroupElement;

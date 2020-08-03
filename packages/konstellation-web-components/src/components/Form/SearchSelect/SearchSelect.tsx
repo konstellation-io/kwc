@@ -4,15 +4,15 @@ import React, {
   useEffect,
   useRef,
   useState,
-} from "react";
+} from 'react';
 
-import ClearIcon from "@material-ui/icons/Close";
-import { InputError } from "../InputError/InputError";
-import { InputLabel } from "../InputLabel/InputLabel";
-import SearchIcon from "@material-ui/icons/Search";
-import cx from "classnames";
-import styles from "./SearchSelect.module.scss";
-import useClickOutside from "../../../hooks/useClickOutside";
+import ClearIcon from '@material-ui/icons/Close';
+import { InputError } from '../InputError/InputError';
+import { InputLabel } from '../InputLabel/InputLabel';
+import SearchIcon from '@material-ui/icons/Search';
+import cx from 'classnames';
+import styles from './SearchSelect.module.scss';
+import useClickOutside from '../../../hooks/useClickOutside';
 
 export const ARROW_UP_KEY_CODE = 38;
 export const ARROW_DOWN_KEY_CODE = 40;
@@ -39,20 +39,20 @@ export function SearchSelect({
   options,
   onChange = () => {},
   onEnter = () => {},
-  value = "",
-  placeholder = "",
-  label = "",
-  error = "",
-  name = "searchSelect",
+  value = '',
+  placeholder = '',
+  label = '',
+  error = '',
+  name = 'searchSelect',
   inputRef = null,
   hideError = false,
   hideLabel = false,
   showSearchIcon = false,
   showClear = false,
-  className = "",
+  className = '',
 }: SearchSelectProps) {
   const [filteredOptions, setFilteredOptions] = useState<string[]>([]);
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState('');
   const [highlightedOption, setHighlightedOption] = useState<number>(-1);
 
   const optionsRef = useRef<HTMLInputElement>(null);
@@ -93,7 +93,7 @@ export function SearchSelect({
     setFilteredOptions([]);
     setHighlightedOption(-1);
     if (optionsRef.current) {
-      const input = optionsRef.current.querySelector("input");
+      const input = optionsRef.current.querySelector('input');
       if (input) {
         input.focus();
       }
@@ -103,18 +103,18 @@ export function SearchSelect({
   function handleKeyDown(e: KeyboardEvent<HTMLInputElement>) {
     if (e.keyCode === ARROW_DOWN_KEY_CODE) {
       e.preventDefault();
-      const value =
+      const newValue =
         highlightedOption + 1 > filteredOptions.length - 1
           ? 0
           : highlightedOption + 1;
-      setHighlightedOption(value);
+      setHighlightedOption(newValue);
     } else if (e.keyCode === ARROW_UP_KEY_CODE) {
       e.preventDefault();
-      const value =
+      const newValue =
         highlightedOption - 1 < 0
           ? filteredOptions.length - 1
           : highlightedOption - 1;
-      setHighlightedOption(value);
+      setHighlightedOption(newValue);
     } else if (e.keyCode === ENTER_KEY_CODE) {
       const option =
         highlightedOption === -1
@@ -128,7 +128,7 @@ export function SearchSelect({
   }
 
   useEffect(() => {
-    setSelectedOption(value || "");
+    setSelectedOption(value || '');
   }, [value]);
 
   return (
@@ -156,7 +156,7 @@ export function SearchSelect({
         className={cx(styles.clear, {
           [styles.show]: showClear && selectedOption,
         })}
-        onClick={() => handleSelectOption("")}
+        onClick={() => handleSelectOption('')}
         title="Clear input"
       >
         <ClearIcon className="icon-small" />

@@ -1,32 +1,32 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect } from 'react';
 
-import { createPortal } from 'react-dom'
+import { createPortal } from 'react-dom';
 
-const documentExists = typeof document !== 'undefined'
+const documentExists = typeof document !== 'undefined';
 
 let contextualMenuDiv = documentExists
   ? document.getElementById('contextual-menu')
-  : null
+  : null;
 
 const ContextualMenuModal: FC = ({ children }) => {
-  const modal = documentExists ? document.createElement('div') : null
+  const modal = documentExists ? document.createElement('div') : null;
 
   useEffect(() => {
     if (!contextualMenuDiv) {
       contextualMenuDiv = document.body.appendChild(
         document.createElement('div')
-      )
-      contextualMenuDiv.setAttribute('id', 'contextual-menu')
+      );
+      contextualMenuDiv.setAttribute('id', 'contextual-menu');
     }
 
-    if (modal) contextualMenuDiv?.appendChild(modal)
+    if (modal && contextualMenuDiv) contextualMenuDiv.appendChild(modal);
 
     return () => {
-      if (modal) contextualMenuDiv?.removeChild(modal)
-    }
-  }, [modal])
+      if (modal && contextualMenuDiv) contextualMenuDiv.removeChild(modal);
+    };
+  }, [modal]);
 
-  return modal ? createPortal(children, modal) : null
-}
+  return modal ? createPortal(children, modal) : null;
+};
 
-export default ContextualMenuModal
+export default ContextualMenuModal;

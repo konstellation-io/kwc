@@ -1,18 +1,18 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState } from 'react';
 
-import { InputError } from "../InputError/InputError";
-import { InputLabel } from "../InputLabel/InputLabel";
-import Option from "./Option";
-import cx from "classnames";
-import styles from "./MultiSelect.module.scss";
-import useClickOutside from "../../../hooks/useClickOutside";
+import { InputError } from '../InputError/InputError';
+import { InputLabel } from '../InputLabel/InputLabel';
+import Option from './Option';
+import cx from 'classnames';
+import styles from './MultiSelect.module.scss';
+import useClickOutside from '../../../hooks/useClickOutside';
 
 const MAX_HEIGHT = 400;
 const OPTION_HEIGHT = 45;
 
 export enum MultiSelectTheme {
-  DEFAULT = "default",
-  LIGHT = "light",
+  DEFAULT = 'default',
+  LIGHT = 'light',
 }
 
 export type MultiSelectOption<T> = {
@@ -40,15 +40,15 @@ export type MultiSelectProps<T> = {
 export function MultiSelect<T>({
   options,
   onChange = function () {},
-  label = "",
-  error = "",
-  placeholder = "",
-  selectAllText = "",
+  label = '',
+  error = '',
+  placeholder = '',
+  selectAllText = '',
   formSelectedOptions = [],
   hideError = false,
-  className = "",
+  className = '',
   theme = MultiSelectTheme.DEFAULT,
-  selectionUnit = "",
+  selectionUnit = '',
   iconAtStart = false,
   customLabels,
 }: MultiSelectProps<T>) {
@@ -91,22 +91,22 @@ export function MultiSelect<T>({
     onChange([]);
   }
 
-  const optionList = options.map(({ label, Icon }) => (
+  const optionList = options.map(({ label: lab, Icon }) => (
     <Option<T>
-      key={`${label}`}
-      label={label}
-      selected={formSelectedOptions.includes(label)}
+      key={`${lab}`}
+      label={lab}
+      selected={formSelectedOptions.includes(lab)}
       onChange={onOptionChange}
       Icon={Icon}
       iconAtStart={iconAtStart}
-      customLabel={customLabels && customLabels.get(label)}
+      customLabel={customLabels && customLabels.get(lab)}
     />
   ));
 
-  if (selectAllText !== "")
+  if (selectAllText !== '')
     optionList.push(
       <div
-        key={"select_all_row"}
+        key="select_all_row"
         className={cx(styles.selectAll, {
           [styles.selected]: formSelectedOptions.length === 0,
         })}
@@ -125,7 +125,7 @@ export function MultiSelect<T>({
   const placeholderText =
     nSelections === 0
       ? placeholder
-      : `${nSelections} ${selectionUnit}${nSelections > 1 ? "S" : ""}`;
+      : `${nSelections} ${selectionUnit}${nSelections > 1 ? 'S' : ''}`;
 
   return (
     <div className={cx(className, styles[theme], styles.container)}>
@@ -133,9 +133,9 @@ export function MultiSelect<T>({
       <div className={styles.inputContainer}>
         <div
           className={cx(styles.input, {
-            [styles.error]: error !== "",
+            [styles.error]: error !== '',
             [styles.opened]: optionsOpened,
-            [styles.placeholder]: placeholder !== "",
+            [styles.placeholder]: placeholder !== '',
           })}
           onClick={openOptions}
         >

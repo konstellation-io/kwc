@@ -1,16 +1,16 @@
-import { Check } from '../Check/Check'
-import React from 'react'
-import cx from 'classnames'
-import styles from './MultiSelect.module.scss'
+import { Check } from '../Check/Check';
+import React from 'react';
+import cx from 'classnames';
+import styles from './MultiSelect.module.scss';
 
 type Props<T> = {
-  label: T
-  Icon?: JSX.Element
-  selected: boolean
-  onChange: (label: T, checked: boolean) => void
-  iconAtStart: boolean
-  customLabel?: JSX.Element
-}
+  label: T;
+  Icon?: JSX.Element;
+  selected: boolean;
+  onChange: (label: T, checked: boolean) => void;
+  iconAtStart: boolean;
+  customLabel?: JSX.Element;
+};
 
 function Option<T>({
   label,
@@ -18,7 +18,7 @@ function Option<T>({
   selected,
   onChange,
   iconAtStart,
-  customLabel
+  customLabel,
 }: Props<T>) {
   return (
     <div className={cx(styles.optionContainer)}>
@@ -28,14 +28,14 @@ function Option<T>({
       />
       <div
         className={cx(styles.body, {
-          [styles.reverse]: iconAtStart
+          [styles.reverse]: iconAtStart,
         })}
       >
         <div className={styles.label}>{customLabel || label}</div>
         <div className={styles.icon}>{Icon}</div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Option
+export default Option;

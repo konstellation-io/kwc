@@ -1,9 +1,9 @@
-import { BUTTON_THEMES, Button } from "../../Button/Button";
-import React, { Fragment, FunctionComponent, MouseEvent } from "react";
+import { BUTTON_THEMES, Button } from '../../Button/Button';
+import React, { Fragment, FunctionComponent, MouseEvent } from 'react';
 
-import { HorizontalBar } from "../HorizontalBar/HorizontalBar";
-import cx from "classnames";
-import styles from "./ModalContainer.module.scss";
+import { HorizontalBar } from '../HorizontalBar/HorizontalBar';
+import cx from 'classnames';
+import styles from './ModalContainer.module.scss';
 
 export type ModalContainerProps = {
   title: string;
@@ -24,20 +24,20 @@ export type ModalContainerProps = {
 export const ModalContainer: FunctionComponent<ModalContainerProps> = ({
   children,
   title,
-  actionButtonLabel = "ACCEPT",
-  to = "",
+  actionButtonLabel = 'ACCEPT',
+  to = '',
   blocking = false,
   warning = false,
   onAccept = function () {},
   onCancel = function () {},
-  className = "",
+  className = '',
   autofocusOnAccept = false,
   confirmationTimer,
 }) => {
   return (
     <Fragment>
       {blocking && <div className={styles.bg} />}
-      <div className={cx(className, styles.container, "modal", {})}>
+      <div className={cx(className, styles.container, 'modal', {})}>
         <div className={styles.title}>{title}</div>
         <div className={styles.content}>{children}</div>
         <div className={styles.footer}>
@@ -54,7 +54,7 @@ export const ModalContainer: FunctionComponent<ModalContainerProps> = ({
               timeToEnable={confirmationTimer}
             />
             <Button
-              label={"CANCEL"}
+              label="CANCEL"
               onClick={onCancel}
               height={30}
               tabIndex={0}

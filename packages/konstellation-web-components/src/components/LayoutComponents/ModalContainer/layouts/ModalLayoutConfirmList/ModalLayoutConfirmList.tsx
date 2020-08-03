@@ -1,6 +1,6 @@
-import React, { FC, Fragment } from "react";
+import React, { FC, Fragment } from 'react';
 
-import styles from "./ModalLayoutConfirmList.module.scss";
+import styles from './ModalLayoutConfirmList.module.scss';
 
 export type ModalLayoutConfirmListProps = {
   children: JSX.Element[];

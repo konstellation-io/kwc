@@ -5,23 +5,23 @@ import React, {
   useEffect,
   useRef,
   useState,
-} from "react";
+} from 'react';
 
-import { Link } from "react-router-dom";
-import { SpinnerLinear } from "../LoadingComponents/SpinnerLinear/SpinnerLinear";
-import { SvgIconProps } from "@material-ui/core/SvgIcon";
-import cx from "classnames";
-import styles from "./Button.module.scss";
+import { Link } from 'react-router-dom';
+import { SpinnerLinear } from '../LoadingComponents/SpinnerLinear/SpinnerLinear';
+import { SvgIconProps } from '@material-ui/core/SvgIcon';
+import cx from 'classnames';
+import styles from './Button.module.scss';
 
 export enum BUTTON_THEMES {
-  "DEFAULT" = "default",
-  "TRANSPARENT" = "transparent",
-  "WARN" = "warn",
+  'DEFAULT' = 'default',
+  'TRANSPARENT' = 'transparent',
+  'WARN' = 'warn',
 }
 export enum BUTTON_ALIGN {
-  "LEFT" = "left",
-  "MIDDLE" = "middle",
-  "RIGHT" = "right",
+  'LEFT' = 'left',
+  'MIDDLE' = 'middle',
+  'RIGHT' = 'right',
 }
 
 export type ButtonProps = {
@@ -30,7 +30,7 @@ export type ButtonProps = {
   theme?: BUTTON_THEMES;
   border?: boolean;
   Icon?: FunctionComponent<SvgIconProps>;
-  iconSize?: "icon-regular" | "icon-small" | "icon-big";
+  iconSize?: 'icon-regular' | 'icon-small' | 'icon-big';
   to?: string;
   onClick?: Function;
   /** Sets button style as primary */
@@ -49,11 +49,11 @@ export type ButtonProps = {
 export function Button({
   theme = BUTTON_THEMES.DEFAULT,
   border = false,
-  label = "Button",
-  title = "",
+  label = 'Button',
+  title = '',
   Icon = undefined,
-  iconSize = "icon-small",
-  to = "",
+  iconSize = 'icon-small',
+  to = '',
   onClick = function () {},
   primary = false,
   disabled = false,
@@ -61,7 +61,7 @@ export function Button({
   height = 40,
   align = BUTTON_ALIGN.MIDDLE,
   style = {},
-  className = "",
+  className = '',
   autofocus = false,
   tabIndex = -1,
   timeToEnable = 0,
@@ -95,12 +95,12 @@ export function Button({
   ) : (
     <Fragment>
       {Icon && <Icon className={iconSize} />}
-      <span>{`${remainingTimeTxt || ""}${label}`}</span>
+      <span>{`${remainingTimeTxt || ''}${label}`}</span>
     </Fragment>
   );
 
   function handleKeyPress(e: KeyboardEvent<HTMLDivElement>) {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       onClick();
     }
   }
@@ -114,7 +114,7 @@ export function Button({
         [styles.border]: border,
         [styles.label]: !primary,
         [styles.disabled]: disabled || timerRemainingTime,
-        [styles.noLabel]: label === "",
+        [styles.noLabel]: label === '',
         [styles.notFocussable]: tabIndex === -1,
       })}
       style={{ ...style, height, lineHeight: `${height}px` }}
@@ -128,11 +128,11 @@ export function Button({
     </div>
   );
 
-  let linkButton = to ? (
+  const linkButton = to ? (
     <Link to={to} data-testid="buttonLink">
       {btn}
     </Link>
   ) : null;
 
-  return !disabled && to !== "" ? linkButton : btn;
+  return !disabled && to !== '' ? linkButton : btn;
 }

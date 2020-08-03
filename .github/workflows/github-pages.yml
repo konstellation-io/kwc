@@ -1,7 +1,12 @@
-name: "Deploy to GitHub Pages"
-on: push
+name: 'Deploy to GitHub Pages'
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'packages/docs/**'
 jobs:
-  build-and-deploy:
+  publish-gh-pages:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

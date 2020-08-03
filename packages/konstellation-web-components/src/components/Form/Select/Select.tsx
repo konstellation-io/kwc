@@ -1,17 +1,17 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from 'react';
 
-import { InputError } from "../InputError/InputError";
-import { InputLabel } from "../InputLabel/InputLabel";
-import cx from "classnames";
-import { get } from "lodash";
-import styles from "./Select.module.scss";
-import useClickOutside from "../../../hooks/useClickOutside";
+import { InputError } from '../InputError/InputError';
+import { InputLabel } from '../InputLabel/InputLabel';
+import cx from 'classnames';
+import { get } from 'lodash';
+import styles from './Select.module.scss';
+import useClickOutside from '../../../hooks/useClickOutside';
 
 const MAX_HEIGHT = 240;
 
 export enum SelectTheme {
-  DEFAULT = "default",
-  LIGHT = "light",
+  DEFAULT = 'default',
+  LIGHT = 'light',
 }
 
 export type CustomOptionProps = {
@@ -43,19 +43,19 @@ export type SelectProps = {
 export function Select({
   options,
   onChange = function () {},
-  label = "",
+  label = '',
   height = 40,
-  error = "",
+  error = '',
   whiteColor = false,
   shouldSort = true,
   disabled = false,
   defaultOption,
-  placeholder = "",
+  placeholder = '',
   formSelectedOption,
   valuesMapper = {},
-  selectMainClass = "",
+  selectMainClass = '',
   hideError = false,
-  className = "",
+  className = '',
   theme = SelectTheme.DEFAULT,
   CustomOptions = {},
   disabledOptions = [],
@@ -85,8 +85,8 @@ export function Select({
 
   useEffect(() => {
     if (optionsOpened && selectedOptionRef.current !== null) {
-      selectedOptionRef.current?.scrollIntoView({
-        block: "end",
+      selectedOptionRef.current.scrollIntoView({
+        block: 'end',
       });
     }
   }, [optionsOpened]);
@@ -110,12 +110,12 @@ export function Select({
   }
 
   function renderOption(option: string) {
-    const label = get(valuesMapper, option, option);
+    const lab = get(valuesMapper, option, option);
     const CustomOption = CustomOptions[option];
     return CustomOption ? (
-      <CustomOption label={label} />
+      <CustomOption label={lab} />
     ) : (
-      <div className={styles.defaultOption}>{label}</div>
+      <div className={styles.defaultOption}>{lab}</div>
     );
   }
 
@@ -137,13 +137,13 @@ export function Select({
   if (placeholder && showSelectAllOption) {
     optionList.unshift(
       <div
-        key={`selectOption_empty`}
+        key="selectOption_empty"
         className={cx(styles.optionElement, {
           [styles.selected]: selectedOption === placeholder,
         })}
         onClick={() => handleOnOptionCLick(null)}
       >
-        {renderOption("All")}
+        {renderOption('All')}
       </div>
     );
   }
@@ -165,7 +165,7 @@ export function Select({
       <div className={styles.inputContainer}>
         <div
           className={cx(styles.input, {
-            [styles.error]: error !== "",
+            [styles.error]: error !== '',
             [styles.opened]: optionsOpened,
             [styles.disabled]: disabled,
             [styles.placeholder]: placeholder === selectedOption,
@@ -173,7 +173,7 @@ export function Select({
           style={{ height }}
           onClick={openOptions}
         >
-          {get(valuesMapper, selectedOption || "", selectedOption)}
+          {get(valuesMapper, selectedOption || '', selectedOption)}
         </div>
         <div
           className={cx(styles.optionsContainer, {

@@ -1,11 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState } from 'react';
 
-import { Button } from "../../Button/Button";
-import { InputError } from "../InputError/InputError";
-import { InputLabel } from "../InputLabel/InputLabel";
-import cx from "classnames";
-import { get } from "lodash";
-import styles from "./FileUpload.module.scss";
+import { Button } from '../../Button/Button';
+import { InputError } from '../InputError/InputError';
+import { InputLabel } from '../InputLabel/InputLabel';
+import cx from 'classnames';
+import { get } from 'lodash';
+import styles from './FileUpload.module.scss';
 
 export type FileUploadProps = {
   onChange?: Function;
@@ -20,11 +20,11 @@ export type FileUploadProps = {
 
 export function FileUpload({
   onChange = function () {},
-  name = "file-upload",
-  placeholder = "",
-  label = "",
+  name = 'file-upload',
+  placeholder = '',
+  label = '',
   height = 40,
-  error = "",
+  error = '',
   inputRef = null,
   autofocus = false,
 }: FileUploadProps) {
@@ -33,7 +33,7 @@ export function FileUpload({
 
   function onFileUpload() {
     const fileButtonEl =
-      fileButton.current && fileButton.current.querySelector("input");
+      fileButton.current && fileButton.current.querySelector('input');
     if (fileButtonEl !== null && fileButtonEl.files !== null) {
       const file = fileButtonEl.files[0];
       setSelectedFile(file);
@@ -41,7 +41,7 @@ export function FileUpload({
     }
   }
 
-  const inputText = get(selectedFile, "name", placeholder);
+  const inputText = get(selectedFile, 'name', placeholder);
 
   return (
     <div ref={fileButton} className={styles.container}>
@@ -50,7 +50,7 @@ export function FileUpload({
         <div
           className={cx(styles.input, {
             [styles.placeholder]: !selectedFile,
-            [styles.error]: error !== "",
+            [styles.error]: error !== '',
           })}
           style={{ height }}
           data-testid="input"
@@ -62,7 +62,7 @@ export function FileUpload({
           label="BROWSE"
           onClick={() => {
             const submitButton =
-              fileButton.current && fileButton.current.querySelector("input");
+              fileButton.current && fileButton.current.querySelector('input');
             if (submitButton !== null) {
               submitButton.click();
             }

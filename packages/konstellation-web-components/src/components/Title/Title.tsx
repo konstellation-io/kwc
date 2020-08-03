@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import styles from "./Title.module.scss";
+import styles from './Title.module.scss';
 
 export type TitleProps = {
   children: (string | JSX.Element)[];

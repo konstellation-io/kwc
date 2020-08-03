@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 
-import { TextInput } from "../../../../Form/TextInput/TextInput";
-import cx from "classnames";
-import styles from "./ModalLayoutJustify.module.scss";
+import { TextInput } from '../../../../Form/TextInput/TextInput';
+import cx from 'classnames';
+import styles from './ModalLayoutJustify.module.scss';
 
 export type ModalLayoutJustifyProps = {
   onUpdate: (value: string) => void;
@@ -15,8 +15,8 @@ export function ModalLayoutJustify({
   onUpdate,
   submit,
   error,
-  label = "why are you doing that?",
-  className = "",
+  label = 'why are you doing that?',
+  className = '',
 }: ModalLayoutJustifyProps) {
   return (
     <Fragment>

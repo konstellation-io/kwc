@@ -1,8 +1,8 @@
-import IconCheck from "@material-ui/icons/Check";
-import IconIndeterminate from "@material-ui/icons/Remove";
-import React from "react";
-import cx from "classnames";
-import styles from "./Check.module.scss";
+import IconCheck from '@material-ui/icons/Check';
+import IconIndeterminate from '@material-ui/icons/Remove';
+import React from 'react';
+import cx from 'classnames';
+import styles from './Check.module.scss';
 
 export type CheckProps = {
   checked: boolean;
@@ -14,7 +14,7 @@ export function Check({
   checked,
   indeterminate,
   onChange,
-  className = "",
+  className = '',
 }: CheckProps) {
   const Icon = indeterminate ? IconIndeterminate : IconCheck;
 

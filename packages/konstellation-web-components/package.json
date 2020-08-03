@@ -39,6 +39,8 @@
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
+    "@semantic-release/github": "^7.0.7",
+    "@semantic-release/npm": "^7.0.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -80,6 +82,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
+    "semantic-release": "^17.1.1",
+    "semantic-release-monorepo": "^7.0.2",
     "typeface-montserrat": "^0.0.75",
     "typeface-roboto-mono": "^0.0.75",
     "typescript": "^3.9.7"
@@ -98,5 +102,18 @@
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
+  },
+  "release": {
+    "extends": "semantic-release-monorepo",
+    "plugins": [
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": true,
+          "pkgRoot": "dist"
+        }
+      ],
+      "@semantic-release/github"
+    ]
   }
 }

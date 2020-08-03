@@ -12,13 +12,8 @@
   "keywords": [],
   "author": "konstellation-io",
   "license": "MIT",
-  "scripts": {
-    "release": "auto shipit"
-  },
   "devDependencies": {
     "lerna": "^3.16.4"
   },
-  "dependencies": {
-    "auto": "^9.49.3"
-  }
+  "dependencies": {}
 }

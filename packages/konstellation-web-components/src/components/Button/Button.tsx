@@ -33,7 +33,6 @@ export type ButtonProps = {
   iconSize?: 'icon-regular' | 'icon-small' | 'icon-big';
   to?: string;
   onClick?: Function;
-  /** Sets button style as primary */
   primary?: boolean;
   disabled?: boolean;
   loading?: boolean;

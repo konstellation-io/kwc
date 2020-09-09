@@ -1,4 +1,5 @@
 import moment, { Moment } from 'moment';
+import validator from 'validator';
 
 type Check = {
   valid: boolean;
@@ -62,11 +63,7 @@ function isGreaterThan(value: number | string, minValue: number) {
 }
 
 function isEmailValid(email: string) {
-  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-  return re.test(String(email).toLowerCase())
-    ? VALID
-    : setInvalid('Invalid email address');
+  return validator.isEmail(email) ? VALID : setInvalid('Invalid email address');
 }
 
 function isDomainValid(value: string) {
@@ -104,6 +101,40 @@ function isItemDuplicated(
   return { valid, message: msg };
 }
 
+function isLowerCase(value: string, msg?: string) {
+  return validator.isLowercase(value)
+    ? VALID
+    : setInvalid(msg || 'Must be lower case');
+}
+
+function isUpperCase(value: string, msg?: string) {
+  return validator.isUppercase(value)
+    ? VALID
+    : setInvalid(msg || 'Must be uppercase');
+}
+
+function isAlphanumeric(value: string, msg?: string) {
+  return validator.isAlphanumeric(value)
+    ? VALID
+    : setInvalid(msg || 'Must be alphanumeric');
+}
+
+function isSlug(value: string, msg?: string) {
+  return validator.isSlug(value)
+    ? VALID
+    : setInvalid(
+        msg || 'Must contains a single hyphen between strings, e.g. one-two'
+      );
+}
+
+function matches(value: string, regexp: RegExp, msg?: string) {
+  return validator.matches(value, regexp)
+    ? VALID
+    : setInvalid(
+        msg || 'Does not meets the specified format: ' + regexp.source
+      );
+}
+
 // TODO: try to export all (*) as CHECK
 export const CHECK = {
   getValidationError,
@@ -117,4 +148,9 @@ export const CHECK = {
   isFieldNotInList,
   isFieldAMomentDate,
   isItemDuplicated,
+  isLowerCase,
+  isUpperCase,
+  isAlphanumeric,
+  isSlug,
+  matches,
 };

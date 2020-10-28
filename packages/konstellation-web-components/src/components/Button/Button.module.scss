@@ -23,6 +23,7 @@ $color-gray: palette(base, 300);
     @include glow(4, palette($color));
   }
 }
+
 @mixin only-border($color) {
   @include border(palette($color));
 
@@ -89,6 +90,10 @@ $color-gray: palette(base, 300);
     &.warn {
       @include solid(alert);
     }
+
+    &.error {
+      @include solid(error);
+    }
   }
 
   &.border {
@@ -97,6 +102,11 @@ $color-gray: palette(base, 300);
     &.warn {
       @include only-border(alert);
       color: palette(alert);
+    }
+
+    &.error {
+      @include only-border(error);
+      color: palette(error);
     }
   }
 }

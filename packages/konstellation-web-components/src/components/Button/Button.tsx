@@ -2,6 +2,7 @@ import React, {
   Fragment,
   FunctionComponent,
   KeyboardEvent,
+  MouseEvent,
   useEffect,
   useRef,
   useState,
@@ -17,6 +18,7 @@ export enum BUTTON_THEMES {
   'DEFAULT' = 'default',
   'TRANSPARENT' = 'transparent',
   'WARN' = 'warn',
+  'ERROR' = 'error',
 }
 export enum BUTTON_ALIGN {
   'LEFT' = 'left',
@@ -32,7 +34,7 @@ export type ButtonProps = {
   Icon?: FunctionComponent<SvgIconProps>;
   iconSize?: 'icon-regular' | 'icon-small' | 'icon-big';
   to?: string;
-  onClick?: Function;
+  onClick?: (e?: MouseEvent<HTMLDivElement>) => void;
   primary?: boolean;
   disabled?: boolean;
   loading?: boolean;
@@ -117,7 +119,7 @@ export function Button({
         [styles.notFocussable]: tabIndex === -1,
       })}
       style={{ ...style, height, lineHeight: `${height}px` }}
-      onClick={() => onClick()}
+      onClick={onClick}
       onKeyPress={handleKeyPress}
       title={title}
       tabIndex={timerRemainingTime ? -1 : tabIndex}

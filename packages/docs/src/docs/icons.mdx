@@ -4,10 +4,10 @@ menu: Design
 route: /Design/Icons
 ---
 
-import { Playground } from 'docz'
+import { Playground } from 'docz';
 
-import { TERMINAL } from 'konstellation-web-components'
-import * as COLORS from '../constants/colors'
+import { TERMINAL } from 'konstellation-web-components';
+import * as COLORS from '../constants/colors';
 
 import IconRow from '../docz-components/IconRow/IconRow';
 import PublishIcon from '@material-ui/icons/PlayCircleFilledOutlined';
@@ -73,43 +73,40 @@ import IconIndeterminate from '@material-ui/icons/Remove';
 import ArrowRightIcon from '@material-ui/icons/ArrowForward';
 import TypeVarIcon from '@material-ui/icons/Code';
 
-
 # Icons
 
 We are using both [Material UI icons](https://material-ui.com/components/material-icons/) and custom icons.
 
 ## Usage
 
-Use material icons as defined in its documentation. For custom icons import icon paths from ```src/constants/icons``` and use ```SvgIcon``` from Material UI.
+Use material icons as defined in its documentation. For custom icons import icon paths from `src/constants/icons` and use `SvgIcon` from Material UI.
 
 To set the size, use one of the global classes for icons (see [Sizes section](#sizes) bellow).
 
 #### Example
 
-``` tsx
+```tsx
 // ComponentName.tsx
 
-import * as ICONS from '../src/constants/icons'
+import * as ICONS from '../src/constants/icons';
 
-import SvgIcon from '@material-ui/core/SvgIcon'
+import SvgIcon from '@material-ui/core/SvgIcon';
 import FollowIcon from '@material-ui/icons/VerticalAlignBottom';
 
 const ComponentName = () => (
   <>
     // From material
     <FollowIcon className="icon-small" />
-
     // Custom
     <SvgIcon className="icon-regular">
       <path d={TERMINAL} />
     </SvgIcon>
-
     // With color
     <span style={{ color: 'red' }}>
       <FollowIcon className="icon-big" />
     </span>
   </>
-)
+);
 ```
 
 <Playground>
@@ -118,14 +115,13 @@ const ComponentName = () => (
   </span>
 </Playground>
 
-
-
 ## Library
 
 ### Material UI
 
 ##### Pages
-<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
+
+<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative' }}>
   <IconRow
     name="Status Page"
     Icon={IconDeviceHub}
@@ -161,35 +157,20 @@ const ComponentName = () => (
     Icon={UsersIcon}
     description="Section: Settings"
   />
-  <IconRow
-    name="Audit Page"
-    Icon={AuditIcon}
-    description=""
-  />
-  <IconRow
-    name="Settings Page"
-    Icon={SettingsIcon}
-    description=""
-  />
+  <IconRow name="Audit Page" Icon={AuditIcon} description="" />
+  <IconRow name="Settings Page" Icon={SettingsIcon} description="" />
 </div>
 
 ##### Version Actions, Version status
-<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
+
+<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative' }}>
   <IconRow
     name="Publish"
     Icon={PublishIcon}
     description="For version actions"
   />
-  <IconRow
-    name="Start"
-    Icon={StartIcon}
-    description="For version actions"
-  />
-  <IconRow
-    name="Stop"
-    Icon={StopIcon}
-    description="For version actions"
-  />
+  <IconRow name="Start" Icon={StartIcon} description="For version actions" />
+  <IconRow name="Stop" Icon={StopIcon} description="For version actions" />
   <IconRow
     name="Unpublish, Clear"
     Icon={UnpublishIcon}
@@ -208,61 +189,23 @@ const ComponentName = () => (
 </div>
 
 ##### Concepts relation
-<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
-  <IconRow
-    name="Key"
-    Icon={IconKey}
-    description="key"
-  />
-  <IconRow
-    name="Variable"
-    Icon={TypeVarIcon}
-    description="variable, code"
-  />
-  <IconRow
-    name="File"
-    Icon={TypeFileIcon}
-    description="file"
-  />
-  <IconRow
-    name="Email"
-    Icon={EmailIcon}
-    description="email"
-  />
-  <IconRow
-    name="Time"
-    Icon={TimeIcon}
-    description="time, duration"
-  />
-  <IconRow
-    name="Domain"
-    Icon={DomainIcon}
-    description="domain"
-  />
-  <IconRow
-    name="Calendar"
-    Icon={CalendarIcon}
-    description="dates, calendar"
-  />
-  <IconRow
-    name="Info"
-    Icon={IconInfo}
-    description="information"
-  />
+
+<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative' }}>
+  <IconRow name="Key" Icon={IconKey} description="key" />
+  <IconRow name="Variable" Icon={TypeVarIcon} description="variable, code" />
+  <IconRow name="File" Icon={TypeFileIcon} description="file" />
+  <IconRow name="Email" Icon={EmailIcon} description="email" />
+  <IconRow name="Time" Icon={TimeIcon} description="time, duration" />
+  <IconRow name="Domain" Icon={DomainIcon} description="domain" />
+  <IconRow name="Calendar" Icon={CalendarIcon} description="dates, calendar" />
+  <IconRow name="Info" Icon={IconInfo} description="information" />
 </div>
 
 ##### Actions
-<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
-  <IconRow
-    name="Clear"
-    Icon={UnpublishIcon}
-    description="Clear, block"
-  />
-  <IconRow
-    name="Copy"
-    Icon={IconCopyAll}
-    description="Copy to clipboard"
-  />
+
+<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative' }}>
+  <IconRow name="Clear" Icon={UnpublishIcon} description="Clear, block" />
+  <IconRow name="Copy" Icon={IconCopyAll} description="Copy to clipboard" />
   <IconRow
     name="Text interaction"
     Icon={IconCopyMessage}
@@ -298,55 +241,28 @@ const ComponentName = () => (
     Icon={IconDeselectAll}
     description="Deselect all elements or a group of them"
   />
-  <IconRow
-    name="Duplicate"
-    Icon={IconDuplicate}
-    description=""
-  />
+  <IconRow name="Duplicate" Icon={IconDuplicate} description="" />
   <IconRow
     name="New tab"
     Icon={IconOpenInTab}
     description="Open in a new explorer tab"
   />
-  <IconRow
-    name="Back"
-    Icon={IconArrowBack}
-    description="Go back"
-  />
-  <IconRow
-    name="Forward"
-    Icon={ArrowRightIcon}
-    description="Go forward"
-  />
-  <IconRow
-    name="Remove"
-    Icon={IconDelete}
-    description=""
-  />
+  <IconRow name="Back" Icon={IconArrowBack} description="Go back" />
+  <IconRow name="Forward" Icon={ArrowRightIcon} description="Go forward" />
+  <IconRow name="Remove" Icon={IconDelete} description="" />
   <IconRow
     name="Revoke"
     Icon={IconRevoke}
     description="Revoke sessions or access"
   />
-  <IconRow
-    name="Logout"
-    Icon={LogoutIcon}
-    description=""
-  />
-  <IconRow
-    name="Search"
-    Icon={SearchIcon}
-    description=""
-  />
-  <IconRow
-    name="Close, Clear"
-    Icon={ClearIcon}
-    description="Close, clear"
-  />
+  <IconRow name="Logout" Icon={LogoutIcon} description="" />
+  <IconRow name="Search" Icon={SearchIcon} description="" />
+  <IconRow name="Close, Clear" Icon={ClearIcon} description="Close, clear" />
 </div>
 
 ##### Other
-<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
+
+<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative' }}>
   <IconRow
     name="Options Vert"
     Icon={IconMoreVert}
@@ -382,11 +298,7 @@ const ComponentName = () => (
     Icon={IconWarning}
     description="To warn the user about something"
   />
-  <IconRow
-    name="Tick"
-    Icon={IconCheck}
-    description="Checkbox selected"
-  />
+  <IconRow name="Tick" Icon={IconCheck} description="Checkbox selected" />
   <IconRow
     name="Indetermiante"
     Icon={IconIndeterminate}
@@ -395,7 +307,8 @@ const ComponentName = () => (
 </div>
 
 ##### User Activity
-<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
+
+<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative' }}>
   <IconRow
     name="Add"
     Icon={ActivityIconAdd}
@@ -421,16 +334,8 @@ const ComponentName = () => (
     Icon={ActivityIconSettings}
     description="To indicate a setting update"
   />
-  <IconRow
-    name="Start"
-    Icon={ActivityIconStart}
-    description="Version start"
-  />
-  <IconRow
-    name="Stop"
-    Icon={ActivityIconStop}
-    description="Version stop"
-  />
+  <IconRow name="Start" Icon={ActivityIconStart} description="Version start" />
+  <IconRow name="Stop" Icon={ActivityIconStop} description="Version stop" />
   <IconRow
     name="Unknown"
     Icon={ActivityIconUnknown}
@@ -450,7 +355,7 @@ const ComponentName = () => (
 
 ### Custom
 
-<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative'}}>
+<div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative' }}>
   <IconRow
     name="TERMINAL"
     path={TERMINAL}
@@ -463,9 +368,7 @@ const ComponentName = () => (
 Use colors to empathize icons and messages.
 
 <blockquote style={{ display: 'flex', paddingTop: '22px' }}>
-  <div style={{ lineHeight: '24px', paddingRight: '32px' }}>
-    Example 1:
-  </div>
+  <div style={{ lineHeight: '24px', paddingRight: '32px' }}>Example 1:</div>
   <div style={{ color: COLORS.ALERT }}>
     <IconWarning />
   </div>
@@ -475,13 +378,13 @@ Use colors to empathize icons and messages.
 </blockquote>
 
 <blockquote style={{ display: 'flex', paddingTop: '22px' }}>
-  <div style={{ lineHeight: '24px', paddingRight: '32px' }}>
-    Example 2:
-  </div>
+  <div style={{ lineHeight: '24px', paddingRight: '32px' }}>Example 2:</div>
   <div style={{ color: COLORS.SUCCESS }}>
     <PublishIcon />
   </div>
-  <div style={{ lineHeight: '24px', paddingLeft: '16px', color: COLORS.SUCCESS }}>
+  <div
+    style={{ lineHeight: '24px', paddingLeft: '16px', color: COLORS.SUCCESS }}
+  >
     Version successfully started
   </div>
 </blockquote>

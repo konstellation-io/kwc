@@ -1,5 +1,5 @@
-@import "~konstellation-web-components/src/styles/colors";
-@import "~konstellation-web-components/src/styles/variables";
+@import '~konstellation-web-components/styles/colors';
+@import '~konstellation-web-components/styles/variables';
 
 $colors: base, error, highlight, lowlight, success, feedback, alert;
 $ranges: 100, 200, 300, 400, 500, 600, 700, 800, 900;
@@ -21,7 +21,7 @@ $ranges: 100, 200, 300, 400, 500, 600, 700, 800, 900;
       color: set-text-color($act-color);
 
       code::after {
-        content: "#{$act-color}";
+        content: '#{$act-color}';
       }
 
       font-weight: 400;

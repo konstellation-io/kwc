@@ -19,10 +19,13 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "classnames": "^2.2.6",
     "docz": "^2.3.1",
     "konstellation-web-components": "1.0.0",
     "lodash": "^4.17.19",
-    "react-dates": "^21.8.0"
+    "react-dates": "^21.8.0",
+    "typeface-montserrat": "^1.1.13",
+    "typeface-roboto-mono": "^1.1.13"
   },
   "devDependencies": {
     "@types/react-dates": "^17.1.13",

@@ -4,9 +4,9 @@ menu: Forms
 route: /Forms/Calendar
 ---
 
-import { Playground, Props } from 'docz'
+import { Playground, Props } from 'docz';
 import UseCaseInline from '../../docz-components/UseCaseInline/UseCaseInline';
-import { Calendar } from 'konstellation-web-components';
+import { Calendar } from 'kwc';
 import { CalendarPropsComponent } from './MDXComponents.tsx';
 import moment from 'moment';
 
@@ -15,46 +15,40 @@ import moment from 'moment';
 Calendar component allows the user to select an initial and a final date (with or without times).
 
 ## Props
+
 <Props of={CalendarPropsComponent} />
 
 ## Use Cases
+
 <UseCaseInline
   title="Default"
-  Component={
-    <Calendar hideError />
-  }
+  Component={<Calendar hideError />}
   code={<code>{'<Calendar hideError />'}</code>}
   description=""
 />
 <UseCaseInline
   title="With label"
-  Component={
-    <Calendar label="SELECT A DATE RANGE" />
-  }
+  Component={<Calendar label="SELECT A DATE RANGE" />}
   code={<code>{'<Calendar label="SELECT A DATE RANGE" />'}</code>}
   description=""
 />
 <UseCaseInline
   title="With error"
-  Component={
-    <Calendar error="Some error" />
-  }
+  Component={<Calendar error="Some error" />}
   code={<code>{'<Calendar error="Some error" />'}</code>}
   description=""
 />
 <UseCaseInline
   title="With selected dates"
-  Component={
-    <Calendar formFromDate={moment()} formToDate={moment()} />
+  Component={<Calendar formFromDate={moment()} formToDate={moment()} />}
+  code={
+    <code>{'<Calendar formFromDate={moment()} formToDate={moment()} />'}</code>
   }
-  code={<code>{'<Calendar formFromDate={moment()} formToDate={moment()} />'}</code>}
   description=""
 />
 <UseCaseInline
   title="With Time controls"
-  Component={
-    <Calendar addTimeControls />
-  }
+  Component={<Calendar addTimeControls />}
   code={<code>{'<Calendar addTimeControls />'}</code>}
   description="This allows the user to select times for initial and final dates"
 />

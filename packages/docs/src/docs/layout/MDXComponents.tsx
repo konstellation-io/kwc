@@ -8,7 +8,7 @@ import {
   ModalLayoutJustifyProps,
   RightProps,
   VerticalBarProps,
-} from "konstellation-web-components";
+} from "kwc";
 
 import React from "react";
 

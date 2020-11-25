@@ -4,8 +4,8 @@ route: /Components/Layout/Left
 menu: Layout
 ---
 
-import { Playground, Props } from 'docz'
-import {Left} from 'konstellation-web-components'
+import { Playground, Props } from 'docz';
+import { Left } from 'kwc';
 import { LeftPropsComponent } from './MDXComponents.tsx';
 
 # Left
@@ -13,13 +13,16 @@ import { LeftPropsComponent } from './MDXComponents.tsx';
 Left component makes the content wrapper inside to be located at the left side of an horizontal layout.
 
 ## Props
+
 <Props of={LeftPropsComponent} />
 
 ## Playground
 
 <Playground>
-  <div style={{display: 'flex', width: '100px'}}>
-    <Left><div>A</div></Left>
+  <div style={{ display: 'flex', width: '100px' }}>
+    <Left>
+      <div>A</div>
+    </Left>
     <div>B</div>
     <div>C</div>
   </div>

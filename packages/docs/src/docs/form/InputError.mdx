@@ -4,9 +4,9 @@ menu: Forms
 route: /Forms/InputError
 ---
 
-import { Playground, Props } from 'docz'
+import { Playground, Props } from 'docz';
 import UseCaseInline from '../../docz-components/UseCaseInline/UseCaseInline';
-import {InputError} from 'konstellation-web-components'
+import { InputError } from 'kwc';
 import { InputErrorPropsComponent } from './MDXComponents.tsx';
 
 # InputError
@@ -16,13 +16,17 @@ InputError inserts an error message on bottom-right of a form element component.
 This component is used to let the user know that the field did not pass some validation and why.
 
 ## Props
+
 <Props of={InputErrorPropsComponent} />
 
 ## Use Cases
+
 <UseCaseInline
   title="Default"
   Component={
-    <div style={{ width: '200px' }}><InputError message="you cannot remove this user" /></div>
+    <div style={{ width: '200px' }}>
+      <InputError message="you cannot remove this user" />
+    </div>
   }
   code={<code>{'<InputError message="you cannot remove this user" />'}</code>}
   description=""

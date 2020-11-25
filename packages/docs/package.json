@@ -1,5 +1,5 @@
 {
-  "name": "konstellation-web-components-documentation",
+  "name": "kwc-documentation",
   "description": "Documentation for Konstellation Web Components",
   "author": "konstellation-io",
   "repository": "konstellation-io/kwc",
@@ -21,7 +21,7 @@
     "@material-ui/icons": "^4.9.1",
     "classnames": "^2.2.6",
     "docz": "^2.3.1",
-    "konstellation-web-components": "1.0.0",
+    "kwc": "^1.2.0",
     "lodash": "^4.17.19",
     "react-dates": "^21.8.0",
     "typeface-montserrat": "^1.1.13",

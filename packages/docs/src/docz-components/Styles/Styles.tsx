@@ -1,6 +1,6 @@
-import 'konstellation-web-components/styles/icon-sizes.scss';
-import 'konstellation-web-components/styles/docz.global.scss';
-import 'konstellation-web-components/index.css';
+import 'kwc/styles/icon-sizes.scss';
+import 'kwc/styles/docz.global.scss';
+import 'kwc/index.css';
 
 import React from "react";
 

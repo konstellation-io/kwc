@@ -4,9 +4,9 @@ menu: Forms
 route: /Forms/InputInfo
 ---
 
-import { Playground, Props } from 'docz'
+import { Playground, Props } from 'docz';
 import UseCaseInline from '../../docz-components/UseCaseInline/UseCaseInline';
-import {InputInfo} from 'konstellation-web-components'
+import { InputInfo } from 'kwc';
 import { InputInfoPropsComponent } from './MDXComponents.tsx';
 
 # InputInfo
@@ -17,13 +17,17 @@ This component is used to show previous values on a form or additional informati
 maximum number of characters.
 
 ## Props
+
 <Props of={InputInfoPropsComponent} />
 
 ## Use Cases
+
 <UseCaseInline
   title="Default"
   Component={
-    <div style={{ width: '100px' }}><InputInfo message="max 4 characters" /></div>
+    <div style={{ width: '100px' }}>
+      <InputInfo message="max 4 characters" />
+    </div>
   }
   code={<code>{'<InputInfo message="max 4 characters" />'}</code>}
   description=""

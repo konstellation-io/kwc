@@ -1,0 +1,46 @@
+@import '../../../styles/mixins';
+@import '../../../styles/colors';
+
+.container {
+  position: relative;
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &.opened {
+    .input {
+      border-radius: 6px;
+      width: 40 * $grid-unit;
+
+      cursor: text;
+      color: font-color(regular);
+    }
+  }
+}
+
+.input {
+  @include form-input;
+
+  color: transparent;
+  border-radius: 50%;
+  width: 5 * $grid-unit;
+  cursor: pointer;
+
+  transition: width ease 0.3s, border-radius ease 0.3s, color ease 0.3s;
+
+  &::-webkit-input-placeholder {
+    color: font-color(regular);
+  }
+}
+
+.searchIcon {
+  pointer-events: none;
+  color: font-color(lowlight);
+
+  position: absolute;
+  right: 11px;
+  top: calc(50% - 7px);
+}

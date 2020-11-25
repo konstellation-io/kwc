@@ -1,6 +1,7 @@
 import React, {
   ChangeEvent,
   FocusEvent,
+  FunctionComponent,
   KeyboardEvent,
   MouseEvent,
   ReactElement,
@@ -15,6 +16,7 @@ import { InputError } from '../InputError/InputError';
 import { InputHelp } from '../InputHelp/InputHelp';
 import { InputInfo } from '../InputInfo/InputInfo';
 import { InputLabel } from '../InputLabel/InputLabel';
+import { SvgIconProps } from '@material-ui/core/SvgIcon/SvgIcon';
 import cx from 'classnames';
 import styles from './TextInput.module.scss';
 
@@ -54,6 +56,7 @@ export type TextInputProps = {
   additionalInputProps?: object;
   infoMessage?: string | undefined;
   disabled?: boolean;
+  Icon?: FunctionComponent<SvgIconProps>;
 };
 
 export function TextInput({
@@ -79,6 +82,7 @@ export function TextInput({
   additionalInputProps = {},
   infoMessage = '',
   disabled = false,
+  Icon = undefined,
 }: TextInputProps) {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const [value, setValue] = useState(formValue);
@@ -165,6 +169,7 @@ export function TextInput({
     </div>
   );
   const VisibilityIcon = isHidden ? IconShow : IconHide;
+  const leftIcon = Icon ? <Icon className={cx("icon-regular", styles.leftIcon)} /> : null;
   const showEyeButton = hidden && (
     <div
       className={cx(styles.eyeButton, {
@@ -181,6 +186,7 @@ export function TextInput({
       className={cx(styles.container, customClassname, {
         [styles.white]: whiteColor,
         [styles.hasClearButton]: showClearButton,
+        [styles.hasLeftIcon]: Icon,
         [styles.hasEyeButton]: hidden,
       })}
     >
@@ -188,6 +194,7 @@ export function TextInput({
       {inputElement}
       {cleanButton}
       {showEyeButton}
+      {leftIcon}
       <InputInfo message={infoMessage} />
       {error ? (
         <InputError message={error} />

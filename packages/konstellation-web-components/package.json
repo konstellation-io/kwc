@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "microbundle-crl -o dist/index.js --format modern,cjs && cp -R ./src/styles ./dist && cp ./.npmignore ./dist && node ../../scripts/copy-files.js",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "live-build": "microbundle-crl -o dist/index.js watch --no-compress --format modern,cjs  && cp -R ./src/styles ./dist && cp ./.npmignore ./dist && node ../../scripts/copy-files.js",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
@@ -80,6 +80,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
+    "sass": "^1.29.0",
     "semantic-release": "^17.1.1",
     "semantic-release-monorepo": "^7.0.2",
     "typeface-montserrat": "^0.0.75",

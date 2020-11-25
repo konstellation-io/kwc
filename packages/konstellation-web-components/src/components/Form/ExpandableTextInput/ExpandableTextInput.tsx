@@ -20,7 +20,7 @@ export type ExpandableTextInputProps = {
 export function ExpandableTextInput({
   onEnterKeyPress = function () {},
   onChange = function () {},
-  onBlur = function () {},
+  onBlur = () => {},
   formValue = '',
   className = '',
 }: ExpandableTextInputProps) {

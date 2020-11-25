@@ -13,8 +13,8 @@ export type ModalContainerProps = {
   blocking?: boolean;
   /** Action button will be a warning button */
   warning?: boolean;
-  onAccept?: (e: MouseEvent<HTMLDivElement>) => void;
-  onCancel?: (e: MouseEvent<HTMLDivElement>) => void;
+  onAccept?: (e?: MouseEvent<HTMLDivElement>) => void;
+  onCancel?: (e?: MouseEvent<HTMLDivElement>) => void;
   className?: string;
   autofocusOnAccept?: boolean;
   /** Forces the used to wait this amount of seconds before clicking on the action button */

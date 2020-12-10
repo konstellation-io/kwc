@@ -7,12 +7,13 @@ import styles from './ModalContainer.module.scss';
 
 export type ModalContainerProps = {
   title: string;
+  subtitle?: string;
   actionButtonLabel?: string;
   to?: string;
   /** Shows a shield behind the modal */
   blocking?: boolean;
-  /** Action button will be a warning button */
   warning?: boolean;
+  error?: boolean;
   onAccept?: (e?: MouseEvent<HTMLDivElement>) => void;
   onCancel?: (e?: MouseEvent<HTMLDivElement>) => void;
   className?: string;
@@ -21,13 +22,30 @@ export type ModalContainerProps = {
   confirmationTimer?: number;
 };
 
+type GetButtonThemePartams = {
+  warning: boolean;
+  error: boolean;
+};
+function getButtonTheme({ warning, error }: GetButtonThemePartams) {
+  switch (true) {
+    case error:
+      return BUTTON_THEMES.ERROR;
+    case warning:
+      return BUTTON_THEMES.WARN;
+    default:
+      return BUTTON_THEMES.DEFAULT;
+  }
+}
+
 export const ModalContainer: FunctionComponent<ModalContainerProps> = ({
   children,
   title,
+  subtitle = '',
   actionButtonLabel = 'ACCEPT',
   to = '',
   blocking = false,
   warning = false,
+  error = false,
   onAccept = function () {},
   onCancel = function () {},
   className = '',
@@ -37,8 +55,12 @@ export const ModalContainer: FunctionComponent<ModalContainerProps> = ({
   return (
     <Fragment>
       {blocking && <div className={styles.bg} />}
-      <div className={cx(className, styles.container, 'modal', {})}>
+      <div className={cx(className, styles.container, 'modal', {
+        [styles.warning]: warning,
+        [styles.error]: error
+      })}>
         <div className={styles.title}>{title}</div>
+        <div className={styles.subtitle}>{subtitle}</div>
         <div className={styles.content}>{children}</div>
         <div className={styles.footer}>
           <HorizontalBar>
@@ -50,7 +72,7 @@ export const ModalContainer: FunctionComponent<ModalContainerProps> = ({
               height={30}
               tabIndex={0}
               autofocus={autofocusOnAccept}
-              theme={warning ? BUTTON_THEMES.WARN : BUTTON_THEMES.DEFAULT}
+              theme={getButtonTheme({ warning, error })}
               timeToEnable={confirmationTimer}
             />
             <Button

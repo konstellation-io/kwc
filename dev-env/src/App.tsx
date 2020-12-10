@@ -1,7 +1,7 @@
 import 'kwc/dist/index.css';
 import 'kwc/src/styles/app.global.scss';
 
-import { ExpandableTextInput, Select, SelectTheme } from 'kwc';
+import { ModalContainer, ModalLayoutJustify } from 'kwc';
 
 import EmailIcon from '@material-ui/icons/Email';
 import React from 'react';
@@ -11,8 +11,19 @@ function App() {
   return (
     <div className={styles.App}>
       <header className={styles.header}>
-        <ExpandableTextInput
-        />
+        <ModalContainer
+          title="Aloha"
+          subtitle="To be sure, type the word “DELETE” and will be deleted now."
+          error
+        >
+          <ModalLayoutJustify
+            onUpdate={() => {}}
+            submit={() => {}}
+            error=""
+            label={'Please write "DELETE"'}
+
+          />
+        </ModalContainer>
       </header>
     </div>
   );

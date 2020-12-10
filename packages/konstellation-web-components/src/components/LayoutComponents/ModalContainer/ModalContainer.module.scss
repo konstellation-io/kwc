@@ -21,6 +21,14 @@
 
   display: flex;
   flex-direction: column;
+
+  &.warning {
+    border-left: solid 4px palette(alert, 800);
+  }
+
+  &.error {
+    border-left: solid 4px palette(error, 800);
+  }
 }
 
 .content {
@@ -32,6 +40,13 @@
   @include font-caption;
   color: white;
   text-transform: uppercase;
+}
+
+.subtitle {
+  @include font-body;
+  color: font-color(lowlight);
+
+  margin-top: 3 * $grid-unit;
 }
 
 .footer {

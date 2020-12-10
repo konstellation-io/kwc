@@ -1,4 +1,7 @@
 import 'react-dates/initialize';
+import 'kwc/styles/icon-sizes.scss';
+import 'kwc/styles/docz.global.scss';
+import 'kwc/index.css';
 
 import * as colors from './dark-theme-colors';
 

@@ -6,7 +6,8 @@ route: /Forms/SearchSelect
 
 import { Playground, Props } from 'docz';
 import UseCaseInline from '../../docz-components/UseCaseInline/UseCaseInline';
-import { SearchSelect } from 'kwc';
+import PropEnum from '../../docz-components/PropEnum/PropEnum';
+import { SearchSelect, SearchSelectTheme } from 'kwc';
 import { SearchSelectPropsComponent } from './MDXComponents.tsx';
 import StartIcon from '@material-ui/icons/SkipNext';
 
@@ -14,7 +15,13 @@ import StartIcon from '@material-ui/icons/SkipNext';
 
 SearchSelect component implements search HTML component with predictive search.
 
-## Props
+## Props and enums
+
+### Enums
+
+<PropEnum of={[{ name: 'SearchSelectTheme', value: SearchSelectTheme }]} />
+
+### Props
 
 <Props of={SearchSelectPropsComponent} />
 
@@ -130,6 +137,44 @@ SearchSelect component implements search HTML component with predictive search.
   }
   description="Used to animate label (hidden when placeholder is visible)"
 />
+<UseCaseInline
+  title="With light theme"
+  Component={
+    <SearchSelect
+      placeholder="Options"
+      value="Option"
+      options={['Option A', 'Option B', 'Option C']}
+      theme={SearchSelectTheme.LIGHT}
+    />
+  }
+  code={
+    <code>
+      {
+        '<SearchSelect placeholder="Options" value="Option" options={["Option A", "Option B", "Option C"]} theme={SearchSelectTheme.LIGHT} />'
+      }
+    </code>
+  }
+  description=""
+/>
+<UseCaseInline
+  title="With chips"
+  Component={
+    <SearchSelect
+      placeholder="Options"
+      value="Option"
+      options={['Option A', 'Option B', 'Option C']}
+      chipSelection={['Opt A', 'Opt B']}
+    />
+  }
+  code={
+    <code>
+      {
+        '<SearchSelect placeholder="Options" value="Option" options={["Option A", "Option B", "Option C"]} chipSelection={["Opt A", "Opt B"]} />'
+      }
+    </code>
+  }
+  description="With chips"
+/>
 
 ## Playground
 
@@ -138,6 +183,7 @@ SearchSelect component implements search HTML component with predictive search.
     options={['Option A', 'Option B', 'Option C']}
     onChange={() => {}}
     onEnter={() => alert('Enter')}
+    onRemoveChip={(value) => alert(value)}
     value=""
     placeholder="Options"
     label="SEARCH SELECT"
@@ -148,5 +194,7 @@ SearchSelect component implements search HTML component with predictive search.
     hideLabel={false}
     showSearchIcon={true}
     showClear={true}
+    chipSelection={[]}
+    theme={SearchSelectTheme.DEFAULT}
   />
 </Playground>

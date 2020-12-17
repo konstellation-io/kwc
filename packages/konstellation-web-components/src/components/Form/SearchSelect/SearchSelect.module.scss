@@ -1,45 +1,98 @@
-@import "../../../styles/mixins";
-@import "../../../styles/colors";
-@import "../../../styles/shadows";
-@import "../../../styles/borders";
+@import '../../../styles/mixins';
+@import '../../../styles/colors';
+@import '../../../styles/shadows';
+@import '../../../styles/borders';
 
 .container {
   position: relative;
+
+  &.light {
+    .inputContainer {
+      background-color: palette(base);
+      border-color: palette(base, 400);
+    }
+    .optionsList {
+      background-color: palette(lowlight, 900);
+
+      & > li {
+        &:hover,
+        &.isHighlighted {
+          @include glow(4);
+
+          background-color: palette(highlight);
+          color: font-color(dark);
+        }
+      }
+    }
+  }
+}
+
+.inputContainer {
+  @include form-input;
+  padding: 11px 2 * $grid-unit;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+
+  max-width: 380px !important;
+}
+
+.inputContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.chipSelection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.searchChip {
+  color: font-color(lowlight);
+  background-color: palette(lowlight, 900);
+
+  &:hover {
+    background-color: palette(lowlight, 800);
+    color: font-color(light);
+  }
 }
 
 .input {
-  @include form-input;
+  border: 0;
+  background-color: transparent;
+  outline: none;
+  -webkit-appearance: none;
+  padding: 0;
+  line-height: 3 * $grid-unit;
+  flex-grow: 1;
 
   color: font-color(lowlight);
   font-weight: 600;
-
-  &.showSearchIcon {
-    padding-left: 30px;
-  }
 }
 .searchIcon {
   color: font-color(lowlight);
-  position: absolute;
-  top: calc(50% - 8px);
-  left: $grid-unit;
-  z-index: 1;
+
+  margin-right: $grid-unit;
 }
 
 .clear {
-  position: absolute;
-  top: calc(50% - 6px);
-  right: -4px;
-  transition: right ease-out 0.3s, opacity ease-out 0.3s;
   opacity: 0;
   pointer-events: none;
   cursor: pointer;
+  transform: translateX(18px);
+
+  transition: opacity ease-out 0.3s, transform ease-out 0.3s;
 
   &:hover {
     color: font-color(light);
   }
 
   &.show {
-    right: 10px;
+    transform: translateX(0);
     opacity: 1;
     pointer-events: all;
   }
@@ -47,6 +100,8 @@
 
 .optionsList {
   @include shadow(3);
+  @include font-small;
+  color: font-color(lowlight);
 
   list-style: none;
   position: absolute;
@@ -58,7 +113,7 @@
   max-height: 240px;
   overflow: auto;
   & > li {
-    padding: 16px;
+    padding: 1.5 * $grid-unit 2 * $grid-unit;
     cursor: pointer;
     transition: color ease 0.4s, background-color ease 0.4s;
     &:hover,

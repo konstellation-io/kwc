@@ -6,6 +6,7 @@ import React, {
   useState,
 } from 'react';
 
+import { Chip } from '../../Chip/Chip';
 import ClearIcon from '@material-ui/icons/Close';
 import { InputError } from '../InputError/InputError';
 import { InputLabel } from '../InputLabel/InputLabel';
@@ -18,10 +19,16 @@ export const ARROW_UP_KEY_CODE = 38;
 export const ARROW_DOWN_KEY_CODE = 40;
 export const ENTER_KEY_CODE = 13;
 
+export enum SearchSelectTheme {
+  DEFAULT = 'default',
+  LIGHT = 'light',
+};
+
 export type SearchSelectProps = {
   options: string[];
   onChange?: Function;
   onEnter?: Function;
+  onRemoveChip?: (chip: string) => void;
   value?: string;
   placeholder?: string;
   label?: string;
@@ -33,12 +40,16 @@ export type SearchSelectProps = {
   showSearchIcon?: boolean;
   showClear?: boolean;
   className?: string;
+  chipSelection?: string[];
+  theme?: SearchSelectTheme;
 };
 
 export function SearchSelect({
   options,
+  chipSelection,
   onChange = () => {},
   onEnter = () => {},
+  onRemoveChip = () => {},
   value = '',
   placeholder = '',
   label = '',
@@ -50,6 +61,7 @@ export function SearchSelect({
   showSearchIcon = false,
   showClear = false,
   className = '',
+  theme = SearchSelectTheme.DEFAULT,
 }: SearchSelectProps) {
   const [filteredOptions, setFilteredOptions] = useState<string[]>([]);
   const [selectedOption, setSelectedOption] = useState('');
@@ -89,7 +101,13 @@ export function SearchSelect({
 
   function handleSelectOption(option: string) {
     onChange(option);
-    setSelectedOption(option);
+
+    if (chipSelection) {
+      setSelectedOption('');
+    } else {
+      setSelectedOption(option);
+    }
+
     setFilteredOptions([]);
     setHighlightedOption(-1);
     if (optionsRef.current) {
@@ -132,34 +150,47 @@ export function SearchSelect({
   }, [value]);
 
   return (
-    <div className={cx(className, styles.container)} ref={optionsRef}>
+    <div className={cx(className, styles.container, styles[theme])} ref={optionsRef}>
       {!hideLabel && <InputLabel text={label} />}
-      {showSearchIcon && (
-        <div className={styles.searchIcon}>
-          <SearchIcon className="icon-regular" />
+      <div className={ styles.inputContainer}>
+        {showSearchIcon && (
+          <div className={styles.searchIcon}>
+            <SearchIcon className="icon-regular" />
+          </div>
+        )}
+        <div className={ styles.inputContent}>
+          {chipSelection &&
+            chipSelection.map((chip: string) =>
+              <Chip
+                label={chip}
+                title={chip}
+                onClose={() => onRemoveChip(chip)}
+                className={ styles.searchChip }
+                round
+              />
+            )
+          }
+          <input
+            name={name}
+            ref={inputRef}
+            value={selectedOption}
+            className={styles.input}
+            type="text"
+            placeholder={placeholder}
+            onChange={handleOnChange}
+            onKeyDown={handleKeyDown}
+            autoComplete="off"
+          />
         </div>
-      )}
-      <input
-        name={name}
-        ref={inputRef}
-        value={selectedOption}
-        className={cx(styles.input, {
-          [styles.showSearchIcon]: showSearchIcon,
-        })}
-        type="text"
-        placeholder={placeholder}
-        onChange={handleOnChange}
-        onKeyDown={handleKeyDown}
-        autoComplete="off"
-      />
-      <div
-        className={cx(styles.clear, {
-          [styles.show]: showClear && selectedOption,
-        })}
-        onClick={() => handleSelectOption('')}
-        title="Clear input"
-      >
-        <ClearIcon className="icon-small" />
+        <div
+          className={cx(styles.clear, {
+            [styles.show]: showClear && selectedOption,
+          })}
+          onClick={() => handleSelectOption('')}
+          title="Clear input"
+        >
+          <ClearIcon className="icon-small" />
+        </div>
       </div>
       <ul className={styles.optionsList}>
         {filteredOptions.map((option, index) => (

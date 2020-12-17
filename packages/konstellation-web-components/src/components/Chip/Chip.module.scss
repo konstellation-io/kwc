@@ -16,6 +16,10 @@
   max-width: 30 * $grid-unit;
   transition: background-color ease 0.3s;
 
+  &.round {
+    border-radius: 3 * $grid-unit;
+  }
+
   .label {
     text-overflow: ellipsis;
     white-space: nowrap;

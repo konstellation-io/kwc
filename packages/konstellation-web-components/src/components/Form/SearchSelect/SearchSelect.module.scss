@@ -11,6 +11,9 @@
       background-color: palette(base);
       border-color: palette(base, 400);
     }
+    input {
+      background-color: palette(base);
+    }
     .optionsList {
       background-color: palette(lowlight, 900);
 
@@ -34,8 +37,6 @@
 
   display: flex;
   align-items: center;
-
-  max-width: 380px !important;
 }
 
 .inputContent {

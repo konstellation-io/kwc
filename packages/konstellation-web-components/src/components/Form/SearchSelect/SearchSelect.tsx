@@ -162,6 +162,7 @@ export function SearchSelect({
           {chipSelection &&
             chipSelection.map((chip: string) =>
               <Chip
+                key={chip}
                 label={chip}
                 title={chip}
                 onClose={() => onRemoveChip(chip)}

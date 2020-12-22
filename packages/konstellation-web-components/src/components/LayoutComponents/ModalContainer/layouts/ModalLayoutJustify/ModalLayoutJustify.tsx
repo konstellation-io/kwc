@@ -10,6 +10,7 @@ export type ModalLayoutJustifyProps = {
   error: string;
   className?: string;
   label?: string;
+  isInput?: boolean;
 };
 export function ModalLayoutJustify({
   onUpdate,
@@ -17,6 +18,7 @@ export function ModalLayoutJustify({
   error,
   label = 'why are you doing that?',
   className = '',
+  isInput = false,
 }: ModalLayoutJustifyProps) {
   return (
     <Fragment>
@@ -33,7 +35,7 @@ export function ModalLayoutJustify({
           onEnterKeyPress={submit}
           whiteColor
           showClearButton
-          textArea
+          textArea={!isInput}
           autoFocus
         />
       </div>

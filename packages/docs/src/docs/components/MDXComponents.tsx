@@ -7,7 +7,7 @@ import {
   SpinnerCircularProps,
   SpinnerLinearProps,
   TitleProps,
-} from "konstellation-web-components";
+} from "kwc";
 
 import React from "react";
 

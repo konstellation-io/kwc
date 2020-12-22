@@ -12,6 +12,7 @@ const MAX_HEIGHT = 240;
 export enum SelectTheme {
   DEFAULT = 'default',
   LIGHT = 'light',
+  DARK = 'dark',
 }
 
 export type CustomOptionProps = {

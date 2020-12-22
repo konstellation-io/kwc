@@ -25,9 +25,10 @@ $height-input: 30px;
 .input {
   @include form-input;
   padding: 11px 40px 11px 16px;
-  line-height: normal;
   white-space: nowrap;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 
   color: font-color(light);
   font-weight: 600;
@@ -44,14 +45,14 @@ $height-input: 30px;
     height: 7px;
     transform: rotate(45deg);
     right: 14px;
-    top: 14px;
+    top: calc(50% - 5px);
     content: '';
     transition: transform ease 0.3s, top ease 0.3s;
   }
 
   &.opened:after {
     transform: rotate(45deg) scale(-1);
-    top: 17px;
+    top: calc(50% - 1px);
   }
 
   &.disabled {
@@ -118,5 +119,28 @@ $height-input: 30px;
     background-color: transparent;
     color: font-color(lowlight);
     border: 0;
+  }
+}
+
+.container.dark {
+  .input {
+    background-color: palette(base, 700);
+    color: font-color(lowlight);
+    border: 0;
+  }
+
+  .optionElement {
+    color: font-color(light);
+    background-color: palette(base, 700);
+
+    &.selected {
+      background-color: palette(lowlight, 900);
+    }
+
+    &:hover {
+      box-shadow: none;
+      background-color: palette(lowlight, 600);
+      color: font-color(light);
+    }
   }
 }

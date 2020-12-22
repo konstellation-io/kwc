@@ -4,7 +4,7 @@ route: /Hooks/useClickOutside
 menu: Hooks
 ---
 
-import { useClickOutside } from 'konstellation-web-components';
+import { useClickOutside } from 'kwc';
 
 # useClickOutside
 
@@ -21,29 +21,29 @@ useClickOutside hook allows an action to be performed after clicking outside a c
 This hook is used to close some elements after clicking outside its content (but can be used to
 perform other actions).
 
-With ```addClickOutsideEvents``` and ```removeClickOutsideEvents``` you can minimize the amount of
+With `addClickOutsideEvents` and `removeClickOutsideEvents` you can minimize the amount of
 event listeners used in the application by only adding listeners when you are actually waiting the
 user to click outside.
 
-> You can send a third param as true of you want to list to ```mousedown``` events instead of only ```click``` events.
+> You can send a third param as true of you want to list to `mousedown` events instead of only `click` events.
 
-``` tsx
+```tsx
 function Component() {
   const componentRef = useRef(null);
   const [visible, setVisible] = useState(false);
-  const {
-    addClickOutsideEvents,
-    removeClickOutsideEvents
-  } = useClickOutside(componentRef, hideComponent);
+  const { addClickOutsideEvents, removeClickOutsideEvents } = useClickOutside(
+    componentRef,
+    hideComponent
+  );
 
   function showComponent() {
     addClickOutsideEvents();
     setVisible(true);
-  };
+  }
   function hideComponent() {
     removeClickOutsideEvents();
     setVisible(false);
-  };
+  }
 
   return (
     <div>

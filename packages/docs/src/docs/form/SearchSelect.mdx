@@ -4,9 +4,10 @@ menu: Forms
 route: /Forms/SearchSelect
 ---
 
-import { Playground, Props } from 'docz'
+import { Playground, Props } from 'docz';
 import UseCaseInline from '../../docz-components/UseCaseInline/UseCaseInline';
-import { SearchSelect } from 'konstellation-web-components'
+import PropEnum from '../../docz-components/PropEnum/PropEnum';
+import { SearchSelect, SearchSelectTheme } from 'kwc';
 import { SearchSelectPropsComponent } from './MDXComponents.tsx';
 import StartIcon from '@material-ui/icons/SkipNext';
 
@@ -14,57 +15,165 @@ import StartIcon from '@material-ui/icons/SkipNext';
 
 SearchSelect component implements search HTML component with predictive search.
 
-## Props
+## Props and enums
+
+### Enums
+
+<PropEnum of={[{ name: 'SearchSelectTheme', value: SearchSelectTheme }]} />
+
+### Props
+
 <Props of={SearchSelectPropsComponent} />
 
 ## Use Cases
+
 <UseCaseInline
   title="Default"
   Component={
-    <SearchSelect placeholder="Options" hideError options={['Option A', 'Option B', 'Option C']} />
+    <SearchSelect
+      placeholder="Options"
+      hideError
+      options={['Option A', 'Option B', 'Option C']}
+    />
   }
-  code={<code>{'<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} hideError />'}</code>}
+  code={
+    <code>
+      {
+        '<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} hideError />'
+      }
+    </code>
+  }
   description=""
 />
 <UseCaseInline
   title="With label"
   Component={
-    <SearchSelect placeholder="Options" options={['Option A', 'Option B', 'Option C']} label="Bulk actions" hideError />
+    <SearchSelect
+      placeholder="Options"
+      options={['Option A', 'Option B', 'Option C']}
+      label="Bulk actions"
+      hideError
+    />
   }
-  code={<code>{'<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} label="Bulk actions" hideError />'}</code>}
+  code={
+    <code>
+      {
+        '<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} label="Bulk actions" hideError />'
+      }
+    </code>
+  }
   description=""
 />
 <UseCaseInline
   title="With error"
   Component={
-    <SearchSelect placeholder="Options" options={['Option A', 'Option B', 'Option C']} error="Could not change" />
+    <SearchSelect
+      placeholder="Options"
+      options={['Option A', 'Option B', 'Option C']}
+      error="Could not change"
+    />
   }
-  code={<code>{'<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} error="Could not change" />'}</code>}
+  code={
+    <code>
+      {
+        '<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} error="Could not change" />'
+      }
+    </code>
+  }
   description=""
 />
 <UseCaseInline
   title="With label hidden"
   Component={
-    <SearchSelect placeholder="Options" options={['Option A', 'Option B', 'Option C']} hideLabel />
+    <SearchSelect
+      placeholder="Options"
+      options={['Option A', 'Option B', 'Option C']}
+      hideLabel
+    />
   }
-  code={<code>{'<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} hideLabel />'}</code>}
+  code={
+    <code>
+      {
+        '<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} hideLabel />'
+      }
+    </code>
+  }
   description="Used to animate label (hidden when placeholder is visible)"
 />
 <UseCaseInline
   title="With search icon"
   Component={
-    <SearchSelect placeholder="Options" options={['Option A', 'Option B', 'Option C']} showSearchIcon />
+    <SearchSelect
+      placeholder="Options"
+      options={['Option A', 'Option B', 'Option C']}
+      showSearchIcon
+    />
   }
-  code={<code>{'<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} showSearchIcon />'}</code>}
+  code={
+    <code>
+      {
+        '<SearchSelect placeholder="Options" options={["Option A", "Option B", "Option C"]} showSearchIcon />'
+      }
+    </code>
+  }
   description="Used to animate label (hidden when placeholder is visible)"
 />
 <UseCaseInline
   title="With clear button"
   Component={
-    <SearchSelect placeholder="Options" value="Option" options={['Option A', 'Option B', 'Option C']} showClear />
+    <SearchSelect
+      placeholder="Options"
+      value="Option"
+      options={['Option A', 'Option B', 'Option C']}
+      showClear
+    />
   }
-  code={<code>{'<SearchSelect placeholder="Options" value="Option" options={["Option A", "Option B", "Option C"]} showClear />'}</code>}
+  code={
+    <code>
+      {
+        '<SearchSelect placeholder="Options" value="Option" options={["Option A", "Option B", "Option C"]} showClear />'
+      }
+    </code>
+  }
   description="Used to animate label (hidden when placeholder is visible)"
+/>
+<UseCaseInline
+  title="With light theme"
+  Component={
+    <SearchSelect
+      placeholder="Options"
+      value="Option"
+      options={['Option A', 'Option B', 'Option C']}
+      theme={SearchSelectTheme.LIGHT}
+    />
+  }
+  code={
+    <code>
+      {
+        '<SearchSelect placeholder="Options" value="Option" options={["Option A", "Option B", "Option C"]} theme={SearchSelectTheme.LIGHT} />'
+      }
+    </code>
+  }
+  description=""
+/>
+<UseCaseInline
+  title="With chips"
+  Component={
+    <SearchSelect
+      placeholder="Options"
+      value="Option"
+      options={['Option A', 'Option B', 'Option C']}
+      chipSelection={['Opt A', 'Opt B']}
+    />
+  }
+  code={
+    <code>
+      {
+        '<SearchSelect placeholder="Options" value="Option" options={["Option A", "Option B", "Option C"]} chipSelection={["Opt A", "Opt B"]} />'
+      }
+    </code>
+  }
+  description="With chips"
 />
 
 ## Playground
@@ -74,6 +183,7 @@ SearchSelect component implements search HTML component with predictive search.
     options={['Option A', 'Option B', 'Option C']}
     onChange={() => {}}
     onEnter={() => alert('Enter')}
+    onRemoveChip={(value) => alert(value)}
     value=""
     placeholder="Options"
     label="SEARCH SELECT"
@@ -84,5 +194,7 @@ SearchSelect component implements search HTML component with predictive search.
     hideLabel={false}
     showSearchIcon={true}
     showClear={true}
+    chipSelection={[]}
+    theme={SearchSelectTheme.DEFAULT}
   />
 </Playground>

@@ -14,6 +14,7 @@ export * from './components/Form/FileUpload/FileUpload';
 export * from './components/Form/InputInfo/InputInfo';
 export * from './components/Form/InputHelp/InputHelp';
 export * from './components/Form/TextInput/TextInput';
+export * from './components/Form/ExpandableTextInput/ExpandableTextInput';
 export * from './components/Form/MultiSelect/MultiSelect';
 export * from './components/Form/GroupSelect/GroupSelect';
 export * from './components/Form/Select/Select';

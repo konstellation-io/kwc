@@ -14,6 +14,10 @@
     padding-right: 30px;
   }
 
+  &.hasLeftIcon .input {
+    padding-left: 5 * $grid-unit;
+  }
+
   &.hasClearButton.hasEyeButton .input {
     padding-right: 60px;
   }
@@ -52,6 +56,13 @@
   &:hover {
     color: font-color(light);
   }
+}
+
+.leftIcon {
+  position: absolute;
+  left: 13px;
+  top: calc(50% - #{$grid-unit - 1px});
+  color: font-color(lowlight);
 }
 
 .eyeButton {

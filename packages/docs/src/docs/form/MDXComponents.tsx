@@ -1,6 +1,7 @@
 import {
   CalendarProps,
   CheckProps,
+  ExpandableTextInputProps,
   FileUploadProps,
   GroupSelectProps,
   InputErrorProps,
@@ -12,7 +13,7 @@ import {
   SearchSelectProps,
   SelectProps,
   TextInputProps,
-} from "konstellation-web-components";
+} from "kwc";
 
 import React from "react";
 
@@ -28,5 +29,8 @@ export const MultiSelectPropsComponent = (_: MultiSelectProps<any>) => null;
 export const SelectPropsComponent = (_: SelectProps) => null;
 export const TextInputPropsComponent = (_: TextInputProps) => null;
 export const SearchSelectPropsComponent = (_: SearchSelectProps) => null;
+export const ExpandableTextInputPropsComponent = (
+  _: ExpandableTextInputProps
+) => null;
 
 export const MultiSelectOptionComponent = (_: MultiSelectOption<any>) => null;

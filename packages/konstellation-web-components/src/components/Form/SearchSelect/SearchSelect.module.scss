@@ -28,6 +28,15 @@
       }
     }
   }
+
+  &.transparent .inputContainer {
+    border: 0;
+    background-color: transparent;
+  }
+
+  &.noChips .inputContainer {
+    padding: 7px 2 * $grid-unit;
+  }
 }
 
 .inputContainer {

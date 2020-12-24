@@ -22,6 +22,7 @@ export const ENTER_KEY_CODE = 13;
 export enum SearchSelectTheme {
   DEFAULT = 'default',
   LIGHT = 'light',
+  TRANSPARENT = 'transparent',
 };
 
 export type SearchSelectProps = {
@@ -49,7 +50,7 @@ export function SearchSelect({
   chipSelection,
   onChange = () => {},
   onEnter = () => {},
-  onRemoveChip = () => {},
+  onRemoveChip,
   value = '',
   placeholder = '',
   label = '',
@@ -150,7 +151,12 @@ export function SearchSelect({
   }, [value]);
 
   return (
-    <div className={cx(className, styles.container, styles[theme])} ref={optionsRef}>
+    <div
+      className={cx(className, styles.container, styles[theme], {
+        [styles.noChips]: !onRemoveChip && chipSelection === undefined,
+      })}
+      ref={optionsRef}
+    >
       {!hideLabel && <InputLabel text={label} />}
       <div className={ styles.inputContainer}>
         {showSearchIcon && (
@@ -165,7 +171,7 @@ export function SearchSelect({
                 key={chip}
                 label={chip}
                 title={chip}
-                onClose={() => onRemoveChip(chip)}
+                onClose={() => onRemoveChip && onRemoveChip(chip)}
                 className={ styles.searchChip }
                 round
               />

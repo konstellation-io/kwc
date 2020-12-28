@@ -45,6 +45,7 @@ export type ButtonProps = {
   tabIndex?: number;
   autofocus?: boolean;
   timeToEnable?: number;
+  success?: boolean;
 };
 
 export function Button({
@@ -59,6 +60,7 @@ export function Button({
   primary = false,
   disabled = false,
   loading = false,
+  success = false,
   height = 40,
   align = BUTTON_ALIGN.MIDDLE,
   style = {},
@@ -92,7 +94,7 @@ export function Button({
   const remainingTimeTxt = timerRemainingTime && `(${timerRemainingTime}) `;
 
   const content = loading ? (
-    <SpinnerLinear size={30} dark />
+    <SpinnerLinear size={30} dark={primary} />
   ) : (
     <Fragment>
       {Icon && <Icon className={iconSize} />}
@@ -113,6 +115,7 @@ export function Button({
       className={cx(className, styles.btn, styles[theme], styles[align], {
         [styles.primary]: primary,
         [styles.border]: border,
+        [styles.success]: success,
         [styles.label]: !primary,
         [styles.disabled]: disabled || timerRemainingTime,
         [styles.noLabel]: label === '',

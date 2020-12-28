@@ -113,7 +113,8 @@ $color-gray: palette(base, 300);
   &.success {
     @include solid(success);
 
-    span {
+    span,
+    svg {
       color: transparent;
     }
 

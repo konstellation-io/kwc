@@ -68,7 +68,9 @@ function isEmailValid(email: string) {
 }
 
 function isUrlValid(url: string) {
-  return validator.isURL(url) ? VALID : setInvalid('Invalid url format');
+  return validator.isURL(url, { require_tld: false })
+    ? VALID
+    : setInvalid('Invalid url format');
 }
 
 function isDomainValid(value: string) {

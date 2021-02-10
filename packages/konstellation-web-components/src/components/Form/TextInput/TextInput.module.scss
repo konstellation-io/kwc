@@ -68,7 +68,7 @@
 .eyeButton {
   position: absolute;
   right: 15px;
-  top: 34px;
+  top: calc(50% - 5px);
   cursor: pointer;
   transition: color ease 0.3s, right ease 0.3s;
 

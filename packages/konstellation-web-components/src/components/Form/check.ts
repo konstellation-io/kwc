@@ -1,4 +1,5 @@
 import moment, { Moment } from 'moment';
+
 import validator from 'validator';
 
 type Check = {
@@ -64,6 +65,10 @@ function isGreaterThan(value: number | string, minValue: number) {
 
 function isEmailValid(email: string) {
   return validator.isEmail(email) ? VALID : setInvalid('Invalid email address');
+}
+
+function isUrlValid(url: string) {
+  return validator.isURL(url) ? VALID : setInvalid('Invalid url format');
 }
 
 function isDomainValid(value: string) {
@@ -145,6 +150,7 @@ export const CHECK = {
   isGreaterThan,
   isEmailValid,
   isDomainValid,
+  isUrlValid,
   isFieldNotInList,
   isFieldAMomentDate,
   isItemDuplicated,

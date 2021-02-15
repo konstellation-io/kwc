@@ -56,6 +56,9 @@
   &:hover {
     color: font-color(light);
   }
+  &.hiddenLabel {
+    top: $grid-unit * 1.75;
+  }
 }
 
 .leftIcon {
@@ -78,5 +81,9 @@
 
   &.showClearButton {
     right: 35px;
+  }
+
+  &.hiddenLabel {
+    top: $grid-unit * 1.75;
   }
 }

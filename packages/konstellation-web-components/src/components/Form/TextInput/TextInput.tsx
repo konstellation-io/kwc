@@ -56,6 +56,8 @@ export type TextInputProps = {
   additionalInputProps?: object;
   infoMessage?: string | undefined;
   disabled?: boolean;
+  hideLabel?: boolean;
+  hideBottomText?: boolean;
   Icon?: FunctionComponent<SvgIconProps>;
 };
 
@@ -82,6 +84,8 @@ export function TextInput({
   additionalInputProps = {},
   infoMessage = '',
   disabled = false,
+  hideBottomText = false,
+  hideLabel = false,
   Icon = undefined,
 }: TextInputProps) {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -161,7 +165,7 @@ export function TextInput({
     );
   const cleanButton = showClearButton && value !== '' && (
     <div
-      className={styles.clearButton}
+      className={cx(styles.clearButton, { [styles.hiddenLabel]: hideLabel })}
       onClick={() => updateValue('')}
       data-testid="clear-button"
     >
@@ -169,16 +173,25 @@ export function TextInput({
     </div>
   );
   const VisibilityIcon = isHidden ? IconShow : IconHide;
-  const leftIcon = Icon ? <Icon className={cx("icon-regular", styles.leftIcon)} /> : null;
+  const leftIcon = Icon ? (
+    <Icon className={cx('icon-regular', styles.leftIcon)} />
+  ) : null;
   const showEyeButton = hidden && (
     <div
       className={cx(styles.eyeButton, {
         [styles.showClearButton]: showClearButton && value !== '',
+        [styles.hiddenLabel]: hideLabel,
       })}
       onClick={toggleVisibility}
     >
       <VisibilityIcon className="icon-small" />
     </div>
+  );
+
+  const bottomText = error ? (
+    <InputError message={error} />
+  ) : (
+    <InputHelp message={helpText} />
   );
 
   return (
@@ -190,17 +203,13 @@ export function TextInput({
         [styles.hasEyeButton]: hidden,
       })}
     >
-      <InputLabel text={label} />
+      {!hideLabel && <InputLabel text={label} />}
       {inputElement}
       {cleanButton}
       {showEyeButton}
       {leftIcon}
       <InputInfo message={infoMessage} />
-      {error ? (
-        <InputError message={error} />
-      ) : (
-        <InputHelp message={helpText} />
-      )}
+      {!hideBottomText && bottomText}
     </div>
   );
 }

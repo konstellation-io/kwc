@@ -62,7 +62,6 @@ export type TextInputProps = {
 };
 
 export function TextInput({
-  onEnterKeyPress = function () {},
   onChange = function () {},
   onBlur = function () {},
   placeholder = '',
@@ -80,6 +79,7 @@ export function TextInput({
   customClassname = '',
   hidden = false,
   autoFocus = false,
+  onEnterKeyPress,
   maxLength,
   additionalInputProps = {},
   infoMessage = '',
@@ -115,7 +115,7 @@ export function TextInput({
     e: KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
     if (e.which === KEY_ENTER) {
-      if (textArea && e.shiftKey) return;
+      if ((textArea && e.shiftKey) || onEnterKeyPress === undefined) return;
 
       onEnterKeyPress();
       textAreaRef?.current && textAreaRef.current.blur();

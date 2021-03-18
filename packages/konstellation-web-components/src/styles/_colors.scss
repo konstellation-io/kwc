@@ -8,7 +8,7 @@ $scale-to-weight: (
   600: 15%,
   700: 25%,
   800: 45%,
-  900: 60%
+  900: 60%,
 );
 
 @function get-color($color, $value) {
@@ -51,7 +51,9 @@ $palette-base: (
   success: #6daa48,
   alert: #fc915f,
   error: #e52e3d,
-  feedback: #1f82b5
+  feedback: #1f82b5,
+  starred: #ffbb52,
+  vader: #d552ff,
 );
 
 $color-font: (
@@ -61,7 +63,7 @@ $color-font: (
   regular: palette(lowlight),
   grey: palette(base, 200),
   dark: palette(base),
-  disabled: palette(lowlight, 300)
+  disabled: palette(lowlight, 300),
 );
 
 $bg-color: palette(base, 600);
@@ -108,7 +110,7 @@ $color-dashboard: (
   primary-dark: palette(highlight, 800),
   primary-darker: palette(highlight, 900),
   primary-light: palette(highlight, 400),
-  tooltip: palette(base, 700)
+  tooltip: palette(base, 700),
 );
 
 $color-shield: white;

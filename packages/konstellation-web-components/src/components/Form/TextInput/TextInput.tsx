@@ -59,6 +59,7 @@ export type TextInputProps = {
   hideLabel?: boolean;
   hideBottomText?: boolean;
   Icon?: FunctionComponent<SvgIconProps>;
+  hidePwEye?: boolean;
 };
 
 export function TextInput({
@@ -87,6 +88,7 @@ export function TextInput({
   hideBottomText = false,
   hideLabel = false,
   Icon = undefined,
+  hidePwEye = false,
 }: TextInputProps) {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const [value, setValue] = useState(formValue);
@@ -176,7 +178,7 @@ export function TextInput({
   const leftIcon = Icon ? (
     <Icon className={cx('icon-regular', styles.leftIcon)} />
   ) : null;
-  const showEyeButton = hidden && (
+  const showEyeButton = !hidePwEye && hidden && (
     <div
       className={cx(styles.eyeButton, {
         [styles.showClearButton]: showClearButton && value !== '',

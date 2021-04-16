@@ -9,6 +9,7 @@ export type ModalContainerProps = {
   title: string;
   subtitle?: string;
   actionButtonLabel?: string;
+  actionButtonCancel?: string;
   to?: string;
   /** Shows a shield behind the modal */
   blocking?: boolean;
@@ -42,6 +43,7 @@ export const ModalContainer: FunctionComponent<ModalContainerProps> = ({
   title,
   subtitle = '',
   actionButtonLabel = 'ACCEPT',
+  actionButtonCancel = 'CANCEL',
   to = '',
   blocking = false,
   warning = false,
@@ -55,10 +57,12 @@ export const ModalContainer: FunctionComponent<ModalContainerProps> = ({
   return (
     <Fragment>
       {blocking && <div className={styles.bg} />}
-      <div className={cx(className, styles.container, 'modal', {
-        [styles.warning]: warning,
-        [styles.error]: error
-      })}>
+      <div
+        className={cx(className, styles.container, 'modal', {
+          [styles.warning]: warning,
+          [styles.error]: error,
+        })}
+      >
         <div className={styles.title}>{title}</div>
         <div className={styles.subtitle}>{subtitle}</div>
         <div className={styles.content}>{children}</div>
@@ -76,7 +80,7 @@ export const ModalContainer: FunctionComponent<ModalContainerProps> = ({
               timeToEnable={confirmationTimer}
             />
             <Button
-              label="CANCEL"
+              label={actionButtonCancel}
               onClick={onCancel}
               height={30}
               tabIndex={0}

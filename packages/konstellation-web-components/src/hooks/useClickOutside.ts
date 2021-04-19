@@ -29,6 +29,7 @@ export default function useClickOutside({
   );
 
   const events = mousedown ? ['mousedown'] : ['contextmenu', 'click'];
+  events.push('blur');
 
   function addClickOutsideEvents() {
     events.forEach((event) =>

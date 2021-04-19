@@ -34,12 +34,14 @@ export default function useClickOutside({
     events.forEach((event) =>
       document.addEventListener(event, handleClickOutside)
     );
+    window.addEventListener('blur', action);
   }
 
   function removeClickOutsideEvents() {
     events.forEach((event) =>
       document.removeEventListener(event, handleClickOutside)
     );
+    window.removeEventListener('blur', action);
   }
 
   return { addClickOutsideEvents, removeClickOutsideEvents };

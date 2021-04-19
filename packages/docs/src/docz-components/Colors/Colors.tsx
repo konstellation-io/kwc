@@ -1,6 +1,6 @@
-import React from 'react'
-import cx from 'classnames'
-import styles from './Colors.module.scss'
+import React from 'react';
+import cx from 'classnames';
+import styles from './Colors.module.scss';
 
 type ColorNames =
   | 'base'
@@ -10,27 +10,29 @@ type ColorNames =
   | 'success'
   | 'feedback'
   | 'alert'
+  | 'starred'
+  | 'vader';
 
 type ColorProps = {
-  color: ColorNames
-  range: number
-}
+  color: ColorNames;
+  range: number;
+};
 function Color({ color, range }: ColorProps) {
   return (
     <div className={cx(styles.color, styles[`${color}${range}`])}>
       <span>{range === 500 ? color : `${color}-${range}`}</span>
       <code />
     </div>
-  )
+  );
 }
 
 type Props = {
-  color: ColorNames
-}
+  color: ColorNames;
+};
 function Colors({ color }: Props) {
   const ranges = Array(9)
     .fill(0)
-    .map((_, i) => i * 100 + 100)
+    .map((_, i) => i * 100 + 100);
 
   return (
     <div className={styles.wrapper}>
@@ -41,7 +43,7 @@ function Colors({ color }: Props) {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default Colors
+export default Colors;

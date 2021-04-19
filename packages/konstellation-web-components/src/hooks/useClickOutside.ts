@@ -41,7 +41,7 @@ export default function useClickOutside({
     events.forEach((event) =>
       document.removeEventListener(event, handleClickOutside)
     );
-    window.addEventListener('blur', action);
+    window.removeEventListener('blur', action);
   }
 
   return { addClickOutsideEvents, removeClickOutsideEvents };

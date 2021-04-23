@@ -39,6 +39,7 @@ export type SelectProps = {
   disabledOptions?: string[];
   CustomOptions?: { [key: string]: FC<CustomOptionProps> };
   showSelectAllOption?: boolean;
+  disableScrollOnOpened?: boolean;
 };
 
 export function Select({
@@ -61,6 +62,7 @@ export function Select({
   CustomOptions = {},
   disabledOptions = [],
   showSelectAllOption = true,
+  disableScrollOnOpened = false,
 }: SelectProps) {
   const optionsRef = useRef<HTMLDivElement>(null);
   const { addClickOutsideEvents, removeClickOutsideEvents } = useClickOutside({
@@ -85,7 +87,11 @@ export function Select({
   ]);
 
   useEffect(() => {
-    if (optionsOpened && selectedOptionRef.current !== null) {
+    if (
+      optionsOpened &&
+      !disableScrollOnOpened &&
+      selectedOptionRef.current !== null
+    ) {
       selectedOptionRef.current.scrollIntoView({
         block: 'end',
       });

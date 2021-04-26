@@ -1,7 +1,8 @@
 @import '~kwc/styles/colors';
 @import '~kwc/styles/variables';
 
-$colors: base, error, highlight, lowlight, success, feedback, alert;
+$colors: base, error, highlight, lowlight, success, feedback, alert, vader,
+  starred;
 $ranges: 100, 200, 300, 400, 500, 600, 700, 800, 900;
 
 @function set-text-color($color) {

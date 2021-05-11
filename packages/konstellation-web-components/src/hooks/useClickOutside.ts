@@ -19,7 +19,7 @@ export default function useClickOutside({
         componentRef === null ||
         (document.contains(target) && !componentRef.current?.contains(target))
       ) {
-        action();
+        setTimeout(action, 0);
       }
     },
     // 'action' is not added so the reference to this function does not
@@ -32,7 +32,9 @@ export default function useClickOutside({
 
   function addClickOutsideEvents() {
     events.forEach((event) =>
-      document.addEventListener(event, handleClickOutside)
+      document.addEventListener(event, handleClickOutside, {
+        capture: true,
+      })
     );
     window.addEventListener('blur', action);
   }

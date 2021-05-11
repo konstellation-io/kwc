@@ -19,7 +19,7 @@ export default function useClickOutside({
         componentRef === null ||
         (document.contains(target) && !componentRef.current?.contains(target))
       ) {
-        // Make sure this action occurs after any other events.
+        // Make sure this action occurs after any other events
         setTimeout(action, 0);
       }
     },

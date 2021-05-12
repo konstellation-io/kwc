@@ -12,7 +12,7 @@ import ContextualMenuModal from './ContextualMenuModal';
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
 import cx from 'classnames';
 import styles from './ContextMenu.module.scss';
-import useClickOutside from '../../hooks/useClickOutside';
+import OutsideClickListener from '../OutsideClickListener/OutsideClickListener';
 
 const MENU_OFFSET = 7;
 
@@ -58,11 +58,6 @@ export function ContextMenu({
     isVisible: false,
     position: {},
   });
-  const { addClickOutsideEvents, removeClickOutsideEvents } = useClickOutside({
-    componentRef: contextMenuRef,
-    action: hideContextMenu,
-    mousedown: true,
-  });
 
   function onOpenMenu(e: any) {
     e.preventDefault();
@@ -83,8 +78,6 @@ export function ContextMenu({
       isVisible: true,
       position: newPosition,
     });
-
-    addClickOutsideEvents();
   }
   const event = openOnLeftClick ? 'click' : 'contextmenu';
   function removeListener() {
@@ -106,8 +99,6 @@ export function ContextMenu({
       isVisible: false,
       position: {},
     });
-
-    removeClickOutsideEvents();
   }
 
   function handleMenuItemClick(action: MenuCallToAction): void {
@@ -119,30 +110,32 @@ export function ContextMenu({
     <Fragment>
       {stateContextMenu.isVisible && (
         <ContextualMenuModal>
-          <div
-            className={styles.contextMenuContainer}
-            ref={contextMenuRef}
-            style={{ ...stateContextMenu.position }}
-            onClick={(e) => e.stopPropagation()}
-            onContextMenu={(e) => e.preventDefault()}
-          >
-            <ul className={styles.contextMenuList}>
-              {actions.map((action, index) => (
-                <li
-                  key={`${action.text}-${index}`}
-                  className={cx({ [styles.separator]: action.separator })}
-                >
-                  <Button
-                    label={action.text}
-                    Icon={action.Icon}
-                    onClick={() => handleMenuItemClick(action)}
-                    align={BUTTON_ALIGN.LEFT}
-                    disabled={action.separator || action.disabled}
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
+          <OutsideClickListener onClickOutside={hideContextMenu} mousedown>
+            <div
+              className={styles.contextMenuContainer}
+              ref={contextMenuRef}
+              style={{ ...stateContextMenu.position }}
+              onClick={(e) => e.stopPropagation()}
+              onContextMenu={(e) => e.preventDefault()}
+            >
+              <ul className={styles.contextMenuList}>
+                {actions.map((action, index) => (
+                  <li
+                    key={`${action.text}-${index}`}
+                    className={cx({ [styles.separator]: action.separator })}
+                  >
+                    <Button
+                      label={action.text}
+                      Icon={action.Icon}
+                      onClick={() => handleMenuItemClick(action)}
+                      align={BUTTON_ALIGN.LEFT}
+                      disabled={action.separator || action.disabled}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </OutsideClickListener>
         </ContextualMenuModal>
       )}
       {React.cloneElement(children, { ref: childElement })}

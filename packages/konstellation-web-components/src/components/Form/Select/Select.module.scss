@@ -75,11 +75,6 @@ $height-input: 30px;
   width: max-content;
   min-width: 100%;
   border-radius: 5px;
-
-  &.opened {
-    top: 100%;
-    animation: show-overflow 0s ease-in 0.3s forwards;
-  }
 }
 
 @keyframes show-overflow {

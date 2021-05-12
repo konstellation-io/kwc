@@ -2,12 +2,10 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 
 import { InputError } from '../InputError/InputError';
 import { InputLabel } from '../InputLabel/InputLabel';
+import ExpandableMenu from '../../ExpandableMenu/ExpandableMenu';
 import cx from 'classnames';
 import { get } from 'lodash';
 import styles from './Select.module.scss';
-import useClickOutside from '../../../hooks/useClickOutside';
-
-const MAX_HEIGHT = 240;
 
 export enum SelectTheme {
   DEFAULT = 'default',
@@ -64,11 +62,6 @@ export function Select({
   showSelectAllOption = true,
   disableScrollOnOpened = false,
 }: SelectProps) {
-  const optionsRef = useRef<HTMLDivElement>(null);
-  const { addClickOutsideEvents, removeClickOutsideEvents } = useClickOutside({
-    componentRef: optionsRef,
-    action: closeOptions,
-  });
   const selectedOptionRef = useRef<HTMLDivElement>(null);
   const [selectedOption, setSelectedOption] = useState<
     string | undefined | null
@@ -100,13 +93,11 @@ export function Select({
 
   function openOptions() {
     if (!optionsOpened) {
-      addClickOutsideEvents();
       setOptionsOpened(true);
     }
   }
 
   function closeOptions() {
-    removeClickOutsideEvents();
     setOptionsOpened(false);
   }
 
@@ -154,7 +145,6 @@ export function Select({
       </div>
     );
   }
-  const optionsHeight = Math.min(optionList.length * 40, MAX_HEIGHT);
 
   return (
     <div
@@ -182,15 +172,13 @@ export function Select({
         >
           {get(valuesMapper, selectedOption || '', selectedOption)}
         </div>
-        <div
-          className={cx(styles.optionsContainer, {
-            [styles.opened]: optionsOpened,
-          })}
-          ref={optionsRef}
-          style={{ maxHeight: optionsOpened ? optionsHeight : 0 }}
+        <ExpandableMenu
+          opened={optionsOpened}
+          close={closeOptions}
+          className={styles.optionsContainer}
         >
-          {optionsOpened && optionList}
-        </div>
+          {optionList}
+        </ExpandableMenu>
       </div>
       {!hideError && <InputError message={error} />}
     </div>

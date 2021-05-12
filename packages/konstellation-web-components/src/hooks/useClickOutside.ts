@@ -1,5 +1,7 @@
 import { RefObject, useCallback } from 'react';
 
+// DEPRECATED! Use OutsideClickListener instead
+
 type Params = {
   componentRef: RefObject<HTMLElement> | null;
   action: () => void;
@@ -42,7 +44,9 @@ export default function useClickOutside({
 
   function removeClickOutsideEvents() {
     events.forEach((event) =>
-      document.removeEventListener(event, handleClickOutside)
+      document.removeEventListener(event, handleClickOutside, {
+        capture: true,
+      })
     );
     window.removeEventListener('blur', action);
   }

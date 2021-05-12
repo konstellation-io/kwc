@@ -1,14 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 
 import { InputError } from '../InputError/InputError';
 import { InputLabel } from '../InputLabel/InputLabel';
 import Option from './Option';
 import cx from 'classnames';
 import styles from './MultiSelect.module.scss';
-import useClickOutside from '../../../hooks/useClickOutside';
-
-const MAX_HEIGHT = 400;
-const OPTION_HEIGHT = 45;
+import ExpandableMenu from '../../ExpandableMenu/ExpandableMenu';
 
 export enum MultiSelectTheme {
   DEFAULT = 'default',
@@ -52,22 +49,15 @@ export function MultiSelect<T>({
   iconAtStart = false,
   customLabels,
 }: MultiSelectProps<T>) {
-  const optionsRef = useRef<HTMLDivElement>(null);
-  const { addClickOutsideEvents, removeClickOutsideEvents } = useClickOutside({
-    componentRef: optionsRef,
-    action: closeOptions,
-  });
   const [optionsOpened, setOptionsOpened] = useState(false);
 
   function openOptions() {
     if (!optionsOpened) {
-      addClickOutsideEvents();
       setOptionsOpened(true);
     }
   }
 
   function closeOptions() {
-    removeClickOutsideEvents();
     setOptionsOpened(false);
   }
 
@@ -116,11 +106,6 @@ export function MultiSelect<T>({
       </div>
     );
 
-  const optionsHeight = Math.min(
-    (options.length + 1) * OPTION_HEIGHT,
-    MAX_HEIGHT
-  );
-
   const nSelections = formSelectedOptions.length;
   const placeholderText =
     nSelections === 0
@@ -141,16 +126,13 @@ export function MultiSelect<T>({
         >
           {placeholderText}
         </div>
-        <div
-          className={cx(styles.optionsContainer, {
-            [styles.opened]: optionsOpened,
-          })}
-          style={{ maxHeight: optionsOpened ? optionsHeight : 0 }}
+        <ExpandableMenu
+          opened={optionsOpened}
+          close={closeOptions}
+          className={styles.optionsContainer}
         >
-          <div className={styles.options} ref={optionsRef}>
-            {optionsOpened && optionList}
-          </div>
-        </div>
+          {optionList}
+        </ExpandableMenu>
       </div>
       {!hideError && <InputError message={error} />}
     </div>

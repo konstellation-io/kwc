@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { get, isEmpty } from 'lodash';
 
 import Group from './Group';
@@ -7,11 +7,7 @@ import { InputLabel } from '../InputLabel/InputLabel';
 import Selections from './Selections';
 import cx from 'classnames';
 import styles from './GroupSelect.module.scss';
-import useClickOutside from '../../../hooks/useClickOutside';
-
-const MAX_HEIGHT = 400;
-const GROUP_HEIGHT = 30;
-const GROUP_ELEMENT_HEIGHT = 45;
+import ExpandableMenu from '../../ExpandableMenu/ExpandableMenu';
 
 export type GroupSelectData = { [key: string]: string[] };
 
@@ -68,22 +64,15 @@ export function GroupSelect({
   className = '',
   hideSelections = false,
 }: GroupSelectProps) {
-  const optionsRef = useRef<HTMLDivElement>(null);
-  const { addClickOutsideEvents, removeClickOutsideEvents } = useClickOutside({
-    componentRef: optionsRef,
-    action: closeOptions,
-  });
   const [optionsOpened, setOptionsOpened] = useState(false);
 
   function openOptions() {
     if (!optionsOpened) {
-      addClickOutsideEvents();
       setOptionsOpened(true);
     }
   }
 
   function closeOptions() {
-    removeClickOutsideEvents();
     setOptionsOpened(false);
   }
 
@@ -144,13 +133,6 @@ export function GroupSelect({
     />
   ));
 
-  const nGroups = Object.keys(options).length;
-  const nGroupElements = Object.values(options).flat().length;
-  const optionsHeight = Math.min(
-    nGroups * GROUP_HEIGHT + nGroupElements * GROUP_ELEMENT_HEIGHT,
-    MAX_HEIGHT
-  );
-
   const hasSelectedElements = !isEmpty(formSelectedOptions);
 
   return (
@@ -167,23 +149,24 @@ export function GroupSelect({
         >
           {placeholder}
         </div>
-        <div
-          className={cx(styles.optionsContainer, {
-            [styles.opened]: optionsOpened,
-          })}
-          ref={optionsRef}
-          style={{ maxHeight: optionsOpened ? optionsHeight : 0 }}
+        <ExpandableMenu
+         opened={optionsOpened}
+         close={closeOptions}
+         className={styles.optionsContainer}
         >
-          {hasSelectedElements && !hideSelections && (
-            <Selections
-              selections={formSelectedOptions}
-              onDeselect={onDeselect}
-              onClear={onClear}
-            />
-          )}
-          {optionsOpened && <div className={styles.options}>{optionList}</div>}
-        </div>
+          <div>
+            {hasSelectedElements && !hideSelections && (
+              <Selections
+                selections={formSelectedOptions}
+                onDeselect={onDeselect}
+                onClear={onClear}
+              />
+            )}
+            <div className={styles.options}>{optionList}</div>
+          </div>
+        </ExpandableMenu>
       </div>
+
       {!hideError && <InputError message={error} />}
     </div>
   );

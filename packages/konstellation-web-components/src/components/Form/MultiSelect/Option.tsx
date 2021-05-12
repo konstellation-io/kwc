@@ -25,6 +25,7 @@ function Option<T>({
       <Check
         checked={selected}
         onChange={(checked: boolean) => onChange(label, checked)}
+        className={styles.check}
       />
       <div
         className={cx(styles.body, {

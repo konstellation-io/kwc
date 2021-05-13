@@ -167,7 +167,7 @@ export function Select({
             [styles.disabled]: disabled,
             [styles.placeholder]: placeholder === selectedOption,
           })}
-          style={{ height }}
+          style={{ height, minHeight: height }}
           onClick={openOptions}
         >
           {get(valuesMapper, selectedOption || '', selectedOption)}

@@ -5,7 +5,7 @@ import { InputLabel } from '../InputLabel/InputLabel';
 import Option from './Option';
 import cx from 'classnames';
 import styles from './MultiSelect.module.scss';
-import ExpandableMenu from '../../ExpandableMenu/ExpandableMenu';
+import { ExpandableMenu } from '../../ExpandableMenu/ExpandableMenu';
 
 export enum MultiSelectTheme {
   DEFAULT = 'default',

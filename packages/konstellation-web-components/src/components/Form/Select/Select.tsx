@@ -2,7 +2,7 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 
 import { InputError } from '../InputError/InputError';
 import { InputLabel } from '../InputLabel/InputLabel';
-import ExpandableMenu from '../../ExpandableMenu/ExpandableMenu';
+import { ExpandableMenu } from '../../ExpandableMenu/ExpandableMenu';
 import cx from 'classnames';
 import { get } from 'lodash';
 import styles from './Select.module.scss';

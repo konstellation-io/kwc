@@ -12,7 +12,7 @@ import ContextualMenuModal from './ContextualMenuModal';
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
 import cx from 'classnames';
 import styles from './ContextMenu.module.scss';
-import OutsideClickListener from '../OutsideClickListener/OutsideClickListener';
+import { OutsideClickListener } from '../OutsideClickListener/OutsideClickListener';
 
 const MENU_OFFSET = 7;
 

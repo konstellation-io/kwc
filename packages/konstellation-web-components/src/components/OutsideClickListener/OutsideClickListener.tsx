@@ -1,11 +1,12 @@
 import React, { FC, useEffect, useRef } from 'react';
 
-type Props = {
+export type OutsideClickListenerProps = {
   children: JSX.Element | JSX.Element[];
   onClickOutside: () => void;
   mousedown?: boolean;
 };
-const OutsideClickListener: FC<Props> = ({ children, onClickOutside, mousedown = false }) => {
+
+export const OutsideClickListener: FC<OutsideClickListenerProps> = ({ children, onClickOutside, mousedown = false }) => {
   const componentRef = useRef<HTMLDivElement>(null);
 
   const events = mousedown ? ['mousedown'] : ['contextmenu', 'click'];
@@ -35,5 +36,3 @@ const OutsideClickListener: FC<Props> = ({ children, onClickOutside, mousedown =
 
   return <div ref={componentRef}>{children}</div>;
 };
-
-export default OutsideClickListener;

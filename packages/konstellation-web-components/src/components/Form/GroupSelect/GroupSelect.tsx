@@ -7,7 +7,7 @@ import { InputLabel } from '../InputLabel/InputLabel';
 import Selections from './Selections';
 import cx from 'classnames';
 import styles from './GroupSelect.module.scss';
-import ExpandableMenu from '../../ExpandableMenu/ExpandableMenu';
+import { ExpandableMenu } from '../../ExpandableMenu/ExpandableMenu';
 
 export type GroupSelectData = { [key: string]: string[] };
 

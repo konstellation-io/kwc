@@ -1,14 +1,15 @@
-import React, { FC, useEffect, useState, memo } from 'react';
-import OutsideClickListener from '../OutsideClickListener/OutsideClickListener';
+import React, { FC, useEffect, useState } from 'react';
+import { OutsideClickListener } from '../OutsideClickListener/OutsideClickListener';
 import AnimateHeight from 'react-animate-height';
 
-type Props = {
+export type ExpandableMenuProps = {
   children: JSX.Element | JSX.Element[];
   opened: boolean;
   close: () => void;
   className?: string;
 };
-const ExpandableMenu: FC<Props> = ({ children, opened, close, className }) => {
+
+export const ExpandableMenu: FC<ExpandableMenuProps> = ({ children, opened, close, className }) => {
   const [closeAnimationUnfinished, setCloseAnimationUnfinished] = useState(
     false
   );
@@ -37,5 +38,3 @@ const ExpandableMenu: FC<Props> = ({ children, opened, close, className }) => {
     </AnimateHeight>
   );
 };
-
-export default memo(ExpandableMenu);

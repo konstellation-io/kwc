@@ -1,0 +1,46 @@
+---
+name: ExpandableMenu
+route: /components/ExpandableMenu
+menu: Components
+---
+
+import { Props } from 'docz';
+import { ExpandableMenu } from 'kwc';
+import { ExpandableMenuPropsComponent } from './MDXComponents.tsx';
+import ExpandableMenuExample from './examples/ExpandableMenuExample';
+
+# ExpandableMenu
+
+ExpandableMenu component shows/hides the components located within it with an open/close animation. When the
+component is not opened, its children are not rendered.
+
+## Props
+
+<Props of={ExpandableMenuPropsComponent} />
+
+## Sample
+
+<ExpandableMenuExample />
+
+## Usage
+
+This component is used for things like selectors, there is a button than opens a list and the list is closed when
+you click outside it.
+
+```tsx
+function Component() {
+  const [opened, setOpened] = useState(false);
+
+  const openComponent = () => setOpened(true);
+  const closeComponent = () => setOpened(false);
+
+  return (
+    <div>
+      <div onClick={openComponent}>OPEN!</div>
+      <ExpandableMenu opened={opened} close={closeComponent}>
+        <div>Some children</div>
+      </ExpandableMenu>
+    </div>
+  );
+}
+```

@@ -23,7 +23,7 @@
     "docz": "^2.3.1",
     "docz-core": "^2.3.0",
     "docz-plugin-css": "^0.11.0",
-    "kwc": "1.12.2",
+    "kwc": "1.14.1",
     "lodash": "^4.17.19",
     "react-dates": "^21.8.0",
     "typeface-montserrat": "^1.1.13",

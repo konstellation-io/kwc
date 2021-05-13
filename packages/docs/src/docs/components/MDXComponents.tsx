@@ -7,6 +7,8 @@ import {
   SpinnerCircularProps,
   SpinnerLinearProps,
   TitleProps,
+  OutsideClickListenerProps,
+  ExpandableMenuProps
 } from "kwc";
 
 import React from "react";
@@ -18,5 +20,7 @@ export const InfoMessagePropsComponent = (_: InfoMessageProps) => null;
 export const SpinnerCircularPropsComponent = (_: SpinnerCircularProps) => null;
 export const SpinnerLinearPropsComponent = (_: SpinnerLinearProps) => null;
 export const TitlePropsComponent = (_: TitleProps) => null;
+export const OutsideClickListenerPropsComponent = (_: OutsideClickListenerProps) => null;
+export const ExpandableMenuPropsComponent = (_: ExpandableMenuProps) => null;
 
 export const MenuCallToActionIface = (_: MenuCallToAction) => null;

@@ -1,0 +1,45 @@
+---
+name: OutsideClickListener
+route: /components/OutsideClickListener
+menu: Components
+---
+
+import { Props } from 'docz';
+import { OutsideClickListener } from 'kwc';
+import { OutsideClickListenerPropsComponent } from './MDXComponents.tsx';
+
+# OutsideClickListener
+
+OutsideClickListener component allows the detection of clicks outside the components rendered within it.
+
+## Props
+
+<Props of={OutsideClickListenerPropsComponent} />
+
+## Usage
+
+This component is commonly used when we want to listen for click outside a temporal component
+which will be closed when the event occurs, but it can be use to handle any situation that depends
+on clicking outside the children of this component.
+
+> You can set mousedown prop to true if you want to listen to `mousedown` events instead of only `click` events.
+
+```tsx
+function Component() {
+  const [visible, setVisible] = useState(false);
+
+  const showComponent = () => setVisible(true);
+  const hideComponent = () => setVisible(false);
+
+  return (
+    <div>
+      <div onClick={showComponent}>SHOW!</div>
+      {visible && (
+        <OutsideClickListener onClickOutside={hideComponent}>
+          <div>Some children</div>
+        </OutsideClickListener>
+      )}
+    </div>
+  );
+}
+```

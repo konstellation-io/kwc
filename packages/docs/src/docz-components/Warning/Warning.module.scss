@@ -1,0 +1,19 @@
+@import '~kwc/styles/colors';
+@import '~kwc/styles/variables';
+
+.container {
+  height: 5 * $grid-unit;
+  display: flex;
+  align-items: center;
+  border-left: solid 0.5 * $grid-unit palette(alert);
+  background-color: palette(base, 400);
+  padding: 0 2 * $grid-unit;
+  margin-bottom: 2.5 * $grid-unit;
+  color: font-color(lowlight);
+
+  span {
+    color: palette(alert);
+    margin-right: $grid-unit;
+    font-weight: 700;
+  }
+}

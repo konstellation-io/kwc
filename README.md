@@ -12,13 +12,13 @@
 ## Install
 
 ```bash
-npm install --save konstellation-web-components
+npm install --save kwc
 ```
 
 or
 
 ```bash
-yarn add konstellation-web-components
+yarn add kwc
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ yarn add konstellation-web-components
 Add styles at the index of your website
 
 ```tsx
-import 'konstellation-web-components/dist/index.css';
+import 'kwc/dist/index.css';
 ```
 
 You can now import the components directly from the library
@@ -34,7 +34,7 @@ You can now import the components directly from the library
 ```tsx
 import React from 'react'
 
-import Button from 'konstellation-web-components'
+import { Button } from 'kwc'
 
 function Example() {
   render() {

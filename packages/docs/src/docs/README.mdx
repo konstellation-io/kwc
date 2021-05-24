@@ -34,7 +34,7 @@ You can now import the components directly from the library
 ```tsx
 import React from 'react'
 
-import Button from 'kwc'
+import { Button } from 'kwc'
 
 function Example() {
   render() {

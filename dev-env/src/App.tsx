@@ -1,7 +1,7 @@
 import 'kwc/dist/index.css';
 import 'kwc/src/styles/app.global.scss';
 
-import { Button, MultiSelect, Select, ContextMenu, GroupSelect } from 'kwc';
+import { Button, MultiSelect, Select, ContextMenu, GroupSelect, URL } from 'kwc';
 import React, { useState } from 'react';
 
 import styles from './App.module.scss';
@@ -58,6 +58,7 @@ function App() {
         >
           <div>Some text</div>
         </ContextMenu>
+        <URL>https://konstellation-io.github.io/kwc/Components/Button</URL>
       </header>
     </div>
   );

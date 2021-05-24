@@ -1,6 +1,7 @@
 import 'react-dates/initialize';
 
 export * from './components/Button/Button';
+export * from './components/URL/URL';
 export * from './components/ExpandableMenu/ExpandableMenu';
 export * from './components/OutsideClickListener/OutsideClickListener';
 export * from './components/Chip/Chip';

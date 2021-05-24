@@ -1,0 +1,35 @@
+---
+name: URL
+menu: Components
+route: /Components/URL
+---
+
+import { Playground, Props } from 'docz';
+import UseCaseInline from '../../docz-components/UseCaseInline/UseCaseInline';
+import { URL } from 'kwc';
+import { URLPropsComponent } from './MDXComponents.tsx';
+
+# URL
+
+URL component allows the user to open the URL address included inside the component in a new window.
+
+Works with electron as expected.
+
+## Props
+
+<Props of={URLPropsComponent} />
+
+## Use Cases
+
+<UseCaseInline
+  title="Default"
+  Component={<URL>https://konstellation-io.github.io/kwc/</URL>}
+  code={<code>{'<URL>https://konstellation-io.github.io/kwc/</URL>'}</code>}
+  description=""
+/>
+
+## Playground
+
+<Playground>
+  <URL>https://konstellation-io.github.io/kwc/</URL>
+</Playground>

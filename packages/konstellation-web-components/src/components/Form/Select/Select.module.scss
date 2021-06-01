@@ -71,10 +71,11 @@ $height-input: 30px;
   top: 100%;
   right: 0;
   transition: max-height ease 0.3s, top ease 0.6s, overflow ease 0.6s;
-  overflow: hidden;
   width: max-content;
   min-width: 100%;
   border-radius: 5px;
+  max-height: 50 * $grid-unit;
+  overflow: auto;
 }
 
 @keyframes show-overflow {

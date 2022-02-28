@@ -1,5 +1,6 @@
 import { BUTTON_THEMES, Button } from '../../Button/Button';
 import React, { Fragment, FunctionComponent, MouseEvent } from 'react';
+import CloseIcon from '@material-ui/icons/Close';
 
 import { HorizontalBar } from '../HorizontalBar/HorizontalBar';
 import cx from 'classnames';
@@ -63,7 +64,17 @@ export const ModalContainer: FunctionComponent<ModalContainerProps> = ({
           [styles.error]: error,
         })}
       >
-        <div className={styles.title}>{title}</div>
+        <div className={styles.header}>
+          <div className={styles.title}>{title}</div>
+          <Button
+            className={styles.close}
+            onClick={onCancel}
+            Icon={CloseIcon}
+            iconSize="icon-small"
+            height={14}
+            label=""
+          />
+        </div>
         <div className={styles.subtitle}>{subtitle}</div>
         <div className={styles.content}>{children}</div>
         <div className={styles.footer}>

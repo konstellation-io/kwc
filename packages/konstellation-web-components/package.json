@@ -30,8 +30,8 @@
     "react-dom": "16.13.1"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
+    "@material-ui/core": "4.12.3",
+    "@material-ui/icons": "4.11.2",
     "lodash": "4.17.21",
     "react-animate-height": "2.0.23",
     "react-dates": "21.8.0",
@@ -43,7 +43,7 @@
     "@testing-library/jest-dom": "5.16.2",
     "@testing-library/react": "12.1.3",
     "@testing-library/user-event": "13.5.0",
-    "@types/classnames": "^2.2.10",
+    "@types/classnames": "2.3.1",
     "@types/d3-array": "3.0.2",
     "@types/jest": "^25.1.4",
     "@types/lodash": "4.14.179",
@@ -57,7 +57,7 @@
     "@typescript-eslint/eslint-plugin": "^3.7.1",
     "@typescript-eslint/parser": "^3.7.1",
     "babel-eslint": "^10.0.3",
-    "classnames": "^2.2.6",
+    "classnames": "2.3.1",
     "cross-env": "7.0.3",
     "d3-array": "3.1.1",
     "eslint": "^6.8.0",
@@ -85,7 +85,7 @@
     "semantic-release-monorepo": "7.0.5",
     "typeface-montserrat": "1.1.13",
     "typeface-roboto-mono": "1.1.13",
-    "typescript": "^3.9.7"
+    "typescript": "4.6.2"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [

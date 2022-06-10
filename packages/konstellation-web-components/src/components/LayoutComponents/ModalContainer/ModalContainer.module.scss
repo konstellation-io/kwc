@@ -36,11 +36,22 @@
   padding-right: 21px;
 }
 
-.title {
-  @include font-caption;
-  color: white;
-  text-transform: uppercase;
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 18px;
+  .title {
+    @include font-caption;
+    color: white;
+    text-transform: uppercase;
+  }
+  .close {
+    color: font-color(lowlight);
+    padding: 0;
+    width: 14px;
+  }
 }
+
 
 .subtitle {
   @include font-body;

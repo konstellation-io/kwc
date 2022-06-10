@@ -78,7 +78,7 @@ export type CalendarProps = {
   formToDate?: Moment | null;
   onChangeFromDateInput?: Function;
   onChangeToDateInput?: Function;
-  onClose?: (final: { startDate: Moment; endDate: Moment }) => void;
+  onClose?: (final: { startDate: Moment | null; endDate: Moment | null }) => void;
   hideError?: boolean;
   addTimeControls?: boolean;
   keepOpen?: boolean;
